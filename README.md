@@ -11,7 +11,7 @@
     - [2. 显示操作](#2-显示操作)
         - [2.1 基本步骤（以TextMobject为例）](#21-基本步骤以textmobject为例)
         - [2.5 位置相关的函数](#25-位置相关的函数)
-            - [**2.5.1 **toedge()和tocorner()](#251-toedge和tocorner)
+            - [**2.5.1**toedge()和tocorner()](#251toedge和tocorner)
             - [2.5.2 moveto()](#252-moveto)
             - [2.5.3 nextto()](#253-nextto)
             - [2.5.4 shift()](#254-shift)
@@ -310,7 +310,7 @@ class WriteText(Scene):
 
 ### 2.5 位置相关的函数
 
-#### **2.5.1 **to_edge()和to_corner()
+#### **2.5.1**to_edge()和to_corner()
 
 **someObject.to_edge(DIRECTION的线性组合,buff = number)**
 
