@@ -1,3 +1,4 @@
+<!-- TOC -->autoauto- [manim基础教程](#manim基础教程)auto    - [1. 文件的执行](#1-文件的执行)auto        - [1.1 **保存为视频并立即播放**](#11-保存为视频并立即播放)auto        - [1.2 **保留帧**](#12-保留帧)auto        - [1.3 **视频尺寸**](#13-视频尺寸)auto        - [1.4 **视频通道**](#14-视频通道)auto        - [1.5 **保留进度显示条**](#15-保留进度显示条)auto        - [1.6 从某一个动画状态（animation）开始存为视频](#16-从某一个动画状态animation开始存为视频)auto    - [2. 显示操作](#2-显示操作)auto        - [2.1 基本步骤（以TextMobject为例）](#21-基本步骤以textmobject为例)auto        - [2.5 位置相关的函数](#25-位置相关的函数)auto            - [**2.5.1**to_edge()和to_corner()](#251to_edge和to_corner)auto            - [2.5.2 move_to()](#252-move_to)auto            - [2.5.3 next_to()](#253-next_to)auto            - [2.5.4 shift()](#254-shift)auto            - [2.5.5 rotate()](#255-rotate)auto            - [2.5.6 flip()](#256-flip)auto        - [2.6 播放动画](#26-播放动画)auto            - [2.6.1 **play**()](#261-play)auto                - [2.6.1.1 显示动画函数SomePlayMethods](#2611-显示动画函数someplaymethods)auto                - [2.6.1.2 run_time](#2612-run_time)auto            - [2.6.2 add()](#262-add)auto            - [2.6.3 wait()](#263-wait)auto            - [2.6.4 remove()](#264-remove)auto        - [2.7 设置颜色](#27-设置颜色)auto        - [2.8 缩放大小](#28-缩放大小)auto        - [2.9 并行动画](#29-并行动画)auto    - [3. text数组](#3-text数组)auto    - [4. 基础动画类 Scene](#4-基础动画类-scene)auto    - [5. 二维坐标类 GraphScene](#5-二维坐标类-graphscene)auto        - [5.1 setup_axes()](#51-setup_axes)auto        - [5.2 get_graph()](#52-get_graph)auto        - [5.3 coords_to_point()](#53-coords_to_point)auto        - [5.4 point_to_coords()](#54-point_to_coords)auto        - [5.5 get_graph_label()](#55-get_graph_label)auto        - [5.6 get_vertical_line_to_graph()](#56-get_vertical_line_to_graph)auto        - [5.7 get_vertical_lines_to_graph()](#57-get_vertical_lines_to_graph)auto        - [5.8 改变坐标标签的颜色](#58-改变坐标标签的颜色)auto    - [6. 文本类 TextMobject](#6-文本类-textmobject)auto    - [7. LaTeX文本类 TexMobject](#7-latex文本类-texmobject)auto    - [8. 二维图形类](#8-二维图形类)auto        - [8.1 点Dot](#81-点dot)auto        - [8.2 圆形Circle](#82-圆形circle)auto        - [8.3 环Annulus](#83-环annulus)auto        - [8.4 长方形Rectangle](#84-长方形rectangle)auto        - [8.5 方形Square](#85-方形square)auto        - [8.6 椭圆Ellipse](#86-椭圆ellipse)auto        - [8.7 弧Arc](#87-弧arc)auto        - [8.8 线Line](#88-线line)auto    - [9. 三维图形类](#9-三维图形类)auto        - [9.1 球 Sphere](#91-球-sphere)auto        - [9.2 立方 Cube](#92-立方-cube)auto        - [9.3 棱柱Prism](#93-棱柱prism)auto        - [9.4 参数曲面 ParametricSurface](#94-参数曲面-parametricsurface)auto        - [9.5 参数曲线 ParametricFunction](#95-参数曲线-parametricfunction)auto    - [10. 群组类VGroup](#10-群组类vgroup)auto        - [10.1 arrange()](#101-arrange)auto    - [11. 相机参数](#11-相机参数)auto        - [11.1 set_camera_orientation](#111-set_camera_orientation)auto        - [11.2 move_camera](#112-move_camera)auto        - [11.3 set_to_default_angled_camera_orientation](#113-set_to_default_angled_camera_orientation)auto        - [11.4 add_fixed_in_frame_mobjects](#114-add_fixed_in_frame_mobjects)auto    - [12. 坐标系类](#12-坐标系类)auto        - [12.1 坐标系抽象类 CoordinateSystem](#121-坐标系抽象类-coordinatesystem)auto        - [12.2 二维坐标类 Axes](#122-二维坐标类-axes)auto        - [12.3 三维坐标系类 ThreeDAxes](#123-三维坐标系类-threedaxes)auto        - [12.4 NumberPlane](#124-numberplane)auto        - [12.5  ComplexPlane(NumberPlane)](#125--complexplanenumberplane)auto    - [附录A：常见的常数](#附录a常见的常数)auto        - [1. 颜色](#1-颜色)auto        - [2. 方向](#2-方向)auto    - [3. 角度](#3-角度)autoauto<!-- /TOC -->
 # manim基础教程
 
 ## 1. 文件的执行
@@ -234,7 +235,7 @@ class WriteText(Scene):
 
 ### 2.5 位置相关的函数
 
-#### **2.5.1 **to_edge()和to_corner()
+#### **2.5.1**to_edge()和to_corner()
 
 **someObject.to_edge(DIRECTION的线性组合,buff = number)**
 
@@ -945,7 +946,7 @@ color：颜色
 
    ![1565704370228](manim自学文档.assets/1565704370228.png)
 
-2. **TextMobject(string1,string2,string3,…)：**传入多个字符串，返回TextMobject数组，可以按照下表索引数组的值
+2. **TextMobject(string1,string2,string3,…)**传入多个字符串，返回TextMobject数组，可以按照下表索引数组的值
 
 ## 7. LaTeX文本类 TexMobject
 
