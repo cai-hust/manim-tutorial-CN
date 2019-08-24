@@ -1,82 +1,82 @@
 <!-- TOC -->
 
-- [1. manim基础教程](#1-manim基础教程)
-    - [1.1. 文件的执行](#11-文件的执行)
-        - [1.1.1. **保存为视频并立即播放**](#111-保存为视频并立即播放)
-        - [1.1.2. **保留帧**](#112-保留帧)
-        - [1.1.3. **视频尺寸**](#113-视频尺寸)
-        - [1.1.4. **视频通道**](#114-视频通道)
-        - [1.1.5. **保留进度显示条**](#115-保留进度显示条)
-        - [1.1.6. 从某一个动画状态（animation）开始存为视频](#116-从某一个动画状态animation开始存为视频)
-    - [1.2. 显示操作](#12-显示操作)
-        - [1.2.1. 基本步骤（以TextMobject为例）](#121-基本步骤以textmobject为例)
-        - [1.2.2. 位置相关的函数](#122-位置相关的函数)
-            - [1.2.2.1. **2.5.1**toedge()和tocorner()](#1221-251toedge和tocorner)
-            - [1.2.2.2. moveto()](#1222-moveto)
-            - [1.2.2.3. nextto()](#1223-nextto)
-            - [1.2.2.4. shift()](#1224-shift)
-            - [1.2.2.5. rotate()](#1225-rotate)
-            - [1.2.2.6. flip()](#1226-flip)
-        - [1.2.3. 播放动画](#123-播放动画)
-            - [1.2.3.1. **play**()](#1231-play)
-                - [1.2.3.1.1. 显示动画函数SomePlayMethods](#12311-显示动画函数someplaymethods)
-                - [1.2.3.1.2. runtime](#12312-runtime)
-            - [1.2.3.2. add()](#1232-add)
-            - [1.2.3.3. wait()](#1233-wait)
-            - [1.2.3.4. remove()](#1234-remove)
-        - [1.2.4. 设置颜色](#124-设置颜色)
-        - [1.2.5. 缩放大小](#125-缩放大小)
-        - [1.2.6. 并行动画](#126-并行动画)
-    - [1.3. text数组](#13-text数组)
-    - [1.4. 基础动画类 Scene](#14-基础动画类-scene)
-    - [1.5. 二维坐标类 GraphScene](#15-二维坐标类-graphscene)
-        - [1.5.1. setupaxes()](#151-setupaxes)
-        - [1.5.2. getgraph()](#152-getgraph)
-        - [1.5.3. coordstopoint()](#153-coordstopoint)
-        - [1.5.4. pointtocoords()](#154-pointtocoords)
-        - [1.5.5. getgraphlabel()](#155-getgraphlabel)
-        - [1.5.6. getverticallinetograph()](#156-getverticallinetograph)
-        - [1.5.7. getverticallinestograph()](#157-getverticallinestograph)
-        - [1.5.8. 改变坐标标签的颜色](#158-改变坐标标签的颜色)
-    - [1.6. 文本类 TextMobject](#16-文本类-textmobject)
-    - [1.7. LaTeX文本类 TexMobject](#17-latex文本类-texmobject)
-    - [1.8. 二维图形类](#18-二维图形类)
-        - [1.8.1. 点Dot](#181-点dot)
-        - [1.8.2. 圆形Circle](#182-圆形circle)
-        - [1.8.3. 环Annulus](#183-环annulus)
-        - [1.8.4. 长方形Rectangle](#184-长方形rectangle)
-        - [1.8.5. 方形Square](#185-方形square)
-        - [1.8.6. 椭圆Ellipse](#186-椭圆ellipse)
-        - [1.8.7. 弧Arc](#187-弧arc)
-        - [1.8.8. 线Line](#188-线line)
-    - [1.9. 三维图形类](#19-三维图形类)
-        - [1.9.1. 球 Sphere](#191-球-sphere)
-        - [1.9.2. 立方 Cube](#192-立方-cube)
-        - [1.9.3. 棱柱Prism](#193-棱柱prism)
-        - [1.9.4. 参数曲面 ParametricSurface](#194-参数曲面-parametricsurface)
-        - [1.9.5. 参数曲线 ParametricFunction](#195-参数曲线-parametricfunction)
-    - [1.10. 群组类VGroup](#110-群组类vgroup)
-        - [1.10.1. arrange()](#1101-arrange)
-    - [1.11. 相机参数](#111-相机参数)
-        - [1.11.1. setcameraorientation](#1111-setcameraorientation)
-        - [1.11.2. movecamera](#1112-movecamera)
-        - [1.11.3. settodefaultangledcameraorientation](#1113-settodefaultangledcameraorientation)
-        - [1.11.4. addfixedinframemobjects](#1114-addfixedinframemobjects)
-    - [1.12. 坐标系类](#112-坐标系类)
-        - [1.12.1. 坐标系抽象类 CoordinateSystem](#1121-坐标系抽象类-coordinatesystem)
-        - [1.12.2. 二维坐标类 Axes](#1122-二维坐标类-axes)
-        - [1.12.3. 三维坐标系类 ThreeDAxes](#1123-三维坐标系类-threedaxes)
-        - [1.12.4. NumberPlane](#1124-numberplane)
-        - [1.12.5. ComplexPlane(NumberPlane)](#1125-complexplanenumberplane)
-    - [1.13. 附录A：常见的常数](#113-附录a常见的常数)
-        - [1.13.1. 颜色](#1131-颜色)
-        - [1.13.2. 方向](#1132-方向)
-    - [1.14. 角度](#114-角度)
+- [manim基础教程](#manim基础教程)
+    - [1. 文件的执行](#1-文件的执行)
+        - [1.1 **保存为视频并立即播放**](#11-保存为视频并立即播放)
+        - [1.2 **保留帧**](#12-保留帧)
+        - [1.3 **视频尺寸**](#13-视频尺寸)
+        - [1.4 **视频通道**](#14-视频通道)
+        - [1.5 **保留进度显示条**](#15-保留进度显示条)
+        - [1.6 从某一个动画状态（animation）开始存为视频](#16-从某一个动画状态animation开始存为视频)
+    - [2. 显示操作](#2-显示操作)
+        - [2.1 基本步骤（以TextMobject为例）](#21-基本步骤以textmobject为例)
+        - [2.5 位置相关的函数](#25-位置相关的函数)
+            - [**2.5.1 **toedge()和tocorner()](#251-toedge和tocorner)
+            - [2.5.2 moveto()](#252-moveto)
+            - [2.5.3 nextto()](#253-nextto)
+            - [2.5.4 shift()](#254-shift)
+            - [2.5.5 rotate()](#255-rotate)
+            - [2.5.6 flip()](#256-flip)
+        - [2.6 播放动画](#26-播放动画)
+            - [2.6.1 **play**()](#261-play)
+                - [2.6.1.1 显示动画函数SomePlayMethods](#2611-显示动画函数someplaymethods)
+                - [2.6.1.2 runtime](#2612-runtime)
+            - [2.6.2 add()](#262-add)
+            - [2.6.3 wait()](#263-wait)
+            - [2.6.4 remove()](#264-remove)
+        - [2.7 设置颜色](#27-设置颜色)
+        - [2.8 缩放大小](#28-缩放大小)
+        - [2.9 并行动画](#29-并行动画)
+    - [3. text数组](#3-text数组)
+    - [4. 基础动画类 Scene](#4-基础动画类-scene)
+    - [5. 二维坐标类 GraphScene](#5-二维坐标类-graphscene)
+        - [5.1 setupaxes()](#51-setupaxes)
+        - [5.2 getgraph()](#52-getgraph)
+        - [5.3 coordstopoint()](#53-coordstopoint)
+        - [5.4 pointtocoords()](#54-pointtocoords)
+        - [5.5 getgraphlabel()](#55-getgraphlabel)
+        - [5.6 getverticallinetograph()](#56-getverticallinetograph)
+        - [5.7 getverticallinestograph()](#57-getverticallinestograph)
+        - [5.8 改变坐标标签的颜色](#58-改变坐标标签的颜色)
+    - [6. 文本类 TextMobject](#6-文本类-textmobject)
+    - [7. LaTeX文本类 TexMobject](#7-latex文本类-texmobject)
+    - [8. 二维图形类](#8-二维图形类)
+        - [8.1 点Dot](#81-点dot)
+        - [8.2 圆形Circle](#82-圆形circle)
+        - [8.3 环Annulus](#83-环annulus)
+        - [8.4 长方形Rectangle](#84-长方形rectangle)
+        - [8.5 方形Square](#85-方形square)
+        - [8.6 椭圆Ellipse](#86-椭圆ellipse)
+        - [8.7 弧Arc](#87-弧arc)
+        - [8.8 线Line](#88-线line)
+    - [9. 三维图形类](#9-三维图形类)
+        - [9.1 球 Sphere](#91-球-sphere)
+        - [9.2 立方 Cube](#92-立方-cube)
+        - [9.3 棱柱Prism](#93-棱柱prism)
+        - [9.4 参数曲面 ParametricSurface](#94-参数曲面-parametricsurface)
+        - [9.5 参数曲线 ParametricFunction](#95-参数曲线-parametricfunction)
+    - [10. 群组类VGroup](#10-群组类vgroup)
+        - [10.1 arrange()](#101-arrange)
+    - [11. 相机参数](#11-相机参数)
+        - [11.1 setcameraorientation](#111-setcameraorientation)
+        - [11.2 movecamera](#112-movecamera)
+        - [11.3 settodefaultangledcameraorientation](#113-settodefaultangledcameraorientation)
+        - [11.4 addfixedinframemobjects](#114-addfixedinframemobjects)
+    - [12. 坐标系类](#12-坐标系类)
+        - [12.1 坐标系抽象类 CoordinateSystem](#121-坐标系抽象类-coordinatesystem)
+        - [12.2 二维坐标类 Axes](#122-二维坐标类-axes)
+        - [12.3 三维坐标系类 ThreeDAxes](#123-三维坐标系类-threedaxes)
+        - [12.4 NumberPlane](#124-numberplane)
+        - [12.5 ComplexPlane(NumberPlane)](#125-complexplanenumberplane)
+    - [附录A：常见的常数](#附录a常见的常数)
+        - [1. 颜色](#1-颜色)
+        - [2. 方向](#2-方向)
+        - [3. 角度](#3-角度)
 
 <!-- /TOC -->
-# 1. manim基础教程
+# manim基础教程
 
-## 1.1. 文件的执行
+## 1. 文件的执行
 
 **命令行执行：python -m manim \path\to\yourfile.py [className] [-params]**
 
@@ -134,7 +134,7 @@
   *--to-twitch           Stream to twitch*
   *--with-key TWITCH_KEY 	Stream key for twitch*
 
-### 1.1.1. **保存为视频并立即播放**
+### 1.1 **保存为视频并立即播放**
 
 参数-p
 
@@ -160,7 +160,7 @@
   python -m manim \path\to\yourfile.py Example -p
   ```
 
-### 1.1.2. **保留帧**
+### 1.2 **保留帧**
 
 -s保留最后一帧
 
@@ -186,7 +186,7 @@
   python -m manim \path\to\yourfile.py Example -as
   ```
 
-### 1.1.3. **视频尺寸**
+### 1.3 **视频尺寸**
 
 -r HEIGHT WIDTH
 
@@ -204,11 +204,11 @@
   python -m manim \path\to\yourfile.py Example -plr 500
   ```
 
-### 1.1.4. **视频通道**
+### 1.4 **视频通道**
 
 -t, --transparent 		alpha通道，扩展名为mov
 
-### 1.1.5. **保留进度显示条**
+### 1.5 **保留进度显示条**
 
   --leave_progress_bars：
 
@@ -222,7 +222,7 @@ File ready at \path\to\video.mp4
 Played 2 animations
 ```
 
-### 1.1.6. 从某一个动画状态（animation）开始存为视频
+### 1.6 从某一个动画状态（animation）开始存为视频
 
  -n START_AT_ANIMATION_NUMBER, --start_at_animation_number START_AT_ANIMATION_NUMBER
 
@@ -290,9 +290,9 @@ Played 6 animations
 
 其他的参数不一一介绍，自行查看英文说明
 
-## 1.2. 显示操作
+## 2. 显示操作
 
-### 1.2.1. 基本步骤（以TextMobject为例）
+### 2.1 基本步骤（以TextMobject为例）
 
 ```python
 from manimlib.imports import *
@@ -308,9 +308,9 @@ class WriteText(Scene):
         self.remove(text)
 ```
 
-### 1.2.2. 位置相关的函数
+### 2.5 位置相关的函数
 
-#### 1.2.2.1. **2.5.1**to_edge()和to_corner()
+#### **2.5.1 **to_edge()和to_corner()
 
 **someObject.to_edge(DIRECTION的线性组合,buff = number)**
 
@@ -325,7 +325,7 @@ to_corner仅接受组合方向**UR，UL，DR，DL**
 + 如果没有to_edge和to_center默认为中间（**ORIGIN**）
 + **someObject.to_edge(UP+RIGHT)**完全等效于**someObject.to_corner(UR)**,其余四个方向同理
 
-#### 1.2.2.2. move_to()
+#### 2.5.2 move_to()
 
 **someObject.move_to(DIRECTION的线性组合 or numpy的向量)**
 
@@ -356,7 +356,7 @@ someObject.move_to(someObject2.get_center()+2*RIGHT)
 someObject.move_to(someObject2)
 ```
 
-#### 1.2.2.3. next_to()
+#### 2.5.3 next_to()
 
 **someObject1.next_to(someObject2,DIRECTION,buff=number)** 
 
@@ -370,13 +370,13 @@ someObject1对于someObject2的相对位置
 
 ![1565702556749](manim自学文档.assets/1565702556749.png)
 
-#### 1.2.2.4. shift()
+#### 2.5.4 shift()
 
 **someObject.shift(DIRECTION\*number)：**
 
 自己垂直方向平移
 
-#### 1.2.2.5. rotate()
+#### 2.5.5 rotate()
 
 **someObject.rotate(PI*number或者number，point)：** 
 
@@ -411,7 +411,7 @@ class RotateObject(Scene):
         self.wait(2)
 ```
 
-#### 1.2.2.6. flip()
+#### 2.5.6 flip()
 
 **someObject.flip(DIRECTION)：**
 
@@ -421,9 +421,9 @@ class RotateObject(Scene):
 
 ![1565703056789](manim自学文档.assets/1565703056789.png)
 
-### 1.2.3. 播放动画
+### 2.6 播放动画
 
-#### 1.2.3.1. **play**()
+#### 2.6.1 **play**()
 
 动画效果，可以是多个text，这个函数是多线程的，所以不会阻塞就会进入下一行操作
 
@@ -478,7 +478,7 @@ class RotateObject(Scene):
    ```
 
 
-##### 1.2.3.1.1. 显示动画函数SomePlayMethods
+##### 2.6.1.1 显示动画函数SomePlayMethods
 
 动画函数，主要包含下列几个：
 
@@ -632,29 +632,29 @@ class RotateObject(Scene):
 
     GrowFromCenter,GrowFromPoint,GrowFromEdge,GrowArrow等等
 
-##### 1.2.3.1.2. run_time
+##### 2.6.1.2 run_time
 
 动画从开始到结束所用的时间，决定了**动画的快慢**（动画write的快慢是固定的不由runtime决定，但是到达了runtime又没有后面的wait，write会被截断），而非动画播放完了继续等待到run_time指定的时间，注意如果runtime太短可能导致动画write
 
-#### 1.2.3.2. add()
+#### 2.6.2 add()
 
 **add(someObject1,someObject2,…)**
 
 无动画添加文字，可以是多个text
 
-#### 1.2.3.3. wait()
+#### 2.6.3 wait()
 
 **wait(int seconds)：**
 
 等待动画停留时间，如果没有参数则默认等待到将动画播放完为止
 
-#### 1.2.3.4. remove()
+#### 2.6.4 remove()
 
 **remove(someObject1,someObject2,…)：**
 
 移除text，可以是多个text，注意FadeOut类的动画虽然自带消失效果但是该变量还是会停留在内存中
 
-### 1.2.4. 设置颜色
+### 2.7 设置颜色
 
 **someObject.set_color(COLOR)**
 
@@ -668,7 +668,7 @@ COLOR有哪些见附录的颜色一栏，COLOR本质上是一个字符串所以�
 someObject.set_color("#0000FF")
 ```
 
-### 1.2.5. 缩放大小
+### 2.8 缩放大小
 
 **someObject.scale(number)**
 ```python
@@ -684,11 +684,11 @@ class TextArray(Scene):
 
 ![1565769895077](manim自学文档.assets/1565769895077.png)
 
-### 1.2.6. 并行动画 
+### 2.9 并行动画 
 
 
 
-## 1.3. text数组
+## 3. text数组
 
 在2中所有的显示方法几乎都可以对数组成立，
 
@@ -742,7 +742,7 @@ class TexArray(Scene):
 
 **如果有任意一个string是多个字母则text是二维数组**
 
-## 1.4. 基础动画类 Scene  
+## 4. 基础动画类 Scene  
 
 所有的动画均是scene类的子类产生的，因此scene的功能比较少，主要是对一些基础的属性进行配置
 
@@ -823,7 +823,7 @@ class TextLike1DArrays(Scene):
 
 ![1565833717545](manim自学文档.assets/1565833717545.png)
 
-## 1.5. 二维坐标类 GraphScene
+## 5. 二维坐标类 GraphScene
 
 **\manimlib\scene\graph_scene.py**
 
@@ -877,31 +877,31 @@ class Graph2D(GraphScene):
 
 ![1565835900946](manim自学文档.assets/1565835900946.png)
 
-### 1.5.1. setup_axes()
+### 5.1 setup_axes()
 
 **setup_axes(animate=Bool)：**
 
 默认没有动画效果，setup_axes(animate=True)则会显示动画 
 
-### 1.5.2. get_graph()
+### 5.2 get_graph()
 
-**get_graph(func, color=None,x_min=None,x_max=None, \**kwargs)**
+**get_graph(func, color=None,x_min=None,x_max=None, \*\*kwargs)**
 
 得到坐标系的句柄，并设置值
 
-### 1.5.3. coords_to_point()
+### 5.3 coords_to_point()
 
 **coords_to_point(x, y)**
 
 坐标变成对应的帧中的点
 
-### 1.5.4. point_to_coords()
+### 5.4 point_to_coords()
 
 **point_to_coords(point)**
 
 帧中的点转换为坐标，返回x,y组成的元组
 
-### 1.5.5. get_graph_label()
+### 5.5 get_graph_label()
 
 **get_graph_label(graph,label="f(x)", x_val=None,direction=RIGHT, buff=MED_SMALL_BUFF, color=None)**
 
@@ -915,23 +915,23 @@ buff：距离边界的距离
 
 color：颜色
 
-### 1.5.6. get_vertical_line_to_graph()
+### 5.6 get_vertical_line_to_graph()
 
-**get_vertical_line_to_graph(x, graph,line_class=Line,\**line_kwargs)**
+**get_vertical_line_to_graph(x, graph,line_class=Line,\*\*line_kwargs)**
 
 得到竖直线，起点为(x,0)终点为(x,f(x))
 
 返回line_class类型的图像
 
-### 1.5.7. get_vertical_lines_to_graph()
+### 5.7 get_vertical_lines_to_graph()
 
-**get_vertical_lines_to_graph( graph,x_min=None,x_max=None, num_lines=20, \**kwargs)**
+**get_vertical_lines_to_graph( graph,x_min=None,x_max=None, num_lines=20, \*\*kwargs)**
 
 同时得到画多条竖直线
 
 返回line_class类型的VGroup
 
-### 1.5.8. 改变坐标标签的颜色
+### 5.8 改变坐标标签的颜色
 
 > https://github.com/Elteoremadebeethoven/AnimationsWithManim/blob/master/English/6a_plots_2D/change_label_colors.md#change-labels-colors-in-graphscene
 >
@@ -964,7 +964,7 @@ color：颜色
 
 ![img](manim自学文档.assets/ChanceColorLabels.png)
 
-## 1.6. 文本类 TextMobject
+## 6. 文本类 TextMobject
 
 1. **TextMobject(string)：**传入一个字符串
 
@@ -1021,9 +1021,9 @@ color：颜色
 
    ![1565704370228](manim自学文档.assets/1565704370228.png)
 
-2. **TextMobject(string1,string2,string3,…)**传入多个字符串，返回TextMobject数组，可以按照下表索引数组的值
+2. **TextMobject(string1,string2,string3,…)：**传入多个字符串，返回TextMobject数组，可以按照下表索引数组的值
 
-## 1.7. LaTeX文本类 TexMobject
+## 7. LaTeX文本类 TexMobject
 
 ***\manimlib\mobject\svg\tex_mobject.py***
 
@@ -1059,11 +1059,11 @@ class Formula(Scene):
 
 ![1565769340216](manim自学文档.assets/1565769340216.png)
 
-## 1.8. 二维图形类
+## 8. 二维图形类
 
 ***\manimlib\mobject\geometry.py***
 
-### 1.8.1. 点Dot
+### 8.1 点Dot
 
 ```python
 CONFIG = {
@@ -1074,7 +1074,7 @@ CONFIG = {
     }
 ```
 
-### 1.8.2. 圆形Circle
+### 8.2 圆形Circle
 
 继承自Arc
 
@@ -1086,7 +1086,7 @@ CONFIG = {
     }
 ```
 
-### 1.8.3. 环Annulus
+### 8.3 环Annulus
 
 继承自圆形
 
@@ -1101,7 +1101,7 @@ CONFIG = {
     }
 ```
 
-### 1.8.4. 长方形Rectangle
+### 8.4 长方形Rectangle
 
 ```python
 CONFIG = {
@@ -1113,7 +1113,7 @@ CONFIG = {
     }
 ```
 
-### 1.8.5. 方形Square
+### 8.5 方形Square
 
 继承自长方形
 
@@ -1124,7 +1124,7 @@ CONFIG = {
     }
 ```
 
-### 1.8.6. 椭圆Ellipse
+### 8.6 椭圆Ellipse
 
 继承自圆形
 
@@ -1135,7 +1135,7 @@ CONFIG = {
     }
 ```
 
-### 1.8.7. 弧Arc
+### 8.7 弧Arc
 
 ```python
 CONFIG = {
@@ -1146,9 +1146,9 @@ CONFIG = {
     }
 ```
 
-### 1.8.8. 线Line
+### 8.8 线Line
 
-**Line(start=LEFT, end=RIGHT, \**kwargs)**
+**Line(start=LEFT, end=RIGHT, \*\*kwargs)**
 
 start,end:起点终点，形式是np向量
 
@@ -1188,11 +1188,11 @@ CONFIG = {
     }
 ```
 
-## 1.9. 三维图形类
+## 9. 三维图形类
 
 ***\manimlib\mobject\three_dimensions.py***
 
-### 1.9.1. 球 Sphere
+### 9.1 球 Sphere
 
 继承自ParametricSurface,实现通过绘制三维多边形曲面实现的，具体看源码
 
@@ -1207,7 +1207,7 @@ CONFIG = {
     }
 ```
 
-### 1.9.2. 立方 Cube
+### 9.2 立方 Cube
 
 ```python
 CONFIG = {
@@ -1218,7 +1218,7 @@ CONFIG = {
     }
 ```
 
-### 1.9.3. 棱柱Prism
+### 9.3 棱柱Prism
 
 继承自cube
 
@@ -1230,11 +1230,11 @@ CONFIG = {
 
 
 
-### 1.9.4. 参数曲面 ParametricSurface
+### 9.4 参数曲面 ParametricSurface
 
 参数方程表达的曲面
 
-**ParametricSurface(func, \**kwargs)**
+**ParametricSurface(func, \*\*kwargs)**
 
 ```python
  CONFIG = {
@@ -1349,9 +1349,9 @@ class SurfacesAnimation(ThreeDScene):
         self.play(FadeOut(cylinder))
 ```
 
-### 1.9.5. 参数曲线 ParametricFunction
+### 9.5 参数曲线 ParametricFunction
 
-**ParametricSurface(func, \**kwargs)**
+**ParametricSurface(func, \*\*kwargs)**
 
 func:自定义的方程，此方程传入一个参数，返回三维向量，每一个分量均是传入自变量的表达式
 
@@ -1401,13 +1401,13 @@ class ParametricCurve2(ThreeDScene):
         self.wait()
 ```
 
-## 1.10. 群组类VGroup
+## 10. 群组类VGroup
 
 可以将多个图像合并为一个组进行批量同步操作(自我理解为Vector Group的缩写)
 
 **someObjectGroup = VGroup(someObject1,someObject2,…)**
 
-### 1.10.1. arrange()
+### 10.1 arrange()
 
 **someObjectGroup.arrange(DIRECTION,aligned_edge = DIRECTION,buff=number)**
 
@@ -1449,7 +1449,7 @@ self.play(
         )
 ```
 
-## 1.11. 相机参数
+## 11. 相机参数
 
 相机是针对3D动画类(**ThreeDScene**)的方法
 
@@ -1457,15 +1457,15 @@ self.play(
 
 将视频的视窗看做相机，就可以通过调整相机的远近，角度来观察三维物体，这就是相机类的作用
 
-### 1.11.1. set_camera_orientation
+### 11.1 set_camera_orientation
 
 **threeDScene.set_camera_orientation(phi=degrees1,theta=degrees2,gamma=degrees3,distance=number)**
 
 设置相机的角度
 
-### 1.11.2. move_camera
+### 11.2 move_camera
 
-**threeDScene.move_camera(phi=None,theta=None, distance=None, gamma=None, frame_center=None,added_anims=[],\**kwargs)**
+**threeDScene.move_camera(phi=None,theta=None, distance=None, gamma=None, frame_center=None,added_anims=[],\*\*kwargs)**
 
 例子：
 
@@ -1486,11 +1486,11 @@ class MoveCamera2(ThreeDScene):
         self.wait()
 ```
 
-### 1.11.3. set_to_default_angled_camera_orientation
+### 11.3 set_to_default_angled_camera_orientation
 
 还原为默认角度
 
-### 1.11.4. add_fixed_in_frame_mobjects
+### 11.4 add_fixed_in_frame_mobjects
 
 加入固定在屏幕的图像，此图像不随相机变化而变化
 
@@ -1524,9 +1524,9 @@ class Text3D3(ThreeDScene):
         self.wait(2)
 ```
 
-## 1.12. 坐标系类
+## 12. 坐标系类
 
-### 1.12.1. 坐标系抽象类 CoordinateSystem
+### 12.1 坐标系抽象类 CoordinateSystem
 
 ```python
 CONFIG = {
@@ -1538,11 +1538,11 @@ CONFIG = {
     }
 ```
 
-### 1.12.2. 二维坐标类 Axes
+### 12.2 二维坐标类 Axes
 
 继承CoordinateSystem
 
-**Axes(\**kwargs)**
+**Axes(\*\*kwargs)**
 
 ```python
 CONFIG = {
@@ -1559,11 +1559,11 @@ CONFIG = {
     }
 ```
 
-### 1.12.3. 三维坐标系类 ThreeDAxes
+### 12.3 三维坐标系类 ThreeDAxes
 
 继承自Axes
 
-**ThreeDAxes(\**kwargs)**
+**ThreeDAxes(\*\*kwargs)**
 
 ```python
 CONFIG = {
@@ -1581,19 +1581,19 @@ CONFIG = {
     }
 ```
 
-### 1.12.4. NumberPlane
+### 12.4 NumberPlane
 
-### 1.12.5. ComplexPlane(NumberPlane)
+### 12.5  ComplexPlane(NumberPlane)
 
-## 1.13. 附录A：常见的常数
+## 附录A：常见的常数
 
 ***\manimlib\constants.py***
 
-### 1.13.1. 颜色
+### 1. 颜色
 
 见constants.py中**COLOR_MAP**中的列表
 
-### 1.13.2. 方向
+### 2. 方向
 
 ```python
 ORIGIN = np.array((0., 0., 0.))
@@ -1613,14 +1613,10 @@ DL = DOWN + LEFT
 DR = DOWN + RIGHT
 ```
 
-## 1.14. 角度
+### 3. 角度
 
 ```python
 PI = np.pi
 TAU = 2 * PI
 DEGREES = TAU / 360
 ```
-
-
-
-
