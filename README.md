@@ -75,10 +75,14 @@
 
 <!-- /TOC -->
 # manim基础教程
+
 注意：  
+
 1. 本文参考YouTube主Theorem of Beethoven的视频与代码然后自己继续研究得到的，有些图片是ta视频截图得到的，可以说是他的教程文字化后的汉化版，根据GitHub主页，他来自墨西哥国立自治大学，感谢外国大佬的力量，除了自己写的部分的代码，有些代码来自TA的视频与GitHub，其人[GitHub主页](https://github.com/Elteoremadebeethoven)，大家有条件可以支持一下他的YouTube  
 2. 本人将于2019年9月2日开学，到时候可能忙于学业，不能做到跟进视频更新教程，其实目前教程已经大概涵盖70%的东西，到后面主要是自己读源代码自己分析，python基础很重要，有时间我还是会尽量更新的  
 3. 此教程虽在开源社区，但是请勿未经我允许转载，希望大家能共同维护个人劳动成果与开源精神
+4. 如果文档有错误或漏洞，或者有问题，欢迎在issue中提出，大家一起讨论，共同创建良好的学习环境
+
 ## 1. 文件的执行
 
 **命令行执行：python -m manim \path\to\yourfile.py [className] [-params]**
@@ -100,7 +104,7 @@
   *-h, --help            show this help message and exit*  
   *-p, --preview         Automatically open the saved file once its done*  
   *-w, --write_to_movie  Render the scene as a movie file*  
-  *-s, --save_last_frame*	*Save the last frame*  
+  *-s, --save_last_frame*  *Save the last frame*  
   *-l, --low_quality     Render at a low quality (for faster rendering)*  
   *-m, --medium_quality  Render at a medium quality*  
   *--high_quality        Render at a high quality*  
