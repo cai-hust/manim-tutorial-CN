@@ -282,9 +282,38 @@ File ready at E:\programing-engineering\manim-tutorial\manim\media\videos\1_text
 Played 6 animations
 ```
 
-![1565761708445](manim自学文档.assets/1565761708445.png)
+![1565761708445](README.assets/1565761708445.png)
 
 其他的参数不一一介绍，自行查看英文说明
+
+### 1.7 默认显示进度条
+
+默认设置在manimlib/config.py，manimlib/extract_secne.py与manimlib/scene.py里进行定义，可以修改该文件进行修改默认配置,注意因为修改源码所以要小心
+
+例如：在上面的三个文件里：
+
+将里面所有的“--leave_progress_bars”和“leave_progress_bars”修改为“--remove_progress_bars”与“remove__progress_bars”,同时将
+
+![1567668580431](README.assets/1567668580431.png)
+
+此处的action改成不显示
+
+这样如果加上--remove_progress_bars就不会显示进度条了，而默认是显示进度条的
+
+### 1.8 改变视频存放位置
+
+改变*manimlib/constants.py*中的：
+
+```python
+if not os.path.isdir(MEDIA_DIR):
+    MEDIA_DIR = "./media" 
+```
+
+ 改`./media`为你想要存放的位置
+
+### 1.9 存为gif
+
+You can use `python -m manim animation.py name_scene -im` to render gif medium quality, or `python -m manim animation.py name_scene -gm` to render all frames as images, the images are saved in a folder
 
 ## 2. 显示操作
 
@@ -316,7 +345,7 @@ to_edge参数可以是**任意方向**(方向有哪些见附录中方向常数�
 
 to_corner仅接受组合方向**UR，UL，DR，DL**
 
-![1565752494266](manim自学文档.assets/1565752494266.png)
+![1565752494266](README.assets/1565752494266.png)
 
 + 如果没有to_edge和to_center默认为中间（**ORIGIN**）
 + **someObject.to_edge(UP+RIGHT)**完全等效于**someObject.to_corner(UR)**,其余四个方向同理
@@ -360,11 +389,11 @@ someObject1对于someObject2的相对位置
 
 与move_to的区别在于，next_to表示的是边界的距离，而不是中心距离
 
-![1565755487243](manim自学文档.assets/1565755487243.png)
+![1565755487243](README.assets/1565755487243.png)
 
 如：text1.next_to(text2,LEFT,buff=2) ：
 
-![1565702556749](manim自学文档.assets/1565702556749.png)
+![1565702556749](README.assets/1565702556749.png)
 
 #### 2.5.4 shift()
 
@@ -393,7 +422,7 @@ class RotateObject(Scene):
         self.wait(2)
 ```
 
-![1565702942360](manim自学文档.assets/1565702942360.png)
+![1565702942360](README.assets/1565702942360.png)
 
 否则相对 相对图案旋转：
 
@@ -415,7 +444,7 @@ class RotateObject(Scene):
 
 如text.flip(UP)：
 
-![1565703056789](manim自学文档.assets/1565703056789.png)
+![1565703056789](README.assets/1565703056789.png)
 
 ### 2.6 播放动画
 
@@ -558,11 +587,11 @@ class RotateObject(Scene):
             self.wait(3)
     ```
 
-    ![1565773952504](manim自学文档.assets/1565773952504.png)
+    ![1565773952504](README.assets/1565773952504.png)
 
-    ![1565773963920](manim自学文档.assets/1565773963920.png)
+    ![1565773963920](README.assets/1565773963920.png)
 
-    ![1565773975419](manim自学文档.assets/1565773975419.png)
+    ![1565773975419](README.assets/1565773975419.png)
 
     将上面的替换成ReplacementTransform：
 
@@ -587,7 +616,7 @@ class RotateObject(Scene):
 
     最后一幅图不一样：
 
-    ![1565774075040](manim自学文档.assets/1565774075040.png)
+    ![1565774075040](README.assets/1565774075040.png)
 
     **如果希望不要改变someObject1的值可以使用：someObject1.copy()进行深度拷贝**
 
@@ -678,7 +707,7 @@ class TextArray(Scene):
         self.wait(3)
 ```
 
-![1565769895077](manim自学文档.assets/1565769895077.png)
+![1565769895077](README.assets/1565769895077.png)
 
 ### 2.9 并行动画 
 
@@ -703,7 +732,7 @@ class TextArray(Scene):
         self.wait(2)
 ```
 
-![1565768302203](manim自学文档.assets/1565768302203.png)
+![1565768302203](README.assets/1565768302203.png)
 
 还可以拼接为LaTeX串(此处不能用TextMobject代替，否则报错)：
 
@@ -722,7 +751,7 @@ class TexArray(Scene):
 ```
 
 
-![1565769578088](manim自学文档.assets/1565769578088.png)
+![1565769578088](README.assets/1565769578088.png)
 
 对于数组可以直接如同对单个object操作,如：
 
@@ -817,7 +846,7 @@ class TextLike1DArrays(Scene):
 ```
 
 
-![1565833717545](manim自学文档.assets/1565833717545.png)
+![1565833717545](README.assets/1565833717545.png)
 
 ## 5. 二维坐标类 GraphScene
 
@@ -871,7 +900,7 @@ class Graph2D(GraphScene):
 ```
 
 
-![1565835900946](manim自学文档.assets/1565835900946.png)
+![1565835900946](README.assets/1565835900946.png)
 
 ### 5.1 setup_axes()
 
@@ -958,7 +987,7 @@ color：颜色
 
 效果：
 
-![img](manim自学文档.assets/ChanceColorLabels.png)
+![img](README.assets/ChanceColorLabels.png)
 
 ## 6. 文本类 TextMobject
 
@@ -984,7 +1013,7 @@ color：颜色
                """)
    ```
 
-   ![1565700699069](manim自学文档.assets/1565700699069.png)
+   ![1565700699069](README.assets/1565700699069.png)
 
    自然地，可以用LaTeX调整字体大小：
 
@@ -1015,7 +1044,7 @@ color：颜色
            self.wait(3)
    ```
 
-   ![1565704370228](manim自学文档.assets/1565704370228.png)
+   ![1565704370228](README.assets/1565704370228.png)
 
 2. **TextMobject(string1,string2,string3,…)：**传入多个字符串，返回TextMobject数组，可以按照下表索引数组的值
 
@@ -1053,7 +1082,7 @@ class Formula(Scene):
         self.wait(3)
 ```
 
-![1565769340216](manim自学文档.assets/1565769340216.png)
+![1565769340216](README.assets/1565769340216.png)
 
 ## 8. 二维图形类
 
@@ -1431,7 +1460,7 @@ class ArrangeObjects(Scene):
         self.wait()
 ```
 
-![1565844643807](manim自学文档.assets/1565844643807.png)
+![1565844643807](README.assets/1565844643807.png)
 
 动画效果：
 
@@ -1522,6 +1551,61 @@ class Text3D3(ThreeDScene):
 
 ## 12. 坐标系类
 
+### 12.0 数轴类 NumberLine
+
+继承于Line,属性如下：
+
+```python
+CONFIG = {
+        "color": LIGHT_GREY,
+        # X的范围
+        "x_min": -FRAME_X_RADIUS,
+        "x_max": FRAME_X_RADIUS,
+        # 单元格的大小，默认和单位长度一致
+        "unit_size": 1,
+        # 是否包含刻度tick
+        "include_ticks": True,
+        # tick的尺寸，大小为：2个单位*tick_size
+        "tick_size": 0.1,
+        # tick的分布密度
+        "tick_frequency": 1,
+        # Defaults to value near x_min s.t. 0 is a tick
+        # TODO, rename this
+        "leftmost_tick": None,
+        # Change name
+        # 最长的tick,作者原意应该是作为数轴标识的tick,一般为中间的tick即原点，会画长一点
+        "numbers_with_elongated_ticks": [0],
+        # 标上数字
+        "include_numbers": False,
+        # 显示的数字格式
+        "numbers_to_show": None,
+        "longer_tick_multiple": 2,
+        # 中间的数字
+        "number_at_center": 0,
+        "number_scale_val": 0.75,
+        "label_direction": DOWN,
+        "line_to_number_buff": MED_SMALL_BUFF,
+        # 包含箭头
+        "include_tip": False,
+        # tip:箭头，下面两个是其尺寸设置
+        "tip_width": 0.25,
+        "tip_height": 0.25,
+        "decimal_number_config": {
+            "num_decimal_places": 0,
+        },
+        # 从数字标记中去掉0这个标记
+        "exclude_zero_from_default_numbers": False,
+    }
+```
+
+注意其中x_min，x_max均为帧的左右范围即每帧的最左边和最右边
+
+![1567675075732](README.assets/1567675075732.png)
+
+本质上来说，数轴是一条线（Line），每一个间隔（tick）均为小的线(Line)
+
+整个构建流程是，先画出横线作为坐标轴，然后从左到右画出一个个小竖线，最后增加数字，箭头等小部件
+
 ### 12.1 坐标系抽象类 CoordinateSystem
 
 ```python
@@ -1534,26 +1618,97 @@ CONFIG = {
     }
 ```
 
+主要的几个抽象方法：
+
+**coords指的是坐标轴中的点的值,point指没有坐标轴时真实的坐标，在创建坐标轴时候中心设置在ORIGIN，坐标大小没有缩放的时候两者是一样的**
+
++ coords_to_point(\*coords)；c2p(\*coords):将坐标系中的点的坐标值转换为屏幕上的点
+
++ point_to_coords(point)；p2c(point)：coords_to_point逆方法
+
++ get_axes():得到CoordinateSystem对象，一般为包含x,y,z坐标的数组
+
++ get_axis(index):得到index对应的坐标，xyz坐标对应的index分别为1，2，3
+
++ get_x_axis();get_y_axis();get_z_axis()
+
++ get_axis_label一类：给对应的坐标（轴）添加标签，显示标签，并返回标签对象
+
+  + get_axis_label(label_tex, axis, edge, direction, buff=MED_SMALL_BUFF):
+  + get_axis_labels(x_label_tex="x", y_label_tex="y")：
+
+  + get_x_axis_label(label_tex, edge=RIGHT, direction=DL, \*\*kwargs)：
+
+  + get_y_axis_label(label_tex, edge=UP, direction=DR, \*\*kwargs):
+
+  label_tex:坐标标签，使用latex字符串(TexMobject)
+
+  axis:想获取的坐标标签的对应的坐标对象
+
+  edge:四个边缘位置
+
+  direction：在坐标轴的相对位置
+
+  \*\*kwargs:其他在config内的配置，如颜色等，自行修改
+
+get_graph(function, \*\*kwargs):给定方程，绘制图像并返回
+
+get_parametric_curve(function, \*\*kwargs):绘制给定参数曲线方程并返回
+
+input_to_graph_point(x, graph):暂时没搞清楚啥玩意
+
 ### 12.2 二维坐标类 Axes
 
 继承CoordinateSystem
+
+实质是创造两个NumberLine数轴，然后将其中一个按照中心旋转90度，作为Y轴，然后对X，Y轴进行其他的属性进行调整，所以配置里面有"number_line_config"
 
 **Axes(\*\*kwargs)**
 
 ```python
 CONFIG = {
+    	# 数轴的配置
         "number_line_config": {
             "color": LIGHT_GREY,
             "include_tip": True,
             "exclude_zero_from_default_numbers": True,
         },
+    	# 横坐标轴和数轴的默认配置一样不需要修改
         "x_axis_config": {},
         "y_axis_config": {
+            # 默认将“y”这个标签放在纵坐标轴的左侧
             "label_direction": LEFT,
         },
+    	# 原点默认和帧图的中心点一致
         "center_point": ORIGIN,
     }
 ```
+
+实现了：
+
+1. coords_to_point(\*coords)；c2p(\*coords):将坐标系中的点的坐标值转换为屏幕（帧图）上的点
+
+   分析一下源码：
+
+```python
+def coords_to_point(self, *coords):
+        # 将坐标轴中的原点0换算为对应的帧图中的坐标
+        origin = self.x_axis.number_to_point(0)
+        # 将帧图坐标转换为向量
+        result = np.array(origin)
+        # result = 原点对应的帧图的坐标+coord相对帧图中原点的坐标 = coord在帧图中的实际坐标
+        for axis, coord in zip(self.get_axes(), coords):
+            result += (axis.number_to_point(coord) - origin)
+        return result
+```
+
+2. point_to_coords(point)；p2c(point)
+
+增加了方法：
+
+get_coordinate_labels(x_vals=None, y_vals=None)：传入x,y标签的latex字符串，得到对应的x,y坐标轴的标签的对象
+
+add_coordinates(x_vals=None, y_vals=None):和get_coordinate_labels相似，但是将其加入了自己的成员变量并返回了自己
 
 ### 12.3 三维坐标系类 ThreeDAxes
 
@@ -1579,7 +1734,44 @@ CONFIG = {
 
 ### 12.4 NumberPlane
 
-### 12.5  ComplexPlane(NumberPlane)
+### 12.5  ComplexPlane
+
+复数坐标系，继承于NumberPlane
+
+```python
+# author:TB
+class ComplexPlaneScene(Scene):
+    def construct(self):
+        # See manimlib/mobject/number_line.py and coordinate_systems.py
+        cp = ComplexPlane(
+                        y_axis_config={"decimal_number_config":{"unit": "i"}},
+                        number_line_config={"include_numbers":True}
+                        )
+
+        x_axis = cp[-2]
+        y_axis = cp[-1]
+        x_axis.set_color(RED)
+        y_axis.set_color(PURPLE)
+
+        x_labels = x_axis[1]
+        x_labels.set_color(ORANGE)
+
+        y_labels = y_axis[1]
+        y_labels.set_color(YELLOW)
+        for y in y_labels:
+            y.rotate(-PI/2)
+
+        x_label = TexMobject("x")
+        x_label.move_to(cp.c2p(6.8,x_label.get_height()))
+        y_label = TexMobject("y")
+        y_label.move_to(cp.c2p(-y_label.get_width(),3.8))
+
+        self.add(cp,x_label,y_label)
+
+        self.wait()
+```
+
+
 
 ## 附录A：常见的常数
 
