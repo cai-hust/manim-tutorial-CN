@@ -657,9 +657,56 @@ class RotateObject(Scene):
 
     GrowFromCenter,GrowFromPoint,GrowFromEdge,GrowArrow等等
 
++ *manimlib\animation\update.py*
+
+  + **UpdateFromFunc(obj,update_function)**
+
+    同步播放,很好理解，见例子：
+
+    更多同步并发的播放见**2.9**
+
+    ```python
+    class Updater(Scene):
+        def construct(self):
+            dot = Dot()
+            text = TextMobject("Label")\
+                   .next_to(dot,RIGHT,buff=SMALL_BUFF)
+    
+            self.add(dot,text)
+    
+            def update_text(obj):
+                obj.next_to(dot,RIGHT,buff=SMALL_BUFF)
+    
+            # Only works in play
+            self.play(
+                    dot.shift,UP*2,
+                    UpdateFromFunc(text,update_text)
+                )
+    
+            self.wait()
+    ```
+
+    
+
 ##### 2.6.1.2 run_time
 
 动画从开始到结束所用的时间，决定了**动画的快慢**（动画write的快慢是固定的不由runtime决定，但是到达了runtime又没有后面的wait，write会被截断），而非动画播放完了继续等待到run_time指定的时间，注意如果runtime太短可能导致动画write
+
+#### 2.6.1.3 rate_func
+
+直译为速度函数，即内定的动画函数
+
+分为三个值：**there_and_back来回，linear一去不复返，smooth平滑**（速度先为0，然后加快，到了中间减速最后到达终点为0）
+
+例：
+
+```python
+ self.play(
+                triangle.shift,RIGHT*2,
+                rate_func=smooth, # Change this with: linear,smooth
+                run_time=5
+            )
+```
 
 #### 2.6.2 add()
 
@@ -709,9 +756,64 @@ class TextArray(Scene):
 
 ![1565769895077](README.assets/1565769895077.png)
 
-### 2.9 并行动画 
+### 2.9 同步播放动画
 
+TODO：**暂时没有时间理解源码**
 
+让某一个物体（mobject）跟随另一个物体的移动而并行移动（使用其他移动方式，路径）
+
+*manimlib\mobject\mobject.py*
+
++ **add_updater(update_function, index=None, call_updater=True)**
+
+  + update_function：更新函数，函数传入一个object对象，函数内部有一系列对该对象和已知的对象进行的一系列操作，可以是lambda表达式
+
+  例子：让一个点在“label”文字右边，随着文字的移动，始终保持在其右侧
+
+```python
+# author:TB
+class AddUpdater1(Scene):
+    def construct(self):
+        dot = Dot()
+        text = TextMobject("Label")\
+               .next_to(dot,RIGHT,buff=SMALL_BUFF)
+
+        self.add(dot,text)
+
+        # Update function 更新函数
+        def update_text(obj):
+            obj.next_to(dot,RIGHT,buff=SMALL_BUFF)
+
+        # Add update function to the objects
+        # 把更新函数加给对象
+        text.add_updater(update_text)
+        
+        # 如果想简洁，lambda表达式如下：
+        # text.add_updater(lambda m: m.next_to(dot,RIGHT,buff=SMALL_BUFF))
+        # 此时下面的remove_updater(update_text)不能继续使用，需要改为clear_updaters
+
+        # Add the object again 重新加入text
+        # 注意这个步骤不能少，否则看不到！！！
+        # 即使之前加入过，现在还是要重新加入
+        self.add(text)
+
+        self.play(dot.shift,UP*2)
+
+        # Remove update function
+        text.remove_updater(update_text)
+
+        self.wait()
+```
+
++ **remove_updater(update_function)**取消并行播放函数
+
++ **clear_updaters(recursive=True)**取消所有的并行播放函数
+
++ **UpdateFromFunc(Animation)**
+
+  见**2.6.1.1**,注意这个函数仅在play函数中生效，play结束后就不会继续同步
+
+更多例子（有时间再补充）：[TB的更新函数页面](https://github.com/Elteoremadebeethoven/AnimationsWithManim/blob/master/English/update_successions/update_successions.py)
 
 ## 3. text数组
 
@@ -1087,6 +1189,8 @@ class Formula(Scene):
 ## 8. 二维图形类
 
 ***\manimlib\mobject\geometry.py***
+
+TODO：待完善
 
 ### 8.1 点Dot
 
@@ -1791,14 +1895,20 @@ RIGHT = np.array((1., 0., 0.))
 LEFT = np.array((-1., 0., 0.))
 IN = np.array((0., 0., -1.))
 OUT = np.array((0., 0., 1.))
-```
+X_AXIS = np.array((1., 0., 0.))
+Y_AXIS = np.array((0., 1., 0.))
+Z_AXIS = np.array((0., 0., 1.))
 
-```
 # Useful abbreviations for diagonals
 UL = UP + LEFT
 UR = UP + RIGHT
 DL = DOWN + LEFT
 DR = DOWN + RIGHT
+
+TOP = FRAME_Y_RADIUS * UP
+BOTTOM = FRAME_Y_RADIUS * DOWN
+LEFT_SIDE = FRAME_X_RADIUS * LEFT
+RIGHT_SIDE = FRAME_X_RADIUS * RIGHT
 ```
 
 ### 3. 角度
@@ -1807,4 +1917,16 @@ DR = DOWN + RIGHT
 PI = np.pi
 TAU = 2 * PI
 DEGREES = TAU / 360
+```
+
+### 4. 距离
+
+```python
+SMALL_BUFF = 0.1
+MED_SMALL_BUFF = 0.25
+MED_LARGE_BUFF = 0.5
+LARGE_BUFF = 1
+
+DEFAULT_MOBJECT_TO_EDGE_BUFFER = MED_LARGE_BUFF
+DEFAULT_MOBJECT_TO_MOBJECT_BUFFER = MED_SMALL_BUFF
 ```
