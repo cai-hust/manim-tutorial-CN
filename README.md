@@ -1036,7 +1036,7 @@ graph：从graph中获得坐标标签
 
 label默认为“f(x)”,可以改成自己想要的函数
 
-x_val：x的取值范围
+x_val：label在坐标系中所处位置的的x坐标
 
 buff：距离边界的距离
 
