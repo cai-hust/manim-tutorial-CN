@@ -332,11 +332,10 @@ from manimlib.imports import *
 
 class WriteText(Scene): 
     def construct(self): 
-    	text = TextMobject("A Text")
+        text = TextMobject("A Text")
         text.to_edge(UP)
-        text.move_to(1*UP+0.1*RIGHT)
-      	//以play为例
-        self.play(SomeWriteMethod(text),run_time = seconds)
+        text.move_to(1 * UP + 0.1 * RIGHT)
+        self.play(SomeWriteMethod(text), run_time=seconds)
         self.wait(seconds)
         self.remove(text)
 ```
@@ -345,18 +344,18 @@ class WriteText(Scene):
 
 #### **2.5.1** `to_edge()`和`to_corner()`
 
-**`someObject.to_edge(DIRECTION的线性组合,buff = number)`**
+**`someObject.to_edge(上下左右四个方向, buff=number)`**
 
-**`someObject.to_corner(DIRECTION的四个组合方向,buff = number)`**
+**`someObject.to_corner(左上左下右上右下四个方向, buff=number)`**
 
-`to_edge`参数可以是**任意方向**(方向有哪些见附录中方向常数列表)以及它们的线性组合，如**0.1\*RIGHT+0.2\*UP**，buff 两者的边缘的距离
+`to_edge`参数可以是**任意方向**(方向有哪些见附录中方向常数列表)以及它们的线性组合，如**0.1\*RIGHT+0.2\*UP**，`buff` 两者的边缘的距离
 
 `to_corner`仅接受组合方向**UR，UL，DR，DL**
 
 ![1565752494266](README.assets/1565752494266.png)
 
 + 如果没有`to_edge`和`to_center`默认为中间（**ORIGIN**）
-+ **`someObject.to_edge(UP+RIGHT)`**完全等效于**`someObject.to_corner(UR)`**,其余四个方向同理
++ **`someObject.to_edge(UP + RIGHT)`**完全等效于**`someObject.to_corner(UR)`**,其余四个方向同理
 
 #### 2.5.2 `move_to()`
 
@@ -367,20 +366,20 @@ class WriteText(Scene):
 参数可以是**UP，DOWN，LEFT，RIGHT等**的倍数，可以非整数，单位宽度大概是4倍默认字体的行高，**下面只要跟这八个个固定值有关的均是如此**
 
 ```python
-someObject.move_to(UP+2*RIGHT)
+someObject.move_to(UP + 2 * RIGHT)
 ```
 
 参数也可以是numpy向量：
 
 ```python
-vec = np.array([1,2,0])
+vec = np.array([1, 2, 0])
 someObject.move_to(vec)
 ```
 
 因为图案的位置向量可以由`get_center`得到，所以可以如下操作：
 
 ```python
-someObject.move_to(someObject2.get_center()+2*RIGHT)
+someObject.move_to(someObject2.get_center() + 2 * RIGHT)
 ```
 
 参数还可以是另外一个图案，表示的位置是该图案的几何中心：
@@ -391,7 +390,7 @@ someObject.move_to(someObject2)
 
 #### 2.5.3 `next_to()`
 
-**`someObject1.next_to(someObject2,DIRECTION,buff=number)`** 
+**`someObject1.next_to(someObject2, DIRECTION, buff=number)`** 
 
 someObject1对于someObject2的相对位置
 
@@ -399,19 +398,19 @@ someObject1对于someObject2的相对位置
 
 ![1565755487243](README.assets/1565755487243.png)
 
-如：`text1.next_to(text2,LEFT,buff=2)` ：
+如：`text1.next_to(text2, LEFT, buff=2)` ：
 
 ![1565702556749](README.assets/1565702556749.png)
 
 #### 2.5.4 `shift()`
 
-**`someObject.shift(DIRECTION*number)`：**
+**`someObject.shift(DIRECTION * number)`：**
 
 自己垂直方向平移
 
 #### 2.5.5 `rotate()`
 
-**`someObject.rotate(PI*number或者number，point)`：** 
+**`someObject.rotate(PI*number 或者 number，point)`：** 
 
 逆时针旋转
 
@@ -426,7 +425,7 @@ class RotateObject(Scene):
         textC = TextMobject("Reference text")
         textM.shift(UP)
         textM.rotate(PI/4) 
-        self.play(Write(textM),Write(textC))
+        self.play(Write(textM), Write(textC))
         self.wait(2)
 ```
 
@@ -439,8 +438,8 @@ class RotateObject(Scene):
     def construct(self):
         textM = TextMobject("Text")
         textC = TextMobject("Reference text")
-        textM.rotate(PI/4,textC) 
-        self.play(Write(textM),Write(textC))
+        textM.rotate(PI/4, textC) 
+        self.play(Write(textM), Write(textC))
         self.wait(2)
 ```
 
@@ -448,7 +447,7 @@ class RotateObject(Scene):
 
 **`someObject.flip(DIRECTION)`：**
 
-按照矢量量方向翻转180度，遵循右手定则。
+按照矢量量方向翻转180度，方向遵循右手定则。
 
 如`text.flip(UP)`：
 
@@ -462,7 +461,7 @@ class RotateObject(Scene):
 
 *（如果下一个操作是remove掉text而没有使用wait函数进行等待，最终效果会变成立即销毁text即没有显示text，下面的add也同理）*
 
-1. **`play(SomePlayMethod(someObject),run_time = seconds)`** ： 播放某种动画方法
+1. **`play(SomePlayMethod(someObject), run_time=seconds)`** ： 播放某种动画方法
 
    如果希望并行同时播放多个动画，仅仅是python语法问题，给出如下例子模板：
 
@@ -475,12 +474,12 @@ class RotateObject(Scene):
            dot3 = Dot()
            dot3.shift(DOWN)
     
-   		# 单个动画的演示
+           # 单个动画的演示
            self.play(Write(dot1))
            # 多个动画演示
            self.play(*[
-               Transform(i.copy(),j) for i,j in zip([dot1,dot1],[dot2,dot3])
-               ])# 故意使用i,j是为了显示zip的使用
+               Transform(i.copy(), j) for i, j in zip([dot1, dot1], [dot2, dot3])
+           ]) # 故意使用i,j是为了显示zip的使用
    
            self.wait()
    ```
@@ -544,8 +543,8 @@ class RotateObject(Scene):
   
 + `manimlib\animation\transform.py`从一个渐变成另一个
 
-    + **`Transform(someObject1,someObject2)`**
-    + **`ReplacementTransform(someObject1,someObject2)`**
+    + **`Transform(someObject1, someObject2)`**
+    + **`ReplacementTransform(someObject1, someObject2)`**
 
     两者的异同：
 
@@ -556,7 +555,7 @@ class RotateObject(Scene):
     伪代码：
 
     ```python
-    Transform(someObject1,someObject2):
+    Transform(someObject1, someObject2):
     	show someObject1 on screen
     	show the transform course of someObject1 to someObject2
     	someObject1 = someObject2
@@ -568,7 +567,7 @@ class RotateObject(Scene):
     伪代码：
 
     ```python
-    ReplacementTransform(someObject1,someObject2):
+    ReplacementTransform(someObject1, someObject2):
     	show someObject1 on screen
     	show the transform course of someObject1 to someObject2
     	someObject1 = someObject2
@@ -581,18 +580,18 @@ class RotateObject(Scene):
     ```python
     class TextArray(Scene):
         def construct(self):
-            text = TextMobject("tex1","text2","text3")
-            text[0].shift(2*LEFT)
+            text = TextMobject("tex1", "text2", "text3")
+            text[0].shift(2 * LEFT)
             text[0].set_color(RED)
             text[1].shift(LEFT)
             text[1].set_color(BLUE)
             self.play(Write(text[0]))
             self.wait(2)
             # 显示的还是text[0]只是text[0]值变成了text[1]
-            self.play(Transform(text[0],text[1]))
+            self.play(Transform(text[0], text[1]))
             # 此时没有让text[0]消失，但让text[1]显现并转换为text[2]
             # 最终text[0]的值为初始text[1]的值，text[1]的值为初始text[2]的值
-            self.play(Transform(text[1],text[2]))
+            self.play(Transform(text[1], text[2]))
             # 最终屏幕上显示的是text[0]和text[1]
             self.wait(3)
     ```
@@ -608,18 +607,18 @@ class RotateObject(Scene):
     ```python
     class TextArray(Scene):
         def construct(self):
-            text = TextMobject("tex1","text2","text3")
-            text[0].shift(2*LEFT)
+            text = TextMobject("tex1", "text2", "text3")
+            text[0].shift(2 * LEFT)
             text[0].set_color(RED)
             text[1].shift(LEFT)
             text[1].set_color(BLUE)
             self.play(Write(text[0]))
             self.wait(2)
             # 显示的是text[1]但是text[0]值也变成了text[1]，text[0]消失
-            self.play(ReplacementTransform(text[0],text[1]))
+            self.play(ReplacementTransform(text[0], text[1]))
             # 显示text[2],text[1]值也变成了text[2]，text[1]消失
             # 最终text[0]的值为初始text[1]的值，text[1]的值为初始text[2]的值
-            self.play(ReplacementTransform(text[1],text[2]))
+            self.play(ReplacementTransform(text[1], text[2]))
             # 最终显示的是text[2]
             self.wait(3)
     ```
@@ -679,17 +678,17 @@ class RotateObject(Scene):
     class Updater(Scene):
         def construct(self):
             dot = Dot()
-            text = TextMobject("Label").next_to(dot,RIGHT,buff=SMALL_BUFF)
+            text = TextMobject("Label").next_to(dot, RIGHT, buff=SMALL_BUFF)
     
-            self.add(dot,text)
+            self.add(dot, text)
     
             def update_text(obj):
-                obj.next_to(dot,RIGHT,buff=SMALL_BUFF)
+                obj.next_to(dot, RIGHT, buff=SMALL_BUFF)
     
             # Only works in play
             self.play(
-                dot.shift,UP*2,
-                UpdateFromFunc(text,update_text)
+                dot.shift, UP * 2,
+                UpdateFromFunc(text, update_text)
             )
     
             self.wait()
@@ -711,7 +710,7 @@ class RotateObject(Scene):
 
 ```python
  self.play(
-     triangle.shift,RIGHT*2,
+     triangle.shift, RIGHT * 2,
      rate_func=smooth, # Change this with: linear,smooth
      run_time=5
 )
@@ -719,19 +718,19 @@ class RotateObject(Scene):
 
 #### 2.6.2 `add()`
 
-**`self.add(someObject1,someObject2,…)`**
+**`self.add(someObject1, someObject2, ...)`**
 
 无动画添加文字，可以是多个text
 
 #### 2.6.3 `wait()`
 
-**`self.wait(int seconds)`：**
+**`self.wait(seconds)`：**
 
 等待动画停留时间，如果没有参数则默认等待到将动画播放完为止
 
 #### 2.6.4 `remove()`
 
-**`self.remove(someObject1,someObject2,…)`：**
+**`self.remove(someObject1, someObject2,…)`：**
 
 移除text，可以是多个text，注意FadeOut类的动画虽然自带消失效果但是该变量还是会停留在内存中
 
@@ -759,7 +758,7 @@ class TextArray(Scene):
         dot1.scale(3)
         dot1.shift(UP)
         dot2 = Dot()
-        self.add(dot1,dot2)
+        self.add(dot1, dot2)
         self.wait(3)
 ```
 
@@ -785,20 +784,20 @@ class AddUpdater1(Scene):
     def construct(self):
         dot = Dot()
         text = TextMobject("Label")\
-               .next_to(dot,RIGHT,buff=SMALL_BUFF)
+               .next_to(dot, RIGHT, buff=SMALL_BUFF)
 
-        self.add(dot,text)
+        self.add(dot, text)
 
         # Update function 更新函数
         def update_text(obj):
-            obj.next_to(dot,RIGHT,buff=SMALL_BUFF)
+            obj.next_to(dot, RIGHT, buff=SMALL_BUFF)
 
         # Add update function to the objects
         # 把更新函数加给对象
         text.add_updater(update_text)
         
         # 如果想简洁，lambda表达式如下：
-        # text.add_updater(lambda m: m.next_to(dot,RIGHT,buff=SMALL_BUFF))
+        # text.add_updater(lambda m: m.next_to(dot, RIGHT, buff=SMALL_BUFF))
         # 此时下面的remove_updater(update_text)不能继续使用，需要改为clear_updaters
 
         # Add the object again 重新加入text
@@ -806,7 +805,7 @@ class AddUpdater1(Scene):
         # 即使之前加入过，现在还是要重新加入
         self.add(text)
 
-        self.play(dot.shift,UP*2)
+        self.play(dot.shift, UP * 2)
 
         # Remove update function
         text.remove_updater(update_text)
@@ -833,7 +832,7 @@ class AddUpdater1(Scene):
 ```python
 class TextArray(Scene):
     def construct(self):
-        text = TextMobject("A","B","C","D","E","F")
+        text = TextMobject("A", "B", "C", "D", "E", "F")
         text[0].set_color(RED)
         text[1].set_color(ORANGE)
         text[2].set_color(YELLOW)
@@ -850,7 +849,7 @@ class TextArray(Scene):
 ```python
 class TexArray(Scene):
     def construct(self):
-        text = TexMobject("A","{B","\\over","C}","D","E")
+        text = TexMobject("A", "{B", "\\over", "C}", "D", "E")
         text[0].set_color(RED)
         text[1].set_color(ORANGE)
         text[2].set_color(YELLOW)
@@ -867,7 +866,7 @@ class TexArray(Scene):
 对于数组可以直接如同对单个object操作,如：
 
 ```python
- text.shift(UP)
+text.shift(UP)
 ```
 
 **注意：**
@@ -1001,12 +1000,12 @@ CONFIG = {
 ```python
 class Graph2D(GraphScene):
     def x_2(self, x):
-        return x**2
+        return x ** 2
 
     def construct(self):
         self.setup_axes(animate=True)
-        graph = self.get_graph(self.x_2,color = GREEN,x_min = 2,x_max = 4)
-        self.play(ShowCreation(graph),run_time = 2)
+        graph = self.get_graph(self.x_2, color=GREEN, x_min=2, x_max=4)
+        self.play(ShowCreation(graph), run_time=2)
         self.wait()
 ```
 
@@ -1021,7 +1020,7 @@ class Graph2D(GraphScene):
 
 ### 5.2 `get_graph()`
 
-**`get_graph(func, color=None,x_min=None,x_max=None, **kwargs)`**
+**`get_graph(func, color=None, x_min=None, x_max=None, **kwargs)`**
 
 得到坐标系的句柄，并设置值
 
@@ -1039,7 +1038,7 @@ class Graph2D(GraphScene):
 
 ### 5.5 `get_graph_label()`
 
-**`get_graph_label(graph,label="f(x)", x_val=None,direction=RIGHT, buff=MED_SMALL_BUFF, color=None)`**
+**`get_graph_label(graph, label="f(x)", x_val=None, direction=RIGHT, buff=MED_SMALL_BUFF, color=None)`**
 
 `graph`：从graph中获得坐标标签
 
@@ -1061,7 +1060,7 @@ class Graph2D(GraphScene):
 
 ### 5.7 `get_vertical_lines_to_graph()`
 
-**`get_vertical_lines_to_graph( graph,x_min=None,x_max=None, num_lines=20, **kwargs)`**
+**`get_vertical_lines_to_graph(graph, x_min=None, x_max=None, num_lines=20, **kwargs)`**
 
 同时得到画多条竖直线
 
@@ -1076,8 +1075,8 @@ class Graph2D(GraphScene):
 > Add this to the `CONFIG` dictionary:在CONFIG中加入：
 >
 > ```
-> "x_label_color":RED,
-> "y_label_color":BLUE
+> "x_label_color": RED,
+> "y_label_color": BLUE
 > ```
 >
 > In the `setup_axes` method change the lines：在源码的setup_axes中的两句：
@@ -1091,9 +1090,9 @@ class Graph2D(GraphScene):
 > with改为
 >
 > ```
-> x_label = TextMobject(self.x_axis_label,color=self.x_label_color)
+> x_label = TextMobject(self.x_axis_label, color=self.x_label_color)
 > # and
-> y_label = TextMobject(self.x_axis_label,color=self.y_label_color)
+> y_label = TextMobject(self.x_axis_label, color=self.y_label_color)
 > ```
 
 效果：
@@ -1142,22 +1141,22 @@ class Graph2D(GraphScene):
            textscriptsize = TextMobject("{\\scriptsize scriptsize Text 012.\\#!?} Text")
            texttiny = TextMobject("{\\tiny tiny Texto 012.\\#!?} Text normal")
            textHuge.to_edge(UP)
-           texthuge.next_to(textHuge,DOWN,buff=0.1)
-           textLARGE.next_to(texthuge,DOWN,buff=0.1)
-           textLarge.next_to(textLARGE,DOWN,buff=0.1)
-           textlarge.next_to(textLarge,DOWN,buff=0.1)
-           textNormal.next_to(textlarge,DOWN,buff=0.1)
-           textsmall.next_to(textNormal,DOWN,buff=0.1)
-           textfootnotesize.next_to(textsmall,DOWN,buff=0.1)
-           textscriptsize.next_to(textfootnotesize,DOWN,buff=0.1)
-           texttiny.next_to(textscriptsize,DOWN,buff=0.1)
-           self.add(textHuge,texthuge,textLARGE,textLarge,textlarge,textNormal,textsmall,textfootnotesize,textscriptsize,texttiny)
+           texthuge.next_to(textHuge, DOWN, buff=0.1)
+           textLARGE.next_to(texthuge, DOWN, buff=0.1)
+           textLarge.next_to(textLARGE, DOWN, buff=0.1)
+           textlarge.next_to(textLarge, DOWN, buff=0.1)
+           textNormal.next_to(textlarge, DOWN, buff=0.1)
+           textsmall.next_to(textNormal, DOWN, buff=0.1)
+           textfootnotesize.next_to(textsmall, DOWN, buff=0.1)
+           textscriptsize.next_to(textfootnotesize, DOWN, buff=0.1)
+           texttiny.next_to(textscriptsize, DOWN, buff=0.1)
+           self.add(textHuge, texthuge, textLARGE, textLarge, textlarge, textNormal, textsmall, textfootnotesize, textscriptsize, texttiny)
            self.wait(3)
    ```
 
    ![1565704370228](README.assets/1565704370228.png)
 
-2.  **`TextMobject(string1,string2,string3,…)`：** 传入多个字符串，返回`TextMobject`数组，可以按照下表索引数组的值
+2.  **`TextMobject(string1, string2, string3, ...)`：** 传入多个字符串，返回`TextMobject`数组，可以按照下表索引数组的值
 
 ## 7. LaTeX文本类 `TexMobject`
 
@@ -1398,7 +1397,7 @@ CONFIG = {
 
 ```python
 def func(x, y):
-    return np.array([x**2,y+2,x**2 - y**2])
+    return np.array([x ** 2, y + 2, x ** 2 - y ** 2])
 ```
 
 绘制三维曲面的例子：
@@ -1417,10 +1416,10 @@ class SurfacesAnimation(ThreeDScene):
 
         paraboloid = ParametricSurface(
             lambda u, v: np.array([
-                np.cos(v)*u,
-                np.sin(v)*u,
-                u**2
-            ]),v_max=TAU,
+                np.cos(v) * u,
+                np.sin(v) * u,
+                u ** 2
+            ]), v_max=TAU,
             checkerboard_colors=[PURPLE_D, PURPLE_E],
             resolution=(10, 32)).scale(2)
 
@@ -1429,39 +1428,39 @@ class SurfacesAnimation(ThreeDScene):
                 u,
                 v,
                 u**2-v**2
-            ]),v_min=-2,v_max=2,u_min=-2,u_max=2,checkerboard_colors=[BLUE_D, BLUE_E],
+            ]), v_min=-2, v_max=2, u_min=-2, u_max=2, checkerboard_colors=[BLUE_D, BLUE_E],
             resolution=(15, 32)).scale(1)
 
         cone = ParametricSurface(
             lambda u, v: np.array([
-                u*np.cos(v),
-                u*np.sin(v),
+                u * np.cos(v),
+                u * np.sin(v),
                 u
-            ]),v_min=0,v_max=TAU,u_min=-2,u_max=2,checkerboard_colors=[GREEN_D, GREEN_E],
+            ]), v_min=0, v_max=TAU, u_min=-2, u_max=2, checkerboard_colors=[GREEN_D, GREEN_E],
             resolution=(15, 32)).scale(1)
 
         hip_one_side = ParametricSurface(
             lambda u, v: np.array([
-                np.cosh(u)*np.cos(v),
-                np.cosh(u)*np.sin(v),
+                np.cosh(u) *np.cos(v),
+                np.cosh(u) * np.sin(v),
                 np.sinh(u)
-            ]),v_min=0,v_max=TAU,u_min=-2,u_max=2,checkerboard_colors=[YELLOW_D, YELLOW_E],
+            ]), v_min=0, v_max=TAU, u_min=-2, u_max=2, checkerboard_colors=[YELLOW_D, YELLOW_E],
             resolution=(15, 32))
 
         ellipsoid=ParametricSurface(
             lambda u, v: np.array([
-                1*np.cos(u)*np.cos(v),
-                2*np.cos(u)*np.sin(v),
-                0.5*np.sin(u)
-            ]),v_min=0,v_max=TAU,u_min=-PI/2,u_max=PI/2,checkerboard_colors=[TEAL_D, TEAL_E],
+                1 * np.cos(u) * np.cos(v),
+                2 * np.cos(u) * np.sin(v),
+                0.5 * np.sin(u)
+            ]), v_min=0, v_max=TAU, u_min=-PI/2, u_max=PI/2, checkerboard_colors=[TEAL_D, TEAL_E],
             resolution=(15, 32)).scale(2)
 
         sphere = ParametricSurface(
             lambda u, v: np.array([
-                1.5*np.cos(u)*np.cos(v),
-                1.5*np.cos(u)*np.sin(v),
-                1.5*np.sin(u)
-            ]),v_min=0,v_max=TAU,u_min=-PI/2,u_max=PI/2,checkerboard_colors=[RED_D, RED_E],
+                1.5 * np.cos(u) * np.cos(v),
+                1.5 * np.cos(u) * np.sin(v),
+                1.5 * np.sin(u)
+            ]), v_min=0, v_max=TAU, u_min=-PI/2, u_max=PI/2, checkerboard_colors=[RED_D, RED_E],
             resolution=(15, 32)).scale(2)
 
 
@@ -1472,17 +1471,17 @@ class SurfacesAnimation(ThreeDScene):
         self.add(axes)
         self.play(Write(sphere))
         self.wait()
-        self.play(ReplacementTransform(sphere,ellipsoid))
+        self.play(ReplacementTransform(sphere, ellipsoid))
         self.wait()
-        self.play(ReplacementTransform(ellipsoid,cone))
+        self.play(ReplacementTransform(ellipsoid, cone))
         self.wait()
-        self.play(ReplacementTransform(cone,hip_one_side))
+        self.play(ReplacementTransform(cone, hip_one_side))
         self.wait()
-        self.play(ReplacementTransform(hip_one_side,para_hyp))
+        self.play(ReplacementTransform(hip_one_side, para_hyp))
         self.wait()
-        self.play(ReplacementTransform(para_hyp,paraboloid))
+        self.play(ReplacementTransform(para_hyp, paraboloid))
         self.wait()
-        self.play(ReplacementTransform(paraboloid,cylinder))
+        self.play(ReplacementTransform(paraboloid, cylinder))
         self.wait()
         self.play(FadeOut(cylinder))
 ```
@@ -1510,19 +1509,19 @@ CONFIG = {
 class ParametricCurve2(ThreeDScene):
     def construct(self):
         curve1=ParametricFunction(
-                lambda u : np.array([
-                1.2*np.cos(u),
-                1.2*np.sin(u),
-                u/2
-            ]),color=RED,t_min=-TAU,t_max=TAU,
-            )
+                lambda u: np.array([
+                1.2 * np.cos(u),
+                1.2 * np.sin(u),
+                u / 2
+            ]), color=RED, t_min=-TAU, t_max=TAU,
+        )
         curve2=ParametricFunction(
-                lambda u : np.array([
-                1.2*np.cos(u),
-                1.2*np.sin(u),
+                lambda u: np.array([
+                1.2 * np.cos(u),
+                1.2 * np.sin(u),
                 u
-            ]),color=RED,t_min=-TAU,t_max=TAU,
-            )
+            ]), color=RED, t_min=-TAU, t_max=TAU,
+        )
 
         curve1.set_shade_in_3d(True)
         curve2.set_shade_in_3d(True)
@@ -1531,11 +1530,11 @@ class ParametricCurve2(ThreeDScene):
 
         self.add(axes)
 
-        self.set_camera_orientation(phi=80 * DEGREES,theta=-60*DEGREES)
+        self.set_camera_orientation(phi=80 * DEGREES, theta=-60 * DEGREES)
         self.begin_ambient_camera_rotation(rate=0.1) 
         self.play(ShowCreation(curve1))
         self.wait()
-        self.play(Transform(curve1,curve2),rate_func=there_and_back,run_time=3)
+        self.play(Transform(curve1, curve2), rate_func=there_and_back, run_time=3)
         self.wait()
 ```
 
@@ -1543,11 +1542,11 @@ class ParametricCurve2(ThreeDScene):
 
 可以将多个图像合并为一个组进行批量同步操作(自我理解为`Vectorized Group`的缩写)
 
-**`someObjectGroup = VGroup(someObject1,someObject2,…)`**
+**`someObjectGroup = VGroup(someObject1, someObject2, ...)`**
 
 ### 10.1 `arrange()`
 
-**`someObjectGroup.arrange(DIRECTION,aligned_edge = DIRECTION,buff=number)`**
+**`someObjectGroup.arrange(DIRECTION, aligned_edge=DIRECTION, buff=number)`**
 
 **`DIRECTION`：** 以someObject1,someObject2,…顺序按照此方向排列
 
@@ -1563,10 +1562,10 @@ class ArrangeObjects(Scene):
         text1 = TextMobject("text1")
         text2 = TextMobject("text2 text2")
         text3 = TextMobject("text3 text3 text3")
-        textgroup = VGroup(text1,text2,text3)
+        textgroup = VGroup(text1, text2, text3)
         textgroup.arrange(
             UP,
-            aligned_edge = LEFT,
+            aligned_edge=LEFT,
             buff=0.4
         )
         self.add(textgroup)
@@ -1583,7 +1582,7 @@ class ArrangeObjects(Scene):
 self.play(
     text_group.arrange,
     UP,
-    {"aligned_edge":RIGHT,"buff":2}
+    {"aligned_edge": RIGHT, "buff": 2}
 )
 ```
 
@@ -1597,13 +1596,13 @@ self.play(
 
 ### 11.1 `set_camera_orientation`
 
-**`threeDScene.set_camera_orientation(phi=degrees1,theta=degrees2,gamma=degrees3,distance=number)`**
+**`threeDScene.set_camera_orientation(phi=degrees1, theta=degrees2, gamma=degrees3, distance=number)`**
 
 设置相机的角度
 
 ### 11.2 `move_camera`
 
-**`threeDScene.move_camera(phi=None,theta=None, distance=None, gamma=None, frame_center=None,added_anims=[],**kwargs)`**
+**`threeDScene.move_camera(phi=None, theta=None, distance=None, gamma=None, frame_center=None, added_anims=[], **kwargs)`**
 
 例子：
 
@@ -1611,16 +1610,16 @@ self.play(
 class MoveCamera2(ThreeDScene):
     def construct(self):
         axes = ThreeDAxes()
-        circle=Circle()
+        circle = Circle()
         self.set_camera_orientation(phi=80 * DEGREES)           
-        self.play(ShowCreation(circle),ShowCreation(axes))
-        #Start move camera
+        self.play(ShowCreation(circle), ShowCreation(axes))
+        # Start moving camera
         self.begin_ambient_camera_rotation(rate=0.1)            
         self.wait(5)
-        #Stop move camera
+        # Stop moving camera
         self.stop_ambient_camera_rotation()                     
-        #Return the position of the camera
-        self.move_camera(phi=80*DEGREES,theta=-PI/2)            
+        # Return the position of the camera
+        self.move_camera(phi=80*DEGREES, theta=-PI/2)            
         self.wait()
 ```
 
@@ -1640,10 +1639,10 @@ class MoveCamera2(ThreeDScene):
 class Text3D3(ThreeDScene):
     def construct(self):
         axes = ThreeDAxes()
-        self.set_camera_orientation(phi=75 * DEGREES,theta=-45*DEGREES)
-        text3d=TextMobject("This is a 3D text")
+        self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
+        text3d = TextMobject("This is a 3D text")
 
-        self.add_fixed_in_frame_mobjects(text3d) #<----- Add this
+        self.add_fixed_in_frame_mobjects(text3d) # <----- Add this
         text3d.to_corner(UL)
 
         self.add(axes)
@@ -1652,13 +1651,13 @@ class Text3D3(ThreeDScene):
 
         sphere = ParametricSurface(
             lambda u, v: np.array([
-                1.5*np.cos(u)*np.cos(v),
-                1.5*np.cos(u)*np.sin(v),
-                1.5*np.sin(u)
-            ]),v_min=0,v_max=TAU,u_min=-PI/2,u_max=PI/2,checkerboard_colors=[RED_D, RED_E],
+                1.5 * np.cos(u) * np.cos(v),
+                1.5 * np.cos(u) * np.sin(v),
+                1.5 * np.sin(u)
+            ]), v_min=0, v_max=TAU, u_min=-PI/2, u_max=PI/2, checkerboard_colors=[RED_D, RED_E],
             resolution=(15, 32)).scale(2)
 
-        self.play(LaggedStart(ShowCreation,sphere))
+        self.play(LaggedStartMap(ShowCreation, sphere))
         self.wait(2)
 ```
 
@@ -1743,7 +1742,7 @@ CONFIG = {
 
 + `get_axis(index)`:得到index对应的坐标，xyz坐标对应的index分别为1，2，3
 
-+ `get_x_axis();get_y_axis();get_z_axis()`
++ `get_x_axis(); get_y_axis(); get_z_axis()`
 
 + `get_axis_label`一类：给对应的坐标（轴）添加标签，显示标签，并返回标签对象
 
@@ -1857,9 +1856,9 @@ class ComplexPlaneScene(Scene):
     def construct(self):
         # See manimlib/mobject/number_line.py and coordinate_systems.py
         cp = ComplexPlane(
-                        y_axis_config={"decimal_number_config":{"unit": "i"}},
-                        number_line_config={"include_numbers":True}
-                        )
+            y_axis_config={"decimal_number_config": {"unit": "i"}},
+            number_line_config={"include_numbers": True}
+        )
 
         x_axis = cp[-2]
         y_axis = cp[-1]
@@ -1872,14 +1871,14 @@ class ComplexPlaneScene(Scene):
         y_labels = y_axis[1]
         y_labels.set_color(YELLOW)
         for y in y_labels:
-            y.rotate(-PI/2)
+            y.rotate(-PI / 2)
 
         x_label = TexMobject("x")
-        x_label.move_to(cp.c2p(6.8,x_label.get_height()))
+        x_label.move_to(cp.c2p(6.8, x_label.get_height()))
         y_label = TexMobject("y")
-        y_label.move_to(cp.c2p(-y_label.get_width(),3.8))
+        y_label.move_to(cp.c2p(-y_label.get_width(), 3.8))
 
-        self.add(cp,x_label,y_label)
+        self.add(cp, x_label, y_label)
 
         self.wait()
 ```
