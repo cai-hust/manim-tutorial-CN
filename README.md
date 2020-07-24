@@ -2,72 +2,72 @@
 
 - [manim基础教程](#manim基础教程)
     - [1. 文件的执行](#1-文件的执行)
-        - [1.1 **保存为视频并立即播放**](#11-保存为视频并立即播放)
-        - [1.2 **保留帧**](#12-保留帧)
-        - [1.3 **视频尺寸**](#13-视频尺寸)
-        - [1.4 **视频通道**](#14-视频通道)
-        - [1.5 **保留进度显示条**](#15-保留进度显示条)
+        - [1.1 保存为视频并立即播放](#11-保存为视频并立即播放)
+        - [1.2 保留帧](#12-保留帧)
+        - [1.3 视频尺寸](#13-视频尺寸)
+        - [1.4 视频通道](#14-视频通道)
+        - [1.5 保留进度显示条](#15-保留进度显示条)
         - [1.6 从某一个动画状态（animation）开始存为视频](#16-从某一个动画状态animation开始存为视频)
     - [2. 显示操作](#2-显示操作)
-        - [2.1 基本步骤（以TextMobject为例）](#21-基本步骤以textmobject为例)
+        - [2.1 基本步骤（以`TextMobject`为例）](#21-基本步骤以textmobject为例)
         - [2.5 位置相关的函数](#25-位置相关的函数)
-            - [**2.5.1**toedge()和tocorner()](#251toedge和tocorner)
-            - [2.5.2 moveto()](#252-moveto)
-            - [2.5.3 nextto()](#253-nextto)
-            - [2.5.4 shift()](#254-shift)
-            - [2.5.5 rotate()](#255-rotate)
-            - [2.5.6 flip()](#256-flip)
+            - [2.5.1 `to_edge()`和`to_corner()`](#251-to_edge和to_corner)
+            - [2.5.2 `move_to()`](#252-move_to)
+            - [2.5.3 `next_to()`](#253-next_to)
+            - [2.5.4 `shift()`](#254-shift)
+            - [2.5.5 `rotate()`](#255-rotate)
+            - [2.5.6 `flip()`](#256-flip)
         - [2.6 播放动画](#26-播放动画)
-            - [2.6.1 **play**()](#261-play)
+            - [2.6.1 `play()`](#261-play)
                 - [2.6.1.1 显示动画函数SomePlayMethods](#2611-显示动画函数someplaymethods)
-                - [2.6.1.2 runtime](#2612-runtime)
-            - [2.6.2 add()](#262-add)
-            - [2.6.3 wait()](#263-wait)
-            - [2.6.4 remove()](#264-remove)
+                - [2.6.1.2 `run_time`](#2612-run_time)
+            - [2.6.2 `add()`](#262-add)
+            - [2.6.3 `wait()`](#263-wait)
+            - [2.6.4 `remove()`](#264-remove)
         - [2.7 设置颜色](#27-设置颜色)
         - [2.8 缩放大小](#28-缩放大小)
-        - [2.9 并行动画](#29-并行动画)
+        - [2.9 同步播放动画](#29-同步播放动画)
     - [3. text数组](#3-text数组)
-    - [4. 基础动画类 Scene](#4-基础动画类-scene)
-    - [5. 二维坐标类 GraphScene](#5-二维坐标类-graphscene)
-        - [5.1 setupaxes()](#51-setupaxes)
-        - [5.2 getgraph()](#52-getgraph)
-        - [5.3 coordstopoint()](#53-coordstopoint)
-        - [5.4 pointtocoords()](#54-pointtocoords)
-        - [5.5 getgraphlabel()](#55-getgraphlabel)
-        - [5.6 getverticallinetograph()](#56-getverticallinetograph)
-        - [5.7 getverticallinestograph()](#57-getverticallinestograph)
-        - [5.8 改变坐标标签的颜色](#58-改变坐标标签的颜色)
-    - [6. 文本类 TextMobject](#6-文本类-textmobject)
-    - [7. LaTeX文本类 TexMobject](#7-latex文本类-texmobject)
+    - [4. 基础动画类 `Scene`](#4-基础动画类-scene)
+    - [5. 二维坐标类 `GraphScene`](#5-二维坐标类-graphscene)
+        - [5.1 `setup_axes()`](#51-setu_paxes)
+        - [5.2 `get_graph()`](#52-get_graph)
+        - [5.3 `coords_to_point()`](#53-coords_to_point)
+        - [5.4 `point_to_coords()`](#54-point_to_coords)
+        - [5.5 `get_graph_label()`](#55-get_graph_label)
+        - [5.6 `get_vertical_line_to_graph()`](#56-get_vertical_line_to_graph)
+        - [5.7 `get_vertical_lines_to_graph()`](#57-get_vertical_lines_to_graph)
+        - [5.8 `改变坐标标签的颜色](#58-改变坐标标签的颜色)
+    - [6. 文本类 `TextMobject`](#6-文本类-textmobject)
+    - [7. LaTeX文本类 `TexMobject`](#7-latex文本类-texmobject)
     - [8. 二维图形类](#8-二维图形类)
-        - [8.1 点Dot](#81-点dot)
-        - [8.2 圆形Circle](#82-圆形circle)
-        - [8.3 环Annulus](#83-环annulus)
-        - [8.4 长方形Rectangle](#84-长方形rectangle)
-        - [8.5 方形Square](#85-方形square)
-        - [8.6 椭圆Ellipse](#86-椭圆ellipse)
-        - [8.7 弧Arc](#87-弧arc)
-        - [8.8 线Line](#88-线line)
+        - [8.1 点 `Dot`](#81-点dot)
+        - [8.2 圆形 `Circle`](#82-圆形circle)
+        - [8.3 环 `Annulus`](#83-环annulus)
+        - [8.4 长方形 `Rectangle`](#84-长方形rectangle)
+        - [8.5 方形 `Square`](#85-方形square)
+        - [8.6 椭圆 `Ellipse`](#86-椭圆ellipse)
+        - [8.7 弧 `Arc`](#87-弧arc)
+        - [8.8 线 `Line`](#88-线line)
     - [9. 三维图形类](#9-三维图形类)
-        - [9.1 球 Sphere](#91-球-sphere)
-        - [9.2 立方 Cube](#92-立方-cube)
-        - [9.3 棱柱Prism](#93-棱柱prism)
-        - [9.4 参数曲面 ParametricSurface](#94-参数曲面-parametricsurface)
-        - [9.5 参数曲线 ParametricFunction](#95-参数曲线-parametricfunction)
-    - [10. 群组类VGroup](#10-群组类vgroup)
-        - [10.1 arrange()](#101-arrange)
+        - [9.1 球 `Sphere`](#91-球-sphere)
+        - [9.2 立方 `Cube`](#92-立方-cube)
+        - [9.3 棱柱 `Prism`](#93-棱柱prism)
+        - [9.4 参数曲面 `ParametricSurface`](#94-参数曲面-parametricsurface)
+        - [9.5 参数曲线 `ParametricFunction`](#95-参数曲线-parametricfunction)
+    - [10. 群组类 `VGroup`](#10-群组类vgroup)
+        - [10.1 `arrange()`](#101-arrange)
     - [11. 相机参数](#11-相机参数)
-        - [11.1 setcameraorientation](#111-setcameraorientation)
-        - [11.2 movecamera](#112-movecamera)
-        - [11.3 settodefaultangledcameraorientation](#113-settodefaultangledcameraorientation)
-        - [11.4 addfixedinframemobjects](#114-addfixedinframemobjects)
+        - [11.1 `set_camera_orientation`](#111-set_camera_orientation)
+        - [11.2 `move_camera`](#112-move_camera)
+        - [11.3 `set_to_default_angled_camera_orientation`](#113-set_to_default_angled_camera_orientation)
+        - [11.4 `add_fixed_in_frame_mobjects`](#114-add_fixed_in_frame_mobjects)
     - [12. 坐标系类](#12-坐标系类)
-        - [12.1 坐标系抽象类 CoordinateSystem](#121-坐标系抽象类-coordinatesystem)
-        - [12.2 二维坐标类 Axes](#122-二维坐标类-axes)
-        - [12.3 三维坐标系类 ThreeDAxes](#123-三维坐标系类-threedaxes)
-        - [12.4 NumberPlane](#124-numberplane)
-        - [12.5 ComplexPlane(NumberPlane)](#125-complexplanenumberplane)
+        - [12.1 坐标系抽象类 `CoordinateSystem`](#121-坐标系抽象类-coordinatesystem)
+        - [12.2 二维坐标类 `Axes`](#122-二维坐标类-axes)
+        - [12.3 三维坐标系类 `ThreeDAxes`](#123-三维坐标系类-threedaxes)
+        - [12.4 `NumberPlane`](#124-numberplane)
+        - [12.5 `ComplexPlane`](#125-complexplane)
     - [附录A：常见的常数](#附录a常见的常数)
         - [1. 颜色](#1-颜色)
         - [2. 方向](#2-方向)
@@ -85,80 +85,88 @@
 
 ## 1. 文件的执行
 
-**命令行执行：python -m manim \path\to\yourfile.py [className] [-params]**
+**命令行执行：`python -m manim \path\to\yourfile.py [className] [-params]`**
 
-*usage: manim.py [-h] [-p] [-w] [-s] [-l] [-m] [--high_quality] [-g] [-i] [-f]*
-                *[-t] [-q] [-a] [-o FILE_NAME] [-n START_AT_ANIMATION_NUMBER]*
-                *[-r RESOLUTION] [-c COLOR] [--sound] [--leave_progress_bars]*
-                *[--media_dir MEDIA_DIR]*
-                *[--video_dir VIDEO_DIR | --video_output_dir VIDEO_OUTPUT_DIR]*
-                *[--tex_dir TEX_DIR] [--livestream] [--to-twitch]*
-                *[--with-key TWITCH_KEY]*
-                *[file] [scene_names [scene_names ...]]*
+```text
+usage: manim.py [-h] [-p] [-w] [-s] [-l] [-m] [--high_quality] [-g] [-i] [-f]
+                [-t] [-q] [-a] [-o FILE_NAME] [-n START_AT_ANIMATION_NUMBER]
+                [-r RESOLUTION] [-c COLOR] [--sound] [--leave_progress_bars]
+                [--media_dir MEDIA_DIR]
+                [--video_dir VIDEO_DIR | --video_output_dir VIDEO_OUTPUT_DIR]
+                [--tex_dir TEX_DIR] [--livestream] [--to-twitch]
+                [--with-key TWITCH_KEY]
+                [file] [scene_names [scene_names ...]]
 
-*positional arguments:*
-  *file                  path to file holding the python code for the scene*
-  *scene_names           Name of the Scene class you want to see*
+positional arguments:
+  file                  path to file holding the python code for the scene
+  scene_names           Name of the Scene class you want to see
 
-*optional arguments:*  
-  *-h, --help            show this help message and exit*  
-  *-p, --preview         Automatically open the saved file once its done*  
-  *-w, --write_to_movie  Render the scene as a movie file*  
-  *-s, --save_last_frame*  *Save the last frame*  
-  *-l, --low_quality     Render at a low quality (for faster rendering)*  
-  *-m, --medium_quality  Render at a medium quality*  
-  *--high_quality        Render at a high quality*  
-  *-g, --save_pngs       Save each frame as a png*  
-  *-i, --save_as_gif     Save the video as gif*  
-  *-f, --show_file_in_finder* *Show the output file in finder*  
-  *-t, --transparent     Render to a movie file with an alpha channel*  
-  *-q, --quiet*  
-  *-a, --write_all       Write all the scenes from a file*  
-  *-o FILE_NAME, --file_name FILE_NAME*  *Specify the name of the output file, ifit should be*
-                        *different from the scene class name*  
-  *-n START_AT_ANIMATION_NUMBER, --start_at_animation_number     START_AT_ANIMATION_NUMBER*  
-                        *Start rendering not from the first animation,   butfrom another, specified by its index. If you passin two comma separated values, e.g. "3,6", it will end the rendering at the second value*  
-  *-r RESOLUTION, --resolution RESOLUTION* *Resolution, passed as "height,width"*  
-  *-c COLOR, --color COLOR*  *Background color*  
-  *--sound               Play a success/failure sound*  
-  *--leave_progress_bars* *Leave progress bars displayed in terminal*  
-  *--media_dir MEDIA_DIR* *directory to write media*  
-  *--video_dir VIDEO_DIR* *directory to write file tree for video*  
-  *--video_output_dir VIDEO_OUTPUT_DIR*  *directory to write video*  
-  *--tex_dir TEX_DIR     directory to write tex*  
-  *--livestream          Run in streaming mode*  
-  *--to-twitch           Stream to twitch*  
-  *--with-key TWITCH_KEY 	Stream key for twitch*  
+optional arguments:
+  -h, --help            show this help message and exit
+  -p, --preview         Automatically open the saved file once its done
+  -w, --write_to_movie  Render the scene as a movie file
+  -s, --save_last_frame  Save the last frame
+  -l, --low_quality     Render at a low quality (for faster rendering)
+  -m, --medium_quality  Render at a medium quality
+  --high_quality        Render at a high quality 
+  -g, --save_pngs       Save each frame as a png  
+  -i, --save_as_gif     Save the video as gif
+  -f, --show_file_in_finder Show the output file in finder  
+  -t, --transparent     Render to a movie file with an alpha channel  
+  -q, --quiet
+  -a, --write_all       Write all the scenes from a file
+  -o FILE_NAME, --file_name FILE_NAME  Specify the name of the output file, ifit should be
+                        different from the scene class name
+  -n START_AT_ANIMATION_NUMBER, --start_at_animation_number     START_AT_ANIMATION_NUMBER
+                        Start rendering not from the first animation,   butfrom another, specified by its index. If you passin two comma separated values, e.g. "3,6", it will end the rendering at the second value
+  -r RESOLUTION, --resolution RESOLUTION Resolution, passed as "height,width"
+  -c COLOR, --color COLOR  Background color
+  --sound               Play a success/failure sound
+  --leave_progress_bars Leave progress bars displayed in terminal
+  --media_dir MEDIA_DIR directory to write media 
+  --video_dir VIDEO_DIR directory to write file tree for video
+  --video_output_dir VIDEO_OUTPUT_DIR  directory to write video
+  --tex_dir TEX_DIR     directory to write tex
+  --livestream          Run in streaming mode
+  --to-twitch           Stream to twitch
+  --with-key TWITCH_KEY 	Stream key for twitch
+```
 
 ### 1.1 **保存为视频并立即播放**
 
-参数-p
+参数 `-p` 表示预览，不加分辨率选项默认使用最高画质(1440P60)
 
 如果有多个绘图类会出现列表让你选择
 
 也可以直接指定类名(示例为Example类)生成对应的类名的视频
 
-+ fps = 15,宽854，高480：
++ fps = 15,宽854，高480 (480P15)：
 
   ```bash
   python -m manim \path\to\yourfile.py Example -pl
   ```
 
-+ fps = 30,宽1280，高720：
++ fps = 30,宽1280，高720 (720P30)：
 
   ```bash
   python -m manim \path\to\yourfile.py Example -pm
   ```
-
-+ fps = 60,宽2560，高1440：
+  
++ fps = 60,宽1920，高1080 (1080P60):
 
   ```bash
-  python -m manim \path\to\yourfile.py Example -p
+  python -m manim \path\to\yourfile.py Example -p --high_quality
+  ```
+
++ fps = 60,宽2560，高1440 (1440P60)：
+
+  ```bash
+  python -m manim \path\to\yourfile.py Example -pw
   ```
 
 ### 1.2 **保留帧**
 
--s保留最后一帧
+`-s`保留最后一帧
 
 当有多个类的时候会出现选择项让你选择保留哪几个绘图类的最后一帧
 
@@ -173,7 +181,7 @@
   ```bash
   python -m manim \path\to\yourfile.py Example -al
   python -m manim \path\to\yourfile.py Example -am
-  python -m manim \path\to\yourfile.py Example -a
+  python -m manim \path\to\yourfile.py Example -aw
   ```
 
 + 保留全部绘图类最后一帧：
@@ -184,12 +192,12 @@
 
 ### 1.3 **视频尺寸**
 
--r HEIGHT WIDTH
+`-r HEIGHT WIDTH`
 
 + 高度500 宽度600
 
   ```bash
-  python -m manim \path\to\yourfile.py Example -plr 500 600
+  python -m manim \path\to\yourfile.py Example -pr 500 600
   ```
 
 + 默认为16/9因此默认可以仅设置高度不需要设置宽度
@@ -197,21 +205,21 @@
   高度为500的视频：
 
   ```bash
-  python -m manim \path\to\yourfile.py Example -plr 500
+  python -m manim \path\to\yourfile.py Example -pr 500
   ```
 
 ### 1.4 **视频通道**
 
--t, --transparent 		alpha通道，扩展名为mov
+`-t, --transparent` 生成的视频带有alpha通道（即透明背景），扩展名为`.mov`
 
 ### 1.5 **保留进度显示条**
 
-  --leave_progress_bars：
+`--leave_progress_bars`:
 
 ```
-python -m manim \path\to\yourfile.py Example -pl --leave_progress_bars
+$ python -m manim \path\to\yourfile.py Example -pl --leave_progress_bars
 Media will be written to ./media\. You can change this behavior with the --media_dir flag.
-Animation 0: WriteTextMobject, etc.: 100%|##############################################################################################| 15/15 [00:00<00:00, 32.48it/s] 
+Animation 0: WriteTextMobject, etc.: 100%|############################################| 15/15 [00:00<00:00, 32.48it/s] 
 
 File ready at \path\to\video.mp4
 
@@ -220,7 +228,7 @@ Played 2 animations
 
 ### 1.6 从某一个动画状态（animation）开始存为视频
 
- -n START_AT_ANIMATION_NUMBER, --start_at_animation_number START_AT_ANIMATION_NUMBER
+`-n START_AT_ANIMATION_NUMBER, --start_at_animation_number START_AT_ANIMATION_NUMBER`
 
 不是从第一个动画开始渲染，而是从索引指定的另一个动画开始渲染。 如果您传入两个逗号分隔值，例如 “3,6”，它将以第二个值渲染
 
@@ -248,36 +256,36 @@ class ShowGraph(Scene):
 
 不加起始渲染运行如下：
 
-```bash
-PS E:\programing-engineering\manim-tutorial\manim> python -m manim .\1_text_format.py ShowGraph -pl --leave_progress_bars      
+```text
+$ python -m manim .\1_text_format.py ShowGraph -pl --leave_progress_bars      
 Media will be written to ./media\. You can change this behavior with the --media_dir flag.
 dot = Dot()
 dot.to_edge(UL)
-Animation 1: FadeInDot: 100%|###########################################################################################################| 15/15 [00:00<00:00, 64.27it/s] 
+Animation 1: FadeInDot: 100%|############################################################| 15/15 [00:00<00:00, 64.27it/s] 
 text = TextMobject("text")
 text.to_corner(UP)
-Animation 4: WriteTextMobject: 100%|####################################################################################################| 15/15 [00:00<00:00, 39.79it/s] 
+Animation 4: WriteTextMobject: 100%|#####################################################| 15/15 [00:00<00:00, 39.79it/s] 
 
-File ready at E:\programing-engineering\manim-tutorial\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
+File ready at ...\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
 
 Played 6 animations
 ```
 
 增加起始渲染：
 
-从刚才的没有渲染的输出可以看出animation 1是dot.to_edge(UL)后的FadeInDot动画，所以如果-n 2则从animation 2开始，所以开始dot就已经显示在屏幕上面了
+从刚才的没有渲染的输出可以看出Animation1是`dot.to_edge(UL)`后的`FadeIn(dot)`动画，所以如果`-n 2`则从Animation2开始，所以开始dot就已经显示在屏幕上面了
 
-```bash
-PS E:\programing-engineering\manim-tutorial\manim> python -m manim .\1_text_format.py ShowGraph -pl -n 2  --leave_progress_bars
+```text
+$ python -m manim .\1_text_format.py ShowGraph -pl -n 2 --leave_progress_bars
 Media will be written to ./media\. You can change this behavior with the --media_dir flag.
 dot = Dot()
 dot.to_edge(UL)
-Animation 1: FadeInDot: 100%|###########################################################################################################| 15/15 [00:00<00:00, 84.02it/s] 
+Animation 1: FadeInDot: 100%|############################################################| 15/15 [00:00<00:00, 84.02it/s] 
 text = TextMobject("text")
 text.to_corner(UP)
-Animation 4: WriteTextMobject: 100%|####################################################################################################| 15/15 [00:00<00:00, 58.52it/s] 
+Animation 4: WriteTextMobject: 100%|#####################################################| 15/15 [00:00<00:00, 58.52it/s] 
 
-File ready at E:\programing-engineering\manim-tutorial\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
+File ready at ...\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
 
 Played 6 animations
 ```
@@ -288,21 +296,21 @@ Played 6 animations
 
 ### 1.7 默认显示进度条
 
-默认设置在manimlib/config.py，manimlib/extract_secne.py与manimlib/scene.py里进行定义，可以修改该文件进行修改默认配置,注意因为修改源码所以要小心
+默认设置在`manimlib/config.py`，`manimlib/extract_secne.py`与`manimlib/scene.py`里进行定义，可以修改该文件进行修改默认配置,注意因为修改源码所以要小心
 
 例如：在上面的三个文件里：
 
-将里面所有的“--leave_progress_bars”和“leave_progress_bars”修改为“--remove_progress_bars”与“remove__progress_bars”,同时将
+将里面所有的`--leave_progress_bars`和`leave_progress_bars`修改为`--remove_progress_bars`与`remove__progress_bars`,同时将
 
 ![1567668580431](README.assets/1567668580431.png)
 
 此处的action改成不显示
 
-这样如果加上--remove_progress_bars就不会显示进度条了，而默认是显示进度条的
+这样如果加上`--remove_progress_bars`就不会显示进度条了，而默认是显示进度条的
 
 ### 1.8 改变视频存放位置
 
-改变*manimlib/constants.py*中的：
+改变`manimlib/constants.py`中的：
 
 ```python
 if not os.path.isdir(MEDIA_DIR):
@@ -313,66 +321,65 @@ if not os.path.isdir(MEDIA_DIR):
 
 ### 1.9 存为gif
 
-You can use `python -m manim animation.py name_scene -im` to render gif medium quality, or `python -m manim animation.py name_scene -gm` to render all frames as images, the images are saved in a folder
+使用 `-i` 选项来导出gif文件，但是目前这个功能被删除掉了，可以按照[这里](https://manim.ml/problems/v2.3.html#q16-gif)更改回去
 
 ## 2. 显示操作
 
-### 2.1 基本步骤（以TextMobject为例）
+### 2.1 基本步骤（以`TextMobject`为例）
 
 ```python
 from manimlib.imports import *
 
 class WriteText(Scene): 
     def construct(self): 
-    	text = TextMobject("A Text")
+        text = TextMobject("A Text")
         text.to_edge(UP)
-        text.move_to(1*UP+0.1*RIGHT)
-      	//以play为例
-        self.play(SomeWriteMethod(text),run_time = seconds)
+        text.move_to(1 * UP + 0.1 * RIGHT)
+        self.play(SomeWriteMethod(text), run_time=seconds)
         self.wait(seconds)
         self.remove(text)
 ```
 
 ### 2.5 位置相关的函数
 
-#### **2.5.1**to_edge()和to_corner()
+#### **2.5.1** `to_edge()`和`to_corner()`
 
-**someObject.to_edge(DIRECTION的线性组合,buff = number)**
+**`someObject.to_edge(上下左右四个方向, buff=number)`**
 
-**someObject.to_corner(DIRECTION的四个组合方向,buff = number)**
+**`someObject.to_corner(左上左下右上右下四个方向, buff=number)`**
 
-to_edge参数可以是**任意方向**(方向有哪些见附录中方向常数列表)以及它们的线性组合，如**0.1\*RIGHT+0.2\*UP**，buff 两者的边缘的距离
+`to_edge`参数可以是**任意方向**(方向有哪些见附录中方向常数列表)以及它们的线性组合，如**0.1\*RIGHT+0.2\*UP**，`buff` 两者的边缘的距离
 
-to_corner仅接受组合方向**UR，UL，DR，DL**
+`to_corner`仅接受组合方向**UR，UL，DR，DL**
 
 ![1565752494266](README.assets/1565752494266.png)
 
-+ 如果没有to_edge和to_center默认为中间（**ORIGIN**）
-+ **someObject.to_edge(UP+RIGHT)**完全等效于**someObject.to_corner(UR)**,其余四个方向同理
++ 如果没有`to_edge`和`to_center`默认为中间（**ORIGIN**）
++ **`someObject.to_edge(UP + RIGHT)`**完全等效于**`someObject.to_corner(UR)`**,其余四个方向同理
 
-#### 2.5.2 move_to()
+#### 2.5.2 `move_to()`
 
-**someObject.move_to(DIRECTION的线性组合 or numpy的向量)**
+**`someObject.move_to(DIRECTION的线性组合 or numpy的向量)`**
 
 在当前位置移动到对应的位置
 
 参数可以是**UP，DOWN，LEFT，RIGHT等**的倍数，可以非整数，单位宽度大概是4倍默认字体的行高，**下面只要跟这八个个固定值有关的均是如此**
 
 ```python
-someObject.move_to(UP+2*RIGHT)
+someObject.move_to(UP + 2 * RIGHT)
 ```
 
 参数也可以是numpy向量：
 
 ```python
-vec = np.array([1,2,0])
+vec = np.array([1, 2, 0])
 someObject.move_to(vec)
 ```
 
-因为图案的位置向量可以由get_center得到，所以可以如下操作：
+因为图案的位置向量可以由`get_center`得到，所以可以如下操作：
 
 ```python
-someObject.move_to(someObject2.get_center()+2*RIGHT)
+someObject.move_to(someObject2.get_center() + 2 * RIGHT)
 ```
 
 参数还可以是另外一个图案，表示的位置是该图案的几何中心：
@@ -381,29 +388,29 @@ someObject.move_to(someObject2.get_center()+2*RIGHT)
 someObject.move_to(someObject2)
 ```
 
-#### 2.5.3 next_to()
+#### 2.5.3 `next_to()`
 
-**someObject1.next_to(someObject2,DIRECTION,buff=number)** 
+**`someObject1.next_to(someObject2, DIRECTION, buff=number)`** 
 
 someObject1对于someObject2的相对位置
 
-与move_to的区别在于，next_to表示的是边界的距离，而不是中心距离
+与`move_to`的区别在于，`next_to`表示的是边界的距离，而不是中心距离
 
 ![1565755487243](README.assets/1565755487243.png)
 
-如：text1.next_to(text2,LEFT,buff=2) ：
+如：`text1.next_to(text2, LEFT, buff=2)` ：
 
 ![1565702556749](README.assets/1565702556749.png)
 
-#### 2.5.4 shift()
+#### 2.5.4 `shift()`
 
-**someObject.shift(DIRECTION\*number)：**
+**`someObject.shift(DIRECTION * number)`：**
 
 自己垂直方向平移
 
-#### 2.5.5 rotate()
+#### 2.5.5 `rotate()`
 
-**someObject.rotate(PI*number或者number，point)：** 
+**`someObject.rotate(PI*number 或者 number，point)`：** 
 
 逆时针旋转
 
@@ -418,7 +425,7 @@ class RotateObject(Scene):
         textC = TextMobject("Reference text")
         textM.shift(UP)
         textM.rotate(PI/4) 
-        self.play(Write(textM),Write(textC))
+        self.play(Write(textM), Write(textC))
         self.wait(2)
 ```
 
@@ -431,30 +438,30 @@ class RotateObject(Scene):
     def construct(self):
         textM = TextMobject("Text")
         textC = TextMobject("Reference text")
-        textM.rotate(PI/4,textC) 
-        self.play(Write(textM),Write(textC))
+        textM.rotate(PI/4, textC) 
+        self.play(Write(textM), Write(textC))
         self.wait(2)
 ```
 
-#### 2.5.6 flip()
+#### 2.5.6 `flip()`
 
-**someObject.flip(DIRECTION)：**
+**`someObject.flip(DIRECTION)`：**
 
-按照矢量量方向翻转180度，遵循右手定则。
+按照矢量量方向翻转180度，方向遵循右手定则。
 
-如text.flip(UP)：
+如`text.flip(UP)`：
 
 ![1565703056789](README.assets/1565703056789.png)
 
 ### 2.6 播放动画
 
-#### 2.6.1 **play**()
+#### 2.6.1 **`play()`**
 
 动画效果，可以是多个text，这个函数是多线程的，所以不会阻塞就会进入下一行操作
 
 *（如果下一个操作是remove掉text而没有使用wait函数进行等待，最终效果会变成立即销毁text即没有显示text，下面的add也同理）*
 
-1. **play(SomePlayMethod(someObject),run_time = seconds)：**播放某种动画方法
+1. **`play(SomePlayMethod(someObject), run_time=seconds)`** ： 播放某种动画方法
 
    如果希望并行同时播放多个动画，仅仅是python语法问题，给出如下例子模板：
 
@@ -467,39 +474,41 @@ class RotateObject(Scene):
            dot3 = Dot()
            dot3.shift(DOWN)
     
-   		# 单个动画的演示
+           # 单个动画的演示
            self.play(Write(dot1))
            # 多个动画演示
            self.play(*[
-               Transform(i.copy(),j) for i,j in zip([dot1,dot1],[dot2,dot3])
-               ])# 故意使用i,j是为了显示zip的使用
+               Transform(i.copy(), j) for i, j in zip([dot1, dot1], [dot2, dot3])
+           ]) # 故意使用i,j是为了显示zip的使用
    
            self.wait()
    ```
 
-2. **play(someObjectX.functionX,functionParamX,**
-
-   ​	 **someObjectX.functionX,functionParamX,**
-
-   **……**
-
-   **run_time=seconds):同时改变某种或多种属性**
+2. 同时改变某种或多种属性
+   ```python
+   self.play(
+       someObjectX.methodX, functionParamX,
+       someObjectX.methodY, functionParamY,
+       ...,
+       run_time=seconds
+   )
+   ```
 
    ```python
    class ChangeColorAndSizeAnimation(Scene):
-   	def construct(self):
-   		text = TextMobject("Text")
-   		text.scale(2)
-   		text.shift(LEFT*2)
-   		self.play(Write(text))
-   		self.wait()
-   		self.play(
-                   text.shift, RIGHT*2,
-                   text.scale, 2,
-                   text.set_color, RED,
-                   run_time=2,
-               )
-   		self.wait()
+       def construct(self):
+           text = TextMobject("Text")
+           text.scale(2)
+           text.shift(LEFT*2)
+           self.play(Write(text))
+           self.wait()
+           self.play(
+               text.shift, RIGHT*2,
+               text.scale, 2,
+               text.set_color, RED,
+               run_time=2
+           )
+            self.wait()
    ```
 
 
@@ -507,58 +516,58 @@ class RotateObject(Scene):
 
 动画函数，主要包含下列几个：
 
-+ *\manimlib\animation\fading.py*：渐变效果 
++ `manimlib\animation\fading.py`：渐变效果 
   
-    **FadeXXX(someObject)**
+    **`FadeXXX(someObject)`**
     
-    + 包含FadeIn，FadeInFromDown，FadeOutAndShiftDown，FadeInFromPoint，FadeInFromLarge等等
+    + 包含`FadeIn`，`FadeInFromDown`，`FadeOutAndShiftDown`，`FadeInFromPoint`，`FadeInFromLarge`等等
     + 解释：fade in/out 渐入/出；shift down 垂直下降
     
-+ *\manimlib\animation\creation.py*：书写效果
++ `manimlib\animation\creation.py`：生成效果
   
-  **ShowCreation(someObject)**
+  **`ShowCreation(someObject)`**
   
   + 无法清楚表达，具体可以自行尝试看效果
   
-  **UnCreate(someObject)**
+  **`UnCreate(someObject)`**
   
   + 倒放ShowCreation动画效果
   
-  **DrawBorderThenFill(someObject)**
+  **`DrawBorderThenFill(someObject)`**
   
   + 画出边界然后填充
   
-  **Write(someObject)**
+  **`Write(someObject)`**
   
   - 继承自DrawBorderThenFill，增加从左往右逐渐显示的效果
   
-+ *\manimlib\animation\transform.py*从一个渐变成另一个
++ `manimlib\animation\transform.py`从一个渐变成另一个
 
-    + **Transform(someObject1,someObject2)**
-    + **ReplacementTransform(someObject1,someObject2)**
+    + **`Transform(someObject1, someObject2)`**
+    + **`ReplacementTransform(someObject1, someObject2)`**
 
     两者的异同：
 
-    **共同点：**显示特效相同
+    **共同点** : 显示特效相同
 
-    **不同点：** **Transform**显示在画布上的object永远是someObject1
+    **不同点** : **`Transform`** 显示在画布上的object永远是someObject1
 
     伪代码：
 
     ```python
-    Transform(someObject1,someObject2):
+    Transform(someObject1, someObject2):
     	show someObject1 on screen
     	show the transform course of someObject1 to someObject2
     	someObject1 = someObject2
     	show updated someObject1 on screen
     ```
 
-    ​				**ReplacementTransform**显示在画布上的从someObject1变成了someObject2
+    **`ReplacementTransform`** 显示在画布上的从someObject1变成了someObject2
 
     伪代码：
 
     ```python
-    ReplacementTransform(someObject1,someObject2):
+    ReplacementTransform(someObject1, someObject2):
     	show someObject1 on screen
     	show the transform course of someObject1 to someObject2
     	someObject1 = someObject2
@@ -571,18 +580,18 @@ class RotateObject(Scene):
     ```python
     class TextArray(Scene):
         def construct(self):
-            text = TextMobject("tex1","text2","text3")
-            text[0].shift(2*LEFT)
+            text = TextMobject("tex1", "text2", "text3")
+            text[0].shift(2 * LEFT)
             text[0].set_color(RED)
             text[1].shift(LEFT)
             text[1].set_color(BLUE)
             self.play(Write(text[0]))
             self.wait(2)
             # 显示的还是text[0]只是text[0]值变成了text[1]
-            self.play(Transform(text[0],text[1]))
+            self.play(Transform(text[0], text[1]))
             # 此时没有让text[0]消失，但让text[1]显现并转换为text[2]
             # 最终text[0]的值为初始text[1]的值，text[1]的值为初始text[2]的值
-            self.play(Transform(text[1],text[2]))
+            self.play(Transform(text[1], text[2]))
             # 最终屏幕上显示的是text[0]和text[1]
             self.wait(3)
     ```
@@ -593,23 +602,23 @@ class RotateObject(Scene):
 
     ![1565773975419](README.assets/1565773975419.png)
 
-    将上面的替换成ReplacementTransform：
+    将上面的替换成`ReplacementTransform`：
 
     ```python
     class TextArray(Scene):
         def construct(self):
-            text = TextMobject("tex1","text2","text3")
-            text[0].shift(2*LEFT)
+            text = TextMobject("tex1", "text2", "text3")
+            text[0].shift(2 * LEFT)
             text[0].set_color(RED)
             text[1].shift(LEFT)
             text[1].set_color(BLUE)
             self.play(Write(text[0]))
             self.wait(2)
             # 显示的是text[1]但是text[0]值也变成了text[1]，text[0]消失
-            self.play(ReplacementTransform(text[0],text[1]))
+            self.play(ReplacementTransform(text[0], text[1]))
             # 显示text[2],text[1]值也变成了text[2]，text[1]消失
             # 最终text[0]的值为初始text[1]的值，text[1]的值为初始text[2]的值
-            self.play(ReplacementTransform(text[1],text[2]))
+            self.play(ReplacementTransform(text[1], text[2]))
             # 最终显示的是text[2]
             self.wait(3)
     ```
@@ -618,9 +627,9 @@ class RotateObject(Scene):
 
     ![1565774075040](README.assets/1565774075040.png)
 
-    **如果希望不要改变someObject1的值可以使用：someObject1.copy()进行深度拷贝**
+    **如果希望不要改变someObject1的值可以使用：`someObject1.copy()`进行深度拷贝**
 
-    someObject1.copy()执行的伪代码：
+    `someObject1.copy()`执行的伪代码：
 
     ```python
     someObject1.copy():
@@ -629,7 +638,7 @@ class RotateObject(Scene):
     	return object
     ```
 
-+ **MoveToTarget(someObject):**
++ **`MoveToTarget(someObject):`**
   
   仅对自身产生变化
   
@@ -637,29 +646,29 @@ class RotateObject(Scene):
   
   ```python
   class ChangeColorAndSizeAnimation(Scene):
-  	def construct(self):
-           text = TextMobject("Text")
-           self.play(Write(text))
+      def construct(self):
+          text = TextMobject("Text")
+          self.play(Write(text))
   
-           text.generate_target()
-           text.target = TextMobject("Target")
-           text.target.set_color(RED)
-           text.target.scale(2)
-           text.target.shift(LEFT)
+          text.generate_target()
+          text.target = TextMobject("Target")
+          text.target.set_color(RED)
+          text.target.scale(2)
+          text.target.shift(LEFT)
   
-           self.play(MoveToTarget(text),run_time = 2)
-           self.wait()
+          self.play(MoveToTarget(text), run_time=2)
+          self.wait()
   ```
 
-+ *\manimlib\animation\growing.py*
++ `manimlib\animation\growing.py`
 
-  + **GrowFromXXX(someObject)**
+  + **`GrowFromXXX(someObject)`**
 
-    GrowFromCenter,GrowFromPoint,GrowFromEdge,GrowArrow等等
+    `GrowFromCenter`,`GrowFromPoint`,`GrowFromEdge`,`GrowArrow`等等
 
-+ *manimlib\animation\update.py*
++ `manimlib\animation\update.py`
 
-  + **UpdateFromFunc(obj,update_function)**
+  + **`UpdateFromFunc(obj,update_function)`**
 
     同步播放,很好理解，见例子：
 
@@ -669,70 +678,69 @@ class RotateObject(Scene):
     class Updater(Scene):
         def construct(self):
             dot = Dot()
-            text = TextMobject("Label")\
-                   .next_to(dot,RIGHT,buff=SMALL_BUFF)
+            text = TextMobject("Label").next_to(dot, RIGHT, buff=SMALL_BUFF)
     
-            self.add(dot,text)
+            self.add(dot, text)
     
             def update_text(obj):
-                obj.next_to(dot,RIGHT,buff=SMALL_BUFF)
+                obj.next_to(dot, RIGHT, buff=SMALL_BUFF)
     
             # Only works in play
             self.play(
-                    dot.shift,UP*2,
-                    UpdateFromFunc(text,update_text)
-                )
+                dot.shift, UP * 2,
+                UpdateFromFunc(text, update_text)
+            )
     
             self.wait()
     ```
 
     
 
-##### 2.6.1.2 run_time
+##### 2.6.1.2 `run_time`
 
-动画从开始到结束所用的时间，决定了**动画的快慢**（动画write的快慢是固定的不由runtime决定，但是到达了runtime又没有后面的wait，write会被截断），而非动画播放完了继续等待到run_time指定的时间，注意如果runtime太短可能导致动画write
+动画从开始到结束所用的时间，决定了**动画的总时长** （如果动画后不加`wait`，可能会出现丢掉结尾的帧的情况）
 
-#### 2.6.1.3 rate_func
+#### 2.6.1.3 `rate_func`
 
 直译为速度函数，即内定的动画函数
 
-分为三个值：**there_and_back来回，linear一去不复返，smooth平滑**（速度先为0，然后加快，到了中间减速最后到达终点为0）
+分为三个值： **`there_and_back`来回，`linear`线性变化，`smooth`平滑** （速度先为0，然后加快，到了中间减速最后到达终点为0）
 
 例：
 
 ```python
  self.play(
-                triangle.shift,RIGHT*2,
-                rate_func=smooth, # Change this with: linear,smooth
-                run_time=5
-            )
+     triangle.shift, RIGHT * 2,
+     rate_func=smooth, # Change this with: linear,smooth
+     run_time=5
+)
 ```
 
-#### 2.6.2 add()
+#### 2.6.2 `add()`
 
-**add(someObject1,someObject2,…)**
+**`self.add(someObject1, someObject2, ...)`**
 
 无动画添加文字，可以是多个text
 
-#### 2.6.3 wait()
+#### 2.6.3 `wait()`
 
-**wait(int seconds)：**
+**`self.wait(seconds)`：**
 
 等待动画停留时间，如果没有参数则默认等待到将动画播放完为止
 
-#### 2.6.4 remove()
+#### 2.6.4 `remove()`
 
-**remove(someObject1,someObject2,…)：**
+**`self.remove(someObject1, someObject2,…)`：**
 
 移除text，可以是多个text，注意FadeOut类的动画虽然自带消失效果但是该变量还是会停留在内存中
 
 ### 2.7 设置颜色
 
-**someObject.set_color(COLOR)**
+**`someObject.set_color(COLOR)`**
 
 COLOR有哪些见附录的颜色一栏，COLOR本质上是一个字符串所以可以自定义字符串传入：
 
-**someObject.set_color(string)**
+**`someObject.set_color(string)`**
 
 如：
 
@@ -742,7 +750,7 @@ someObject.set_color("#0000FF")
 
 ### 2.8 缩放大小
 
-**someObject.scale(number)**
+**`someObject.scale(number)`**
 ```python
 class TextArray(Scene):
     def construct(self):
@@ -750,7 +758,7 @@ class TextArray(Scene):
         dot1.scale(3)
         dot1.shift(UP)
         dot2 = Dot()
-        self.add(dot1,dot2)
+        self.add(dot1, dot2)
         self.wait(3)
 ```
 
@@ -762,11 +770,11 @@ TODO：**暂时没有时间理解源码**
 
 让某一个物体（mobject）跟随另一个物体的移动而并行移动（使用其他移动方式，路径）
 
-*manimlib\mobject\mobject.py*
+`manimlib\mobject\mobject.py`
 
-+ **add_updater(update_function, index=None, call_updater=True)**
++ **`add_updater(update_function, index=None, call_updater=True)`**
 
-  + update_function：更新函数，函数传入一个object对象，函数内部有一系列对该对象和已知的对象进行的一系列操作，可以是lambda表达式
+  + `update_function`：更新函数，函数传入一个object对象，函数内部有一系列对该对象和已知的对象进行的一系列操作，可以是lambda表达式
 
   例子：让一个点在“label”文字右边，随着文字的移动，始终保持在其右侧
 
@@ -776,20 +784,20 @@ class AddUpdater1(Scene):
     def construct(self):
         dot = Dot()
         text = TextMobject("Label")\
-               .next_to(dot,RIGHT,buff=SMALL_BUFF)
+               .next_to(dot, RIGHT, buff=SMALL_BUFF)
 
-        self.add(dot,text)
+        self.add(dot, text)
 
         # Update function 更新函数
         def update_text(obj):
-            obj.next_to(dot,RIGHT,buff=SMALL_BUFF)
+            obj.next_to(dot, RIGHT, buff=SMALL_BUFF)
 
         # Add update function to the objects
         # 把更新函数加给对象
         text.add_updater(update_text)
         
         # 如果想简洁，lambda表达式如下：
-        # text.add_updater(lambda m: m.next_to(dot,RIGHT,buff=SMALL_BUFF))
+        # text.add_updater(lambda m: m.next_to(dot, RIGHT, buff=SMALL_BUFF))
         # 此时下面的remove_updater(update_text)不能继续使用，需要改为clear_updaters
 
         # Add the object again 重新加入text
@@ -797,7 +805,7 @@ class AddUpdater1(Scene):
         # 即使之前加入过，现在还是要重新加入
         self.add(text)
 
-        self.play(dot.shift,UP*2)
+        self.play(dot.shift, UP * 2)
 
         # Remove update function
         text.remove_updater(update_text)
@@ -805,11 +813,11 @@ class AddUpdater1(Scene):
         self.wait()
 ```
 
-+ **remove_updater(update_function)**取消并行播放函数
++ **`remove_updater(update_function)`** 取消并行播放函数
 
-+ **clear_updaters(recursive=True)**取消所有的并行播放函数
++ **`clear_updaters(recursive=True)`** 取消所有的并行播放函数
 
-+ **UpdateFromFunc(Animation)**
++ **`UpdateFromFunc(Animation)`**
 
   见**2.6.1.1**,注意这个函数仅在play函数中生效，play结束后就不会继续同步
 
@@ -824,7 +832,7 @@ class AddUpdater1(Scene):
 ```python
 class TextArray(Scene):
     def construct(self):
-        text = TextMobject("A","B","C","D","E","F")
+        text = TextMobject("A", "B", "C", "D", "E", "F")
         text[0].set_color(RED)
         text[1].set_color(ORANGE)
         text[2].set_color(YELLOW)
@@ -841,7 +849,7 @@ class TextArray(Scene):
 ```python
 class TexArray(Scene):
     def construct(self):
-        text = TexMobject("A","{B","\\over","C}","D","E")
+        text = TexMobject("A", "{B", "\\over", "C}", "D", "E")
         text[0].set_color(RED)
         text[1].set_color(ORANGE)
         text[2].set_color(YELLOW)
@@ -858,14 +866,14 @@ class TexArray(Scene):
 对于数组可以直接如同对单个object操作,如：
 
 ```python
- text.shift(UP)
+text.shift(UP)
 ```
 
 **注意：**
 
-**text = TextMobject(string）是一维数组**
+**`text = TextMobject(string)`是一维数组**
 
-**当text = TextMobject(string1，string2，….)中所有的string均为字母的时候，text为二维数组但是每一个子数组大小仅为1**
+**当`text = TextMobject(string1，string2，...)`中所有的string均为字母的时候，text为二维数组但是每一个子数组大小仅为1**
 
 **如果有任意一个string是多个字母则text是二维数组**
 
@@ -873,12 +881,12 @@ class TexArray(Scene):
 
 所有的动画均是scene类的子类产生的，因此scene的功能比较少，主要是对一些基础的属性进行配置
 
-***\manimlib\scene\scene.py***
+`manimlib\scene\scene.py`
 
 变量的值得初始定义见下：
 
 ```python
-# \manimlib\scene\scene.py
+# manimlib\scene\scene.py
 CONFIG = {
         "camera_class": Camera,
         "camera_config": {},
@@ -892,44 +900,44 @@ CONFIG = {
     }
 ```
 
-其中**camera_config**是对视频的处理，由**camera类**完成:	
+其中 **`camera_config`** 是对视频的处理，由 **`Camera`类** 完成:	
 
-***\manimlib\camera\camera.py***
+`manimlib\camera\camera.py`
 
 ```python
-# \manimlib\camera\camera.py
+# manimlib\camera\camera.py
 CONFIG = {
-# 背景颜色
-        "background_image": None,
-# 视频的高宽与帧率
-        "pixel_height": DEFAULT_PIXEL_HEIGHT,
-        "pixel_width": DEFAULT_PIXEL_WIDTH,
-        "frame_rate": DEFAULT_FRAME_RATE,
-# Note: frame height and width will be resized to match
-# the pixel aspect ratio
-# FRAME_HEIGHT = 8.0
-# FRAME_WIDTH = FRAME_HEIGHT * DEFAULT_PIXEL_WIDTH / 						DEFAULT_PIXEL_HEIGHT
-        "frame_height": FRAME_HEIGHT,
-        "frame_width": FRAME_WIDTH,
-# 默认方向
-        "frame_center": ORIGIN,
-# 背景颜色
-        "background_color": BLACK,
-        "background_opacity": 1,
-# Points in vectorized mobjects with norm greater
-# than this value will be rescaled.
-        "max_allowable_norm": FRAME_WIDTH,
-        "image_mode": "RGBA",
-        "n_channels": 4,
-        "pixel_array_dtype": 'uint8',
-# z_buff_func is only used if the flag above is set to True.
-# round z coordinate to nearest hundredth when comparring
-		"z_buff_func": lambda m: np.round(m.get_center()[2], 2),
-        "cairo_line_width_multiple": 0.01,
-    }
+    # 背景颜色
+    "background_image": None,
+    # 视频的高宽与帧率
+    "pixel_height": DEFAULT_PIXEL_HEIGHT,
+    "pixel_width": DEFAULT_PIXEL_WIDTH,
+    "frame_rate": DEFAULT_FRAME_RATE,
+    # Note: frame height and width will be resized to match
+    # the pixel aspect ratio
+    # FRAME_HEIGHT = 8.0
+    # FRAME_WIDTH = FRAME_HEIGHT * DEFAULT_PIXEL_WIDTH / DEFAULT_PIXEL_HEIGHT
+    "frame_height": FRAME_HEIGHT,
+    "frame_width": FRAME_WIDTH,
+    # 默认方向
+    "frame_center": ORIGIN,
+    # 背景颜色
+    "background_color": BLACK,
+    "background_opacity": 1,
+    # Points in vectorized mobjects with norm greater
+    # than this value will be rescaled.
+    "max_allowable_norm": FRAME_WIDTH,
+    "image_mode": "RGBA",
+    "n_channels": 4,
+    "pixel_array_dtype": 'uint8',
+    # z_buff_func is only used if the flag above is set to True.
+    # round z coordinate to nearest hundredth when comparring
+    "z_buff_func": lambda m: np.round(m.get_center()[2], 2),
+    "cairo_line_width_multiple": 0.01,
+}
 ```
 
-所有的动画都是继承自Scene,所以动画的某些特定的属性可以通过CONFIG修改：
+所有的动画都是继承自`Scene`,所以动画的某些特定的属性可以通过`CONFIG`修改：
 
 例子：
 
@@ -937,14 +945,14 @@ CONFIG = {
 
 ```python
 class TextLike1DArrays(Scene):
-	CONFIG={
-		"camera_config": {
-			"background_image": r"1.png",
-		},
-	}
-	def construct(self):
-		self.add(TextMobject("Text").set_color(RED))
-		self.wait()
+    CONFIG={
+        "camera_config": {
+            "background_image": r"1.png",
+        },
+    }
+    def construct(self):
+        self.add(TextMobject("Text").set_color(RED))
+        self.wait()
 ```
 
 
@@ -952,9 +960,9 @@ class TextLike1DArrays(Scene):
 
 ## 5. 二维坐标类 GraphScene
 
-**\manimlib\scene\graph_scene.py**
+`manimlib\scene\graph_scene.py`
 
-继承自Scene类，用来绘制坐标
+继承自`Scene`类，用来绘制坐标
 
 属性如下：
 
@@ -991,72 +999,72 @@ CONFIG = {
 
 ```python
 class Graph2D(GraphScene):
-	def x_2(self, x):
-		return x**2
+    def x_2(self, x):
+        return x ** 2
 
-	def construct(self):
-		self.setup_axes(animate=True)
-		graph = self.get_graph(self.x_2,color = GREEN,x_min = 2,x_max = 4)
-		self.play(ShowCreation(graph),run_time = 2)
-		self.wait()
+    def construct(self):
+        self.setup_axes(animate=True)
+        graph = self.get_graph(self.x_2, color=GREEN, x_min=2, x_max=4)
+        self.play(ShowCreation(graph), run_time=2)
+        self.wait()
 ```
 
 
 ![1565835900946](README.assets/1565835900946.png)
 
-### 5.1 setup_axes()
+### 5.1 `setup_axes()`
 
-**setup_axes(animate=Bool)：**
+**`setup_axes(animate=Bool)`：**
 
-默认没有动画效果，setup_axes(animate=True)则会显示动画 
+默认没有动画效果，`setup_axes(animate=True)`则会显示动画 
 
-### 5.2 get_graph()
+### 5.2 `get_graph()`
 
-**get_graph(func, color=None,x_min=None,x_max=None, \*\*kwargs)**
+**`get_graph(func, color=None, x_min=None, x_max=None, **kwargs)`**
 
 得到坐标系的句柄，并设置值
 
-### 5.3 coords_to_point()
+### 5.3 `coords_to_point()`
 
-**coords_to_point(x, y)**
+**`coords_to_point(x, y)`**
 
-坐标变成对应的帧中的点
+坐标变成对应的帧中的点，缩写`c2p()`
 
-### 5.4 point_to_coords()
+### 5.4 `point_to_coords()`
 
-**point_to_coords(point)**
+**`point_to_coords(point)`**
 
-帧中的点转换为坐标，返回x,y组成的元组
+帧中的点转换为坐标，返回x,y组成的元组，缩写`p2c()`
 
-### 5.5 get_graph_label()
+### 5.5 `get_graph_label()`
 
-**get_graph_label(graph,label="f(x)", x_val=None,direction=RIGHT, buff=MED_SMALL_BUFF, color=None)**
+**`get_graph_label(graph, label="f(x)", x_val=None, direction=RIGHT, buff=MED_SMALL_BUFF, color=None)`**
 
-graph：从graph中获得坐标标签
+`graph`：从graph中获得坐标标签
 
-label默认为“f(x)”,可以改成自己想要的函数
+`label`：默认为“f(x)”,可以改成自己想要的函数
 
-x_val：label在坐标系中所处位置的的x坐标
+`x_val`：label在坐标系中所处位置的的x坐标
 
-buff：距离边界的距离
+`buff`：距离边界的距离
 
-color：颜色
+`color`：颜色
 
-### 5.6 get_vertical_line_to_graph()
+### 5.6 `get_vertical_line_to_graph()`
 
-**get_vertical_line_to_graph(x, graph,line_class=Line,\*\*line_kwargs)**
+**`get_vertical_line_to_graph(x, graph, line_class=Line, **line_kwargs)`**
 
 得到竖直线，起点为(x,0)终点为(x,f(x))
 
-返回line_class类型的图像
+返回`line_class`类型的图像
 
-### 5.7 get_vertical_lines_to_graph()
+### 5.7 `get_vertical_lines_to_graph()`
 
-**get_vertical_lines_to_graph( graph,x_min=None,x_max=None, num_lines=20, \*\*kwargs)**
+**`get_vertical_lines_to_graph(graph, x_min=None, x_max=None, num_lines=20, **kwargs)`**
 
 同时得到画多条竖直线
 
-返回line_class类型的VGroup
+返回`line_class`类型的`VGroup`
 
 ### 5.8 改变坐标标签的颜色
 
@@ -1067,33 +1075,33 @@ color：颜色
 > Add this to the `CONFIG` dictionary:在CONFIG中加入：
 >
 > ```
->     "x_label_color":RED,
->     "y_label_color":BLUE
+> "x_label_color": RED,
+> "y_label_color": BLUE
 > ```
 >
 > In the `setup_axes` method change the lines：在源码的setup_axes中的两句：
 >
 > ```
->             x_label = TextMobject(self.x_axis_label)
->             # and
->             y_label = TextMobject(self.y_axis_label)
+> x_label = TextMobject(self.x_axis_label)
+> # and
+> y_label = TextMobject(self.y_axis_label)
 > ```
 >
 > with改为
 >
 > ```
->             x_label = TextMobject(self.x_axis_label,color=self.x_label_color)
->             # and
->             y_label = TextMobject(self.x_axis_label,color=self.y_label_color)
+> x_label = TextMobject(self.x_axis_label, color=self.x_label_color)
+> # and
+> y_label = TextMobject(self.x_axis_label, color=self.y_label_color)
 > ```
 
 效果：
 
 ![img](README.assets/ChanceColorLabels.png)
 
-## 6. 文本类 TextMobject
+## 6. 文本类 `TextMobject`
 
-1. **TextMobject(string)：**传入一个字符串
+1.  **`TextMobject(string)`：** 传入一个字符串
 
    字符串可以是普通字符串或LaTeX格式或两者混合：
 
@@ -1133,26 +1141,26 @@ color：颜色
            textscriptsize = TextMobject("{\\scriptsize scriptsize Text 012.\\#!?} Text")
            texttiny = TextMobject("{\\tiny tiny Texto 012.\\#!?} Text normal")
            textHuge.to_edge(UP)
-           texthuge.next_to(textHuge,DOWN,buff=0.1)
-           textLARGE.next_to(texthuge,DOWN,buff=0.1)
-           textLarge.next_to(textLARGE,DOWN,buff=0.1)
-           textlarge.next_to(textLarge,DOWN,buff=0.1)
-           textNormal.next_to(textlarge,DOWN,buff=0.1)
-           textsmall.next_to(textNormal,DOWN,buff=0.1)
-           textfootnotesize.next_to(textsmall,DOWN,buff=0.1)
-           textscriptsize.next_to(textfootnotesize,DOWN,buff=0.1)
-           texttiny.next_to(textscriptsize,DOWN,buff=0.1)
-           self.add(textHuge,texthuge,textLARGE,textLarge,textlarge,textNormal,textsmall,textfootnotesize,textscriptsize,texttiny)
+           texthuge.next_to(textHuge, DOWN, buff=0.1)
+           textLARGE.next_to(texthuge, DOWN, buff=0.1)
+           textLarge.next_to(textLARGE, DOWN, buff=0.1)
+           textlarge.next_to(textLarge, DOWN, buff=0.1)
+           textNormal.next_to(textlarge, DOWN, buff=0.1)
+           textsmall.next_to(textNormal, DOWN, buff=0.1)
+           textfootnotesize.next_to(textsmall, DOWN, buff=0.1)
+           textscriptsize.next_to(textfootnotesize, DOWN, buff=0.1)
+           texttiny.next_to(textscriptsize, DOWN, buff=0.1)
+           self.add(textHuge, texthuge, textLARGE, textLarge, textlarge, textNormal, textsmall, textfootnotesize, textscriptsize, texttiny)
            self.wait(3)
    ```
 
    ![1565704370228](README.assets/1565704370228.png)
 
-2. **TextMobject(string1,string2,string3,…)：**传入多个字符串，返回TextMobject数组，可以按照下表索引数组的值
+2.  **`TextMobject(string1, string2, string3, ...)`：** 传入多个字符串，返回`TextMobject`数组，可以按照下表索引数组的值
 
-## 7. LaTeX文本类 TexMobject
+## 7. LaTeX文本类 `TexMobject`
 
-***\manimlib\mobject\svg\tex_mobject.py***
+`manimlib\mobject\svg\tex_mobject.py`
 
 显示为LaTeX格式(在想要LaTeX字符串按照数组显示时必须使用这个实现)
 
@@ -1188,11 +1196,11 @@ class Formula(Scene):
 
 ## 8. 二维图形类
 
-***\manimlib\mobject\geometry.py***
+`manimlib\mobject\geometry.py`
 
 TODO：待完善
 
-### 8.1 点Dot
+### 8.1 点`Dot`
 
 ```python
 CONFIG = {
@@ -1203,7 +1211,7 @@ CONFIG = {
     }
 ```
 
-### 8.2 圆形Circle
+### 8.2 圆形`Circle`
 
 继承自Arc
 
@@ -1215,7 +1223,7 @@ CONFIG = {
     }
 ```
 
-### 8.3 环Annulus
+### 8.3 环`Annulus`
 
 继承自圆形
 
@@ -1230,7 +1238,7 @@ CONFIG = {
     }
 ```
 
-### 8.4 长方形Rectangle
+### 8.4 长方形`Rectangle`
 
 ```python
 CONFIG = {
@@ -1242,7 +1250,7 @@ CONFIG = {
     }
 ```
 
-### 8.5 方形Square
+### 8.5 方形`Square`
 
 继承自长方形
 
@@ -1253,7 +1261,7 @@ CONFIG = {
     }
 ```
 
-### 8.6 椭圆Ellipse
+### 8.6 椭圆`Ellipse`
 
 继承自圆形
 
@@ -1264,7 +1272,7 @@ CONFIG = {
     }
 ```
 
-### 8.7 弧Arc
+### 8.7 弧`Arc`
 
 ```python
 CONFIG = {
@@ -1275,13 +1283,13 @@ CONFIG = {
     }
 ```
 
-### 8.8 线Line
+### 8.8 线`Line`
 
-**Line(start=LEFT, end=RIGHT, \*\*kwargs)**
+**`Line(start=LEFT, end=RIGHT, **kwargs)`**
 
-start,end:起点终点，形式是np向量
+`start,end`:起点终点，形式是np向量
 
-kwargs为配置信息，继承自VMobject
+`kwargs`为配置信息，继承自`VMobject`
 
 ```python
 CONFIG = {
@@ -1319,11 +1327,11 @@ CONFIG = {
 
 ## 9. 三维图形类
 
-***\manimlib\mobject\three_dimensions.py***
+`manimlib\mobject\three_dimensions.py`
 
-### 9.1 球 Sphere
+### 9.1 球 `Sphere`
 
-继承自ParametricSurface,实现通过绘制三维多边形曲面实现的，具体看源码
+继承自`ParametricSurface`,实现通过绘制三维多边形曲面实现的，具体看源码
 
 ```python
 CONFIG = {
@@ -1336,7 +1344,7 @@ CONFIG = {
     }
 ```
 
-### 9.2 立方 Cube
+### 9.2 立方 `Cube`
 
 ```python
 CONFIG = {
@@ -1347,9 +1355,9 @@ CONFIG = {
     }
 ```
 
-### 9.3 棱柱Prism
+### 9.3 棱柱 `Prism`
 
-继承自cube
+继承自`Cube`
 
 ```python
 CONFIG = {
@@ -1359,11 +1367,11 @@ CONFIG = {
 
 
 
-### 9.4 参数曲面 ParametricSurface
+### 9.4 参数曲面 `ParametricSurface`
 
 参数方程表达的曲面
 
-**ParametricSurface(func, \*\*kwargs)**
+**`ParametricSurface(func, **kwargs)`**
 
 ```python
  CONFIG = {
@@ -1383,13 +1391,13 @@ CONFIG = {
     }
 ```
 
-func:自定义的方程，此方程传入两个参数，返回三维向量，每一个分量均是传入两个自变量的表达式
+`func`:自定义的方程，此方程传入两个参数，返回三维向量，每一个分量均是传入两个自变量的表达式
 
 如：
 
 ```python
 def func(x, y):
-    return np.array([x**2,y+2,x**2 - y**2])
+    return np.array([x ** 2, y + 2, x ** 2 - y ** 2])
 ```
 
 绘制三维曲面的例子：
@@ -1408,10 +1416,10 @@ class SurfacesAnimation(ThreeDScene):
 
         paraboloid = ParametricSurface(
             lambda u, v: np.array([
-                np.cos(v)*u,
-                np.sin(v)*u,
-                u**2
-            ]),v_max=TAU,
+                np.cos(v) * u,
+                np.sin(v) * u,
+                u ** 2
+            ]), v_max=TAU,
             checkerboard_colors=[PURPLE_D, PURPLE_E],
             resolution=(10, 32)).scale(2)
 
@@ -1420,39 +1428,39 @@ class SurfacesAnimation(ThreeDScene):
                 u,
                 v,
                 u**2-v**2
-            ]),v_min=-2,v_max=2,u_min=-2,u_max=2,checkerboard_colors=[BLUE_D, BLUE_E],
+            ]), v_min=-2, v_max=2, u_min=-2, u_max=2, checkerboard_colors=[BLUE_D, BLUE_E],
             resolution=(15, 32)).scale(1)
 
         cone = ParametricSurface(
             lambda u, v: np.array([
-                u*np.cos(v),
-                u*np.sin(v),
+                u * np.cos(v),
+                u * np.sin(v),
                 u
-            ]),v_min=0,v_max=TAU,u_min=-2,u_max=2,checkerboard_colors=[GREEN_D, GREEN_E],
+            ]), v_min=0, v_max=TAU, u_min=-2, u_max=2, checkerboard_colors=[GREEN_D, GREEN_E],
             resolution=(15, 32)).scale(1)
 
         hip_one_side = ParametricSurface(
             lambda u, v: np.array([
-                np.cosh(u)*np.cos(v),
-                np.cosh(u)*np.sin(v),
+                np.cosh(u) *np.cos(v),
+                np.cosh(u) * np.sin(v),
                 np.sinh(u)
-            ]),v_min=0,v_max=TAU,u_min=-2,u_max=2,checkerboard_colors=[YELLOW_D, YELLOW_E],
+            ]), v_min=0, v_max=TAU, u_min=-2, u_max=2, checkerboard_colors=[YELLOW_D, YELLOW_E],
             resolution=(15, 32))
 
         ellipsoid=ParametricSurface(
             lambda u, v: np.array([
-                1*np.cos(u)*np.cos(v),
-                2*np.cos(u)*np.sin(v),
-                0.5*np.sin(u)
-            ]),v_min=0,v_max=TAU,u_min=-PI/2,u_max=PI/2,checkerboard_colors=[TEAL_D, TEAL_E],
+                1 * np.cos(u) * np.cos(v),
+                2 * np.cos(u) * np.sin(v),
+                0.5 * np.sin(u)
+            ]), v_min=0, v_max=TAU, u_min=-PI/2, u_max=PI/2, checkerboard_colors=[TEAL_D, TEAL_E],
             resolution=(15, 32)).scale(2)
 
         sphere = ParametricSurface(
             lambda u, v: np.array([
-                1.5*np.cos(u)*np.cos(v),
-                1.5*np.cos(u)*np.sin(v),
-                1.5*np.sin(u)
-            ]),v_min=0,v_max=TAU,u_min=-PI/2,u_max=PI/2,checkerboard_colors=[RED_D, RED_E],
+                1.5 * np.cos(u) * np.cos(v),
+                1.5 * np.cos(u) * np.sin(v),
+                1.5 * np.sin(u)
+            ]), v_min=0, v_max=TAU, u_min=-PI/2, u_max=PI/2, checkerboard_colors=[RED_D, RED_E],
             resolution=(15, 32)).scale(2)
 
 
@@ -1463,26 +1471,26 @@ class SurfacesAnimation(ThreeDScene):
         self.add(axes)
         self.play(Write(sphere))
         self.wait()
-        self.play(ReplacementTransform(sphere,ellipsoid))
+        self.play(ReplacementTransform(sphere, ellipsoid))
         self.wait()
-        self.play(ReplacementTransform(ellipsoid,cone))
+        self.play(ReplacementTransform(ellipsoid, cone))
         self.wait()
-        self.play(ReplacementTransform(cone,hip_one_side))
+        self.play(ReplacementTransform(cone, hip_one_side))
         self.wait()
-        self.play(ReplacementTransform(hip_one_side,para_hyp))
+        self.play(ReplacementTransform(hip_one_side, para_hyp))
         self.wait()
-        self.play(ReplacementTransform(para_hyp,paraboloid))
+        self.play(ReplacementTransform(para_hyp, paraboloid))
         self.wait()
-        self.play(ReplacementTransform(paraboloid,cylinder))
+        self.play(ReplacementTransform(paraboloid, cylinder))
         self.wait()
         self.play(FadeOut(cylinder))
 ```
 
-### 9.5 参数曲线 ParametricFunction
+### 9.5 参数曲线 `ParametricFunction`
 
-**ParametricSurface(func, \*\*kwargs)**
+**`ParametricSurface(func, **kwargs)`**
 
-func:自定义的方程，此方程传入一个参数，返回三维向量，每一个分量均是传入自变量的表达式
+`func`:自定义的方程，此方程传入一个参数，返回三维向量，每一个分量均是传入自变量的表达式
 
 ```python
 CONFIG = {
@@ -1501,19 +1509,19 @@ CONFIG = {
 class ParametricCurve2(ThreeDScene):
     def construct(self):
         curve1=ParametricFunction(
-                lambda u : np.array([
-                1.2*np.cos(u),
-                1.2*np.sin(u),
-                u/2
-            ]),color=RED,t_min=-TAU,t_max=TAU,
-            )
+                lambda u: np.array([
+                1.2 * np.cos(u),
+                1.2 * np.sin(u),
+                u / 2
+            ]), color=RED, t_min=-TAU, t_max=TAU,
+        )
         curve2=ParametricFunction(
-                lambda u : np.array([
-                1.2*np.cos(u),
-                1.2*np.sin(u),
+                lambda u: np.array([
+                1.2 * np.cos(u),
+                1.2 * np.sin(u),
                 u
-            ]),color=RED,t_min=-TAU,t_max=TAU,
-            )
+            ]), color=RED, t_min=-TAU, t_max=TAU,
+        )
 
         curve1.set_shade_in_3d(True)
         curve2.set_shade_in_3d(True)
@@ -1522,29 +1530,29 @@ class ParametricCurve2(ThreeDScene):
 
         self.add(axes)
 
-        self.set_camera_orientation(phi=80 * DEGREES,theta=-60*DEGREES)
+        self.set_camera_orientation(phi=80 * DEGREES, theta=-60 * DEGREES)
         self.begin_ambient_camera_rotation(rate=0.1) 
         self.play(ShowCreation(curve1))
         self.wait()
-        self.play(Transform(curve1,curve2),rate_func=there_and_back,run_time=3)
+        self.play(Transform(curve1, curve2), rate_func=there_and_back, run_time=3)
         self.wait()
 ```
 
-## 10. 群组类VGroup
+## 10. 群组类`VGroup`
 
-可以将多个图像合并为一个组进行批量同步操作(自我理解为Vector Group的缩写)
+可以将多个图像合并为一个组进行批量同步操作(自我理解为`Vectorized Group`的缩写)
 
-**someObjectGroup = VGroup(someObject1,someObject2,…)**
+**`someObjectGroup = VGroup(someObject1, someObject2, ...)`**
 
-### 10.1 arrange()
+### 10.1 `arrange()`
 
-**someObjectGroup.arrange(DIRECTION,aligned_edge = DIRECTION,buff=number)**
+**`someObjectGroup.arrange(DIRECTION, aligned_edge=DIRECTION, buff=number)`**
 
-**DIRECTION：**以someObject1,someObject2,…顺序按照此方向排列
+**`DIRECTION`：** 以someObject1,someObject2,…顺序按照此方向排列
 
-**aligned_edge：**对齐
+**`aligned_edge`：** 对齐
 
-**buff：**成员之间的距离
+**`buff`：** 成员之间的距离
 
 例：
 
@@ -1554,10 +1562,10 @@ class ArrangeObjects(Scene):
         text1 = TextMobject("text1")
         text2 = TextMobject("text2 text2")
         text3 = TextMobject("text3 text3 text3")
-        textgroup = VGroup(text1,text2,text3)
+        textgroup = VGroup(text1, text2, text3)
         textgroup.arrange(
             UP,
-            aligned_edge = LEFT,
+            aligned_edge=LEFT,
             buff=0.4
         )
         self.add(textgroup)
@@ -1568,33 +1576,33 @@ class ArrangeObjects(Scene):
 
 动画效果：
 
-因为arrange第一个参数不在config里面，需要单独放在外面
+因为`arrange`第一个参数不在`config`里面，需要单独放在外面
 
 ```python
 self.play(
-            text_group.arrange,
-			UP,
-			{"aligned_edge":RIGHT,"buff":2}
-        )
+    text_group.arrange,
+    UP,
+    {"aligned_edge": RIGHT, "buff": 2}
+)
 ```
 
 ## 11. 相机参数
 
-相机是针对3D动画类(**ThreeDScene**)的方法
+相机是针对3D动画类(**`ThreeDScene`**)的方法
 
-**\manimlib\scene\three_d_scene.py**
+`manimlib\scene\three_d_scene.py`
 
 将视频的视窗看做相机，就可以通过调整相机的远近，角度来观察三维物体，这就是相机类的作用
 
-### 11.1 set_camera_orientation
+### 11.1 `set_camera_orientation`
 
-**threeDScene.set_camera_orientation(phi=degrees1,theta=degrees2,gamma=degrees3,distance=number)**
+**`threeDScene.set_camera_orientation(phi=degrees1, theta=degrees2, gamma=degrees3, distance=number)`**
 
 设置相机的角度
 
-### 11.2 move_camera
+### 11.2 `move_camera`
 
-**threeDScene.move_camera(phi=None,theta=None, distance=None, gamma=None, frame_center=None,added_anims=[],\*\*kwargs)**
+**`threeDScene.move_camera(phi=None, theta=None, distance=None, gamma=None, frame_center=None, added_anims=[], **kwargs)`**
 
 例子：
 
@@ -1602,28 +1610,28 @@ self.play(
 class MoveCamera2(ThreeDScene):
     def construct(self):
         axes = ThreeDAxes()
-        circle=Circle()
+        circle = Circle()
         self.set_camera_orientation(phi=80 * DEGREES)           
-        self.play(ShowCreation(circle),ShowCreation(axes))
-        #Start move camera
+        self.play(ShowCreation(circle), ShowCreation(axes))
+        # Start moving camera
         self.begin_ambient_camera_rotation(rate=0.1)            
         self.wait(5)
-        #Stop move camera
+        # Stop moving camera
         self.stop_ambient_camera_rotation()                     
-        #Return the position of the camera
-        self.move_camera(phi=80*DEGREES,theta=-PI/2)            
+        # Return the position of the camera
+        self.move_camera(phi=80*DEGREES, theta=-PI/2)            
         self.wait()
 ```
 
-### 11.3 set_to_default_angled_camera_orientation
+### 11.3 `set_to_default_angled_camera_orientation`
 
 还原为默认角度
 
-### 11.4 add_fixed_in_frame_mobjects
+### 11.4 `add_fixed_in_frame_mobjects`
 
 加入固定在屏幕的图像，此图像不随相机变化而变化
 
-**add_fixed_in_frame_mobjects(*mobjects)**
+**`add_fixed_in_frame_mobjects(*mobjects)`**
 
 例：
 
@@ -1631,10 +1639,10 @@ class MoveCamera2(ThreeDScene):
 class Text3D3(ThreeDScene):
     def construct(self):
         axes = ThreeDAxes()
-        self.set_camera_orientation(phi=75 * DEGREES,theta=-45*DEGREES)
-        text3d=TextMobject("This is a 3D text")
+        self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
+        text3d = TextMobject("This is a 3D text")
 
-        self.add_fixed_in_frame_mobjects(text3d) #<----- Add this
+        self.add_fixed_in_frame_mobjects(text3d) # <----- Add this
         text3d.to_corner(UL)
 
         self.add(axes)
@@ -1643,21 +1651,21 @@ class Text3D3(ThreeDScene):
 
         sphere = ParametricSurface(
             lambda u, v: np.array([
-                1.5*np.cos(u)*np.cos(v),
-                1.5*np.cos(u)*np.sin(v),
-                1.5*np.sin(u)
-            ]),v_min=0,v_max=TAU,u_min=-PI/2,u_max=PI/2,checkerboard_colors=[RED_D, RED_E],
+                1.5 * np.cos(u) * np.cos(v),
+                1.5 * np.cos(u) * np.sin(v),
+                1.5 * np.sin(u)
+            ]), v_min=0, v_max=TAU, u_min=-PI/2, u_max=PI/2, checkerboard_colors=[RED_D, RED_E],
             resolution=(15, 32)).scale(2)
 
-        self.play(LaggedStart(ShowCreation,sphere))
+        self.play(LaggedStartMap(ShowCreation, sphere))
         self.wait(2)
 ```
 
 ## 12. 坐标系类
 
-### 12.0 数轴类 NumberLine
+### 12.0 数轴类 `NumberLine`
 
-继承于Line,属性如下：
+继承于`Line`,属性如下：
 
 ```python
 CONFIG = {
@@ -1702,7 +1710,7 @@ CONFIG = {
     }
 ```
 
-注意其中x_min，x_max均为帧的左右范围即每帧的最左边和最右边
+注意其中`x_min，x_max`均为帧的左右范围即每帧的最左边和最右边
 
 ![1567675075732](README.assets/1567675075732.png)
 
@@ -1710,7 +1718,7 @@ CONFIG = {
 
 整个构建流程是，先画出横线作为坐标轴，然后从左到右画出一个个小竖线，最后增加数字，箭头等小部件
 
-### 12.1 坐标系抽象类 CoordinateSystem
+### 12.1 坐标系抽象类 `CoordinateSystem`
 
 ```python
 CONFIG = {
@@ -1724,50 +1732,50 @@ CONFIG = {
 
 主要的几个抽象方法：
 
-**coords指的是坐标轴中的点的值,point指没有坐标轴时真实的坐标，在创建坐标轴时候中心设置在ORIGIN，坐标大小没有缩放的时候两者是一样的**
+**`coords`指的是坐标轴中的点的值,`point`指没有坐标轴时真实的坐标，在创建坐标轴时候中心设置在ORIGIN，坐标大小没有缩放的时候两者是一样的**
 
-+ coords_to_point(\*coords)；c2p(\*coords):将坐标系中的点的坐标值转换为屏幕上的点
++ `coords_to_point(*coords)；c2p(*coords)`:将坐标系中的点的坐标值转换为屏幕上的点
 
-+ point_to_coords(point)；p2c(point)：coords_to_point逆方法
++ `point_to_coords(point)；p2c(point)`：coords_to_point逆方法
 
-+ get_axes():得到CoordinateSystem对象，一般为包含x,y,z坐标的数组
++ `get_axes()`:得到CoordinateSystem对象，一般为包含x,y,z坐标的数组
 
-+ get_axis(index):得到index对应的坐标，xyz坐标对应的index分别为1，2，3
++ `get_axis(index)`:得到index对应的坐标，xyz坐标对应的index分别为1，2，3
 
-+ get_x_axis();get_y_axis();get_z_axis()
++ `get_x_axis(); get_y_axis(); get_z_axis()`
 
-+ get_axis_label一类：给对应的坐标（轴）添加标签，显示标签，并返回标签对象
++ `get_axis_label`一类：给对应的坐标（轴）添加标签，显示标签，并返回标签对象
 
-  + get_axis_label(label_tex, axis, edge, direction, buff=MED_SMALL_BUFF):
-  + get_axis_labels(x_label_tex="x", y_label_tex="y")：
+  + `get_axis_label(label_tex, axis, edge, direction, buff=MED_SMALL_BUFF)`:
+  + `get_axis_labels(x_label_tex="x", y_label_tex="y")`：
 
-  + get_x_axis_label(label_tex, edge=RIGHT, direction=DL, \*\*kwargs)：
+  + `get_x_axis_label(label_tex, edge=RIGHT, direction=DL, **kwargs)`：
 
-  + get_y_axis_label(label_tex, edge=UP, direction=DR, \*\*kwargs):
+  + `get_y_axis_label(label_tex, edge=UP, direction=DR, **kwargs)`:
 
-  label_tex:坐标标签，使用latex字符串(TexMobject)
+  `label_tex`:坐标标签，使用latex字符串(TexMobject)
 
-  axis:想获取的坐标标签的对应的坐标对象
+  `axis`:想获取的坐标标签的对应的坐标对象
 
-  edge:四个边缘位置
+  `edge`:四个边缘位置
 
-  direction：在坐标轴的相对位置
+  `direction`：在坐标轴的相对位置
 
-  \*\*kwargs:其他在config内的配置，如颜色等，自行修改
+  `**kwargs`:其他在config内的配置，如颜色等，自行修改
 
-get_graph(function, \*\*kwargs):给定方程，绘制图像并返回
+`get_graph(function, **kwargs)`:给定方程，绘制图像并返回
 
-get_parametric_curve(function, \*\*kwargs):绘制给定参数曲线方程并返回
+`get_parametric_curve(function, **kwargs)`:绘制给定参数曲线方程并返回
 
-input_to_graph_point(x, graph):暂时没搞清楚啥玩意
+`input_to_graph_point(x, graph)`:暂时没搞清楚啥玩意
 
-### 12.2 二维坐标类 Axes
+### 12.2 二维坐标类 `Axes`
 
-继承CoordinateSystem
+继承`CoordinateSystem`
 
-实质是创造两个NumberLine数轴，然后将其中一个按照中心旋转90度，作为Y轴，然后对X，Y轴进行其他的属性进行调整，所以配置里面有"number_line_config"
+实质是创造两个NumberLine数轴，然后将其中一个按照中心旋转90度，作为Y轴，然后对X，Y轴进行其他的属性进行调整，所以配置里面有`"number_line_config"`
 
-**Axes(\*\*kwargs)**
+**`Axes(**kwargs)`**
 
 ```python
 CONFIG = {
@@ -1790,35 +1798,35 @@ CONFIG = {
 
 实现了：
 
-1. coords_to_point(\*coords)；c2p(\*coords):将坐标系中的点的坐标值转换为屏幕（帧图）上的点
+1. `coords_to_point(*coords)；c2p(*coords)`:将坐标系中的点的坐标值转换为屏幕（帧图）上的点
 
    分析一下源码：
 
 ```python
 def coords_to_point(self, *coords):
-        # 将坐标轴中的原点0换算为对应的帧图中的坐标
-        origin = self.x_axis.number_to_point(0)
-        # 将帧图坐标转换为向量
-        result = np.array(origin)
-        # result = 原点对应的帧图的坐标+coord相对帧图中原点的坐标 = coord在帧图中的实际坐标
-        for axis, coord in zip(self.get_axes(), coords):
-            result += (axis.number_to_point(coord) - origin)
-        return result
+    # 将坐标轴中的原点0换算为对应的帧图中的坐标
+    origin = self.x_axis.number_to_point(0)
+    # 将帧图坐标转换为向量
+    result = np.array(origin)
+    # result = 原点对应的帧图的坐标+coord相对帧图中原点的坐标 = coord在帧图中的实际坐标
+    for axis, coord in zip(self.get_axes(), coords):
+        result += (axis.number_to_point(coord) - origin)
+    return result
 ```
 
-2. point_to_coords(point)；p2c(point)
+2. `point_to_coords(point)；p2c(point)`
 
 增加了方法：
 
-get_coordinate_labels(x_vals=None, y_vals=None)：传入x,y标签的latex字符串，得到对应的x,y坐标轴的标签的对象
+`get_coordinate_labels(x_vals=None, y_vals=None)`：传入x,y标签的latex字符串，得到对应的x,y坐标轴的标签的对象
 
-add_coordinates(x_vals=None, y_vals=None):和get_coordinate_labels相似，但是将其加入了自己的成员变量并返回了自己
+`add_coordinates(x_vals=None, y_vals=None)`:和`get_coordinate_labels`相似，但是将其加入了自己的成员变量并返回了自己
 
-### 12.3 三维坐标系类 ThreeDAxes
+### 12.3 三维坐标系类 `ThreeDAxes`
 
 继承自Axes
 
-**ThreeDAxes(\*\*kwargs)**
+**`ThreeDAxes(**kwargs)`**
 
 ```python
 CONFIG = {
@@ -1832,15 +1840,15 @@ CONFIG = {
         "z_max": 3.5,
         "z_normal": DOWN,
         "num_axis_pieces": 20,
-        "light_source": 9 * DOWN + 7 * LEFT + 10 * OUT,
+        "light_source": 9 * DOWN + 7 * LEFT + 1
     }
 ```
 
-### 12.4 NumberPlane
+### 12.4 `NumberPlane`
 
-### 12.5  ComplexPlane
+### 12.5 `ComplexPlane`
 
-复数坐标系，继承于NumberPlane
+复数坐标系，继承于`NumberPlane`
 
 ```python
 # author:TB
@@ -1848,30 +1856,24 @@ class ComplexPlaneScene(Scene):
     def construct(self):
         # See manimlib/mobject/number_line.py and coordinate_systems.py
         cp = ComplexPlane(
-                        y_axis_config={"decimal_number_config":{"unit": "i"}},
-                        number_line_config={"include_numbers":True}
-                        )
-
+            y_axis_config={"decimal_number_config": {"unit": "i"}},
+            number_line_config={"include_numbers": True}
+        )
         x_axis = cp[-2]
         y_axis = cp[-1]
         x_axis.set_color(RED)
         y_axis.set_color(PURPLE)
-
         x_labels = x_axis[1]
         x_labels.set_color(ORANGE)
-
         y_labels = y_axis[1]
         y_labels.set_color(YELLOW)
         for y in y_labels:
-            y.rotate(-PI/2)
-
+            y.rotate(-PI / 2)
         x_label = TexMobject("x")
-        x_label.move_to(cp.c2p(6.8,x_label.get_height()))
+        x_label.move_to(cp.c2p(6.8, x_label.get_height()))
         y_label = TexMobject("y")
-        y_label.move_to(cp.c2p(-y_label.get_width(),3.8))
-
-        self.add(cp,x_label,y_label)
-
+        y_label.move_to(cp.c2p(-y_label.get_width(), 3.8))
+        self.add(cp, x_label, y_label)
         self.wait()
 ```
 
@@ -1879,11 +1881,13 @@ class ComplexPlaneScene(Scene):
 
 ## 附录A：常见的常数
 
-***\manimlib\constants.py***
+`manimlib\constants.py`
 
 ### 1. 颜色
 
-见constants.py中**COLOR_MAP**中的列表
+见`constants.py`中 **`COLOR_MAP`** 中的列表
+
+具体效果见[TB的教程](https://elteoremadebeethoven.github.io/manim_3feb_docs.github.io/html/_static/colors/colors.html)
 
 ### 2. 方向
 
@@ -1898,13 +1902,11 @@ OUT = np.array((0., 0., 1.))
 X_AXIS = np.array((1., 0., 0.))
 Y_AXIS = np.array((0., 1., 0.))
 Z_AXIS = np.array((0., 0., 1.))
-
 # Useful abbreviations for diagonals
 UL = UP + LEFT
 UR = UP + RIGHT
 DL = DOWN + LEFT
 DR = DOWN + RIGHT
-
 TOP = FRAME_Y_RADIUS * UP
 BOTTOM = FRAME_Y_RADIUS * DOWN
 LEFT_SIDE = FRAME_X_RADIUS * LEFT
@@ -1926,7 +1928,6 @@ SMALL_BUFF = 0.1
 MED_SMALL_BUFF = 0.25
 MED_LARGE_BUFF = 0.5
 LARGE_BUFF = 1
-
 DEFAULT_MOBJECT_TO_EDGE_BUFFER = MED_LARGE_BUFF
 DEFAULT_MOBJECT_TO_MOBJECT_BUFFER = MED_SMALL_BUFF
 ```
