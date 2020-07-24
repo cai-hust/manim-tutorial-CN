@@ -219,7 +219,7 @@ optional arguments:
 ```
 python -m manim \path\to\yourfile.py Example -pl --leave_progress_bars
 Media will be written to ./media\. You can change this behavior with the --media_dir flag.
-Animation 0: WriteTextMobject, etc.: 100%|##############################################################################################| 15/15 [00:00<00:00, 32.48it/s] 
+Animation 0: WriteTextMobject, etc.: 100%|######################################################| 15/15 [00:00<00:00, 32.48it/s] 
 
 File ready at \path\to\video.mp4
 
@@ -261,10 +261,10 @@ PS E:\programing-engineering\manim-tutorial\manim> python -m manim .\1_text_form
 Media will be written to ./media\. You can change this behavior with the --media_dir flag.
 dot = Dot()
 dot.to_edge(UL)
-Animation 1: FadeInDot: 100%|###########################################################################################################| 15/15 [00:00<00:00, 64.27it/s] 
+Animation 1: FadeInDot: 100%|######################################################################| 15/15 [00:00<00:00, 64.27it/s] 
 text = TextMobject("text")
 text.to_corner(UP)
-Animation 4: WriteTextMobject: 100%|####################################################################################################| 15/15 [00:00<00:00, 39.79it/s] 
+Animation 4: WriteTextMobject: 100%|###############################################################| 15/15 [00:00<00:00, 39.79it/s] 
 
 File ready at E:\programing-engineering\manim-tutorial\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
 
@@ -280,10 +280,10 @@ PS E:\programing-engineering\manim-tutorial\manim> python -m manim .\1_text_form
 Media will be written to ./media\. You can change this behavior with the --media_dir flag.
 dot = Dot()
 dot.to_edge(UL)
-Animation 1: FadeInDot: 100%|###########################################################################################################| 15/15 [00:00<00:00, 84.02it/s] 
+Animation 1: FadeInDot: 100%|######################################################################| 15/15 [00:00<00:00, 84.02it/s] 
 text = TextMobject("text")
 text.to_corner(UP)
-Animation 4: WriteTextMobject: 100%|####################################################################################################| 15/15 [00:00<00:00, 58.52it/s] 
+Animation 4: WriteTextMobject: 100%|###############################################################| 15/15 [00:00<00:00, 58.52it/s] 
 
 File ready at E:\programing-engineering\manim-tutorial\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
 
@@ -1798,7 +1798,7 @@ CONFIG = {
 
 实现了：
 
-1. `coords_to_point(\*coords)；c2p(\*coords)`:将坐标系中的点的坐标值转换为屏幕（帧图）上的点
+1. `coords_to_point(*coords)；c2p(*coords)`:将坐标系中的点的坐标值转换为屏幕（帧图）上的点
 
    分析一下源码：
 
@@ -1841,3 +1841,91 @@ CONFIG = {
         "z_normal": DOWN,
         "num_axis_pieces": 20,
         "light_source": 9 * DOWN + 7 * LEFT + 1
+    }
+```
+
+### 12.4 NumberPlane
+
+### 12.5  ComplexPlane
+
+复数坐标系，继承于NumberPlane
+
+```python
+# author:TB
+class ComplexPlaneScene(Scene):
+    def construct(self):
+        # See manimlib/mobject/number_line.py and coordinate_systems.py
+        cp = ComplexPlane(
+                        y_axis_config={"decimal_number_config":{"unit": "i"}},
+                        number_line_config={"include_numbers":True}
+                        )
+        x_axis = cp[-2]
+        y_axis = cp[-1]
+        x_axis.set_color(RED)
+        y_axis.set_color(PURPLE)
+        x_labels = x_axis[1]
+        x_labels.set_color(ORANGE)
+        y_labels = y_axis[1]
+        y_labels.set_color(YELLOW)
+        for y in y_labels:
+            y.rotate(-PI/2)
+        x_label = TexMobject("x")
+        x_label.move_to(cp.c2p(6.8,x_label.get_height()))
+        y_label = TexMobject("y")
+        y_label.move_to(cp.c2p(-y_label.get_width(),3.8))
+        self.add(cp,x_label,y_label)
+        self.wait()
+```
+
+
+
+## 附录A：常见的常数
+
+***\manimlib\constants.py***
+
+### 1. 颜色
+
+见constants.py中**COLOR_MAP**中的列表
+
+### 2. 方向
+
+```python
+ORIGIN = np.array((0., 0., 0.))
+UP = np.array((0., 1., 0.))
+DOWN = np.array((0., -1., 0.))
+RIGHT = np.array((1., 0., 0.))
+LEFT = np.array((-1., 0., 0.))
+IN = np.array((0., 0., -1.))
+OUT = np.array((0., 0., 1.))
+X_AXIS = np.array((1., 0., 0.))
+Y_AXIS = np.array((0., 1., 0.))
+Z_AXIS = np.array((0., 0., 1.))
+# Useful abbreviations for diagonals
+UL = UP + LEFT
+UR = UP + RIGHT
+DL = DOWN + LEFT
+DR = DOWN + RIGHT
+TOP = FRAME_Y_RADIUS * UP
+BOTTOM = FRAME_Y_RADIUS * DOWN
+LEFT_SIDE = FRAME_X_RADIUS * LEFT
+RIGHT_SIDE = FRAME_X_RADIUS * RIGHT
+```
+
+### 3. 角度
+
+```python
+PI = np.pi
+TAU = 2 * PI
+DEGREES = TAU / 360
+```
+
+### 4. 距离
+
+```python
+SMALL_BUFF = 0.1
+MED_SMALL_BUFF = 0.25
+MED_LARGE_BUFF = 0.5
+LARGE_BUFF = 1
+DEFAULT_MOBJECT_TO_EDGE_BUFFER = MED_LARGE_BUFF
+DEFAULT_MOBJECT_TO_MOBJECT_BUFFER = MED_SMALL_BUFF
+```
