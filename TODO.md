@@ -37,7 +37,3 @@ class JustifyScene(Scene):
             """,j_width=4).scale(0.5)
         self.add(text)
 ```
-
-2. 颜色常量
-
-   http://theoremofbeethoven.com/_static/colors/colors.html
