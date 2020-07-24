@@ -11,16 +11,16 @@
     - [2. 显示操作](#2-显示操作)
         - [2.1 基本步骤（以TextMobject为例）](#21-基本步骤以textmobject为例)
         - [2.5 位置相关的函数](#25-位置相关的函数)
-            - [**2.5.1** toedge()和tocorner()](#251-to_edge和to_corner)
-            - [2.5.2 moveto()](#252-move_to)
-            - [2.5.3 nextto()](#253-next_to)
+            - [**2.5.1** to_edge()和to_corner()](#251-to_edge和to_corner)
+            - [2.5.2 move_to()](#252-move_to)
+            - [2.5.3 next_to()](#253-next_to)
             - [2.5.4 shift()](#254-shift)
             - [2.5.5 rotate()](#255-rotate)
             - [2.5.6 flip()](#256-flip)
         - [2.6 播放动画](#26-播放动画)
             - [2.6.1 **play**()](#261-play)
                 - [2.6.1.1 显示动画函数SomePlayMethods](#2611-显示动画函数someplaymethods)
-                - [2.6.1.2 runtime](#2612-run_time)
+                - [2.6.1.2 run_time](#2612-run_time)
             - [2.6.2 add()](#262-add)
             - [2.6.3 wait()](#263-wait)
             - [2.6.4 remove()](#264-remove)
@@ -30,13 +30,13 @@
     - [3. text数组](#3-text数组)
     - [4. 基础动画类 Scene](#4-基础动画类-scene)
     - [5. 二维坐标类 GraphScene](#5-二维坐标类-graphscene)
-        - [5.1 setupaxes()](#51-setu_paxes)
-        - [5.2 getgraph()](#52-get_graph)
-        - [5.3 coordstopoint()](#53-coords_to_point)
-        - [5.4 pointtocoords()](#54-point_to_coords)
-        - [5.5 getgraphlabel()](#55-get_graph_label)
-        - [5.6 getverticallinetograph()](#56-get_vertical_line_to_graph)
-        - [5.7 getverticallinestograph()](#57-get_vertical_lines_to_graph)
+        - [5.1 setup_axes()](#51-setu_paxes)
+        - [5.2 get_graph()](#52-get_graph)
+        - [5.3 coords_to_point()](#53-coords_to_point)
+        - [5.4 point_to_coords()](#54-point_to_coords)
+        - [5.5 get_graph_label()](#55-get_graph_label)
+        - [5.6 get_vertical_line_to_graph()](#56-get_vertical_line_to_graph)
+        - [5.7 get_vertical_lines_to_graph()](#57-get_vertical_lines_to_graph)
         - [5.8 改变坐标标签的颜色](#58-改变坐标标签的颜色)
     - [6. 文本类 TextMobject](#6-文本类-textmobject)
     - [7. LaTeX文本类 TexMobject](#7-latex文本类-texmobject)
@@ -58,10 +58,10 @@
     - [10. 群组类VGroup](#10-群组类vgroup)
         - [10.1 arrange()](#101-arrange)
     - [11. 相机参数](#11-相机参数)
-        - [11.1 setcameraorientation](#111-set_camera_orientation)
-        - [11.2 movecamera](#112-move_camera)
-        - [11.3 settodefaultangledcameraorientation](#113-set_to_default_angled_camera_orientation)
-        - [11.4 addfixedinframemobjects](#114-add_fixed_in_frame_mobjects)
+        - [11.1 set_camera_orientation](#111-set_camera_orientation)
+        - [11.2 move_camera](#112-move_camera)
+        - [11.3 set_to_default_angled_camera_orientation](#113-set_to_default_angled_camera_orientation)
+        - [11.4 add_fixed_in_frame_mobjects](#114-add_fixed_in_frame_mobjects)
     - [12. 坐标系类](#12-坐标系类)
         - [12.1 坐标系抽象类 CoordinateSystem](#121-坐标系抽象类-coordinatesystem)
         - [12.2 二维坐标类 Axes](#122-二维坐标类-axes)
@@ -134,28 +134,34 @@ optional arguments:
 
 ### 1.1 **保存为视频并立即播放**
 
-参数 `-p`
+参数 `-p` 表示预览，不加分辨率选项默认使用最高画质(1440P60)
 
 如果有多个绘图类会出现列表让你选择
 
 也可以直接指定类名(示例为Example类)生成对应的类名的视频
 
-+ fps = 15,宽854，高480：
++ fps = 15,宽854，高480 (480P15)：
 
   ```bash
   python -m manim \path\to\yourfile.py Example -pl
   ```
 
-+ fps = 30,宽1280，高720：
++ fps = 30,宽1280，高720 (720P30)：
 
   ```bash
   python -m manim \path\to\yourfile.py Example -pm
   ```
-
-+ fps = 60,宽2560，高1440：
+  
++ fps = 60,宽1920，高1080 (1080P60):
 
   ```bash
-  python -m manim \path\to\yourfile.py Example -p
+  python -m manim \path\to\yourfile.py Example -p --high_quality
+  ```
+
++ fps = 60,宽2560，高1440 (1440P60)：
+
+  ```bash
+  python -m manim \path\to\yourfile.py Example -pw
   ```
 
 ### 1.2 **保留帧**
@@ -175,7 +181,7 @@ optional arguments:
   ```bash
   python -m manim \path\to\yourfile.py Example -al
   python -m manim \path\to\yourfile.py Example -am
-  python -m manim \path\to\yourfile.py Example -a
+  python -m manim \path\to\yourfile.py Example -aw
   ```
 
 + 保留全部绘图类最后一帧：
@@ -191,7 +197,7 @@ optional arguments:
 + 高度500 宽度600
 
   ```bash
-  python -m manim \path\to\yourfile.py Example -plr 500 600
+  python -m manim \path\to\yourfile.py Example -pr 500 600
   ```
 
 + 默认为16/9因此默认可以仅设置高度不需要设置宽度
@@ -199,12 +205,12 @@ optional arguments:
   高度为500的视频：
 
   ```bash
-  python -m manim \path\to\yourfile.py Example -plr 500
+  python -m manim \path\to\yourfile.py Example -pr 500
   ```
 
 ### 1.4 **视频通道**
 
-`-t, --transparent` 		alpha通道，扩展名为mov
+`-t, --transparent` 生成的视频带有alpha通道（即透明背景），扩展名为`.mov`
 
 ### 1.5 **保留进度显示条**
 
@@ -315,7 +321,7 @@ if not os.path.isdir(MEDIA_DIR):
 
 ### 1.9 存为gif
 
-You can use `python -m manim animation.py name_scene -im` to render gif medium quality, or `python -m manim animation.py name_scene -gm` to render all frames as images, the images are saved in a folder
+使用 `-i` 选项来导出gif文件，但是目前这个功能被删除掉了，可以按照[这里](https://manim.ml/problems/v2.3.html#q16-gif)更改回去
 
 ## 2. 显示操作
 
@@ -456,7 +462,7 @@ class RotateObject(Scene):
 
 *（如果下一个操作是remove掉text而没有使用wait函数进行等待，最终效果会变成立即销毁text即没有显示text，下面的add也同理）*
 
-1. **`play(SomePlayMethod(someObject),run_time = seconds)`：**播放某种动画方法
+1. **`play(SomePlayMethod(someObject),run_time = seconds)`** ： 播放某种动画方法
 
    如果希望并行同时播放多个动画，仅仅是python语法问题，给出如下例子模板：
 
@@ -491,19 +497,19 @@ class RotateObject(Scene):
 
    ```python
    class ChangeColorAndSizeAnimation(Scene):
-   	def construct(self):
-   		text = TextMobject("Text")
-   		text.scale(2)
-   		text.shift(LEFT*2)
-   		self.play(Write(text))
-   		self.wait()
-   		self.play(
-                   text.shift, RIGHT*2,
-                   text.scale, 2,
-                   text.set_color, RED,
-                   run_time=2,
-               )
-   		self.wait()
+       def construct(self):
+           text = TextMobject("Text")
+           text.scale(2)
+           text.shift(LEFT*2)
+           self.play(Write(text))
+           self.wait()
+           self.play(
+               text.shift, RIGHT*2,
+               text.scale, 2,
+               text.set_color, RED,
+               run_time=2
+           )
+            self.wait()
    ```
 
 
@@ -543,9 +549,9 @@ class RotateObject(Scene):
 
     两者的异同：
 
-    **共同点：**显示特效相同
+    **共同点** : 显示特效相同
 
-    **不同点：** **`Transform`**显示在画布上的object永远是someObject1
+    **不同点** : **`Transform`** 显示在画布上的object永远是someObject1
 
     伪代码：
 
@@ -557,7 +563,7 @@ class RotateObject(Scene):
     	show updated someObject1 on screen
     ```
 
-    **`ReplacementTransform`**显示在画布上的从someObject1变成了someObject2
+    **`ReplacementTransform`** 显示在画布上的从someObject1变成了someObject2
 
     伪代码：
 
@@ -641,18 +647,18 @@ class RotateObject(Scene):
   
   ```python
   class ChangeColorAndSizeAnimation(Scene):
-  	def construct(self):
-           text = TextMobject("Text")
-           self.play(Write(text))
+      def construct(self):
+          text = TextMobject("Text")
+          self.play(Write(text))
   
-           text.generate_target()
-           text.target = TextMobject("Target")
-           text.target.set_color(RED)
-           text.target.scale(2)
-           text.target.shift(LEFT)
+          text.generate_target()
+          text.target = TextMobject("Target")
+          text.target.set_color(RED)
+          text.target.scale(2)
+          text.target.shift(LEFT)
   
-           self.play(MoveToTarget(text),run_time = 2)
-           self.wait()
+          self.play(MoveToTarget(text), run_time=2)
+          self.wait()
   ```
 
 + `manimlib\animation\growing.py`
@@ -673,8 +679,7 @@ class RotateObject(Scene):
     class Updater(Scene):
         def construct(self):
             dot = Dot()
-            text = TextMobject("Label")\
-                   .next_to(dot,RIGHT,buff=SMALL_BUFF)
+            text = TextMobject("Label").next_to(dot,RIGHT,buff=SMALL_BUFF)
     
             self.add(dot,text)
     
@@ -683,9 +688,9 @@ class RotateObject(Scene):
     
             # Only works in play
             self.play(
-                    dot.shift,UP*2,
-                    UpdateFromFunc(text,update_text)
-                )
+                dot.shift,UP*2,
+                UpdateFromFunc(text,update_text)
+            )
     
             self.wait()
     ```
@@ -694,13 +699,13 @@ class RotateObject(Scene):
 
 ##### 2.6.1.2 `run_time`
 
-动画从开始到结束所用的时间，决定了**动画的快慢**（动画write的快慢是固定的不由runtime决定，但是到达了runtime又没有后面的wait，write会被截断），而非动画播放完了继续等待到run_time指定的时间，注意如果`runtime`太短可能导致动画write
+动画从开始到结束所用的时间，决定了**动画的总时长** （如果动画后不加`wait`，可能会出现丢掉结尾的帧的情况）
 
 #### 2.6.1.3 `rate_func`
 
 直译为速度函数，即内定的动画函数
 
-分为三个值：**`there_and_back`来回，`linear`线性变化，`smooth`平滑**（速度先为0，然后加快，到了中间减速最后到达终点为0）
+分为三个值： **`there_and_back`来回，`linear`线性变化，`smooth`平滑** （速度先为0，然后加快，到了中间减速最后到达终点为0）
 
 例：
 
@@ -809,9 +814,9 @@ class AddUpdater1(Scene):
         self.wait()
 ```
 
-+ **`remove_updater(update_function)`**取消并行播放函数
++ **`remove_updater(update_function)`** 取消并行播放函数
 
-+ **`clear_updaters(recursive=True)`**取消所有的并行播放函数
++ **`clear_updaters(recursive=True)`** 取消所有的并行播放函数
 
 + **`UpdateFromFunc(Animation)`**
 
@@ -869,7 +874,7 @@ class TexArray(Scene):
 
 **`text = TextMobject(string)`是一维数组**
 
-**当`text = TextMobject(string1，string2，….)`中所有的string均为字母的时候，text为二维数组但是每一个子数组大小仅为1**
+**当`text = TextMobject(string1，string2，...)`中所有的string均为字母的时候，text为二维数组但是每一个子数组大小仅为1**
 
 **如果有任意一个string是多个字母则text是二维数组**
 
@@ -896,41 +901,41 @@ CONFIG = {
     }
 ```
 
-其中**`camera_config`**是对视频的处理，由**`Camera`类**完成:	
+其中 **`camera_config`** 是对视频的处理，由 **`Camera`类** 完成:	
 
 `manimlib\camera\camera.py`
 
 ```python
 # manimlib\camera\camera.py
 CONFIG = {
-# 背景颜色
-        "background_image": None,
-# 视频的高宽与帧率
-        "pixel_height": DEFAULT_PIXEL_HEIGHT,
-        "pixel_width": DEFAULT_PIXEL_WIDTH,
-        "frame_rate": DEFAULT_FRAME_RATE,
-# Note: frame height and width will be resized to match
-# the pixel aspect ratio
-# FRAME_HEIGHT = 8.0
-# FRAME_WIDTH = FRAME_HEIGHT * DEFAULT_PIXEL_WIDTH / 						DEFAULT_PIXEL_HEIGHT
-        "frame_height": FRAME_HEIGHT,
-        "frame_width": FRAME_WIDTH,
-# 默认方向
-        "frame_center": ORIGIN,
-# 背景颜色
-        "background_color": BLACK,
-        "background_opacity": 1,
-# Points in vectorized mobjects with norm greater
-# than this value will be rescaled.
-        "max_allowable_norm": FRAME_WIDTH,
-        "image_mode": "RGBA",
-        "n_channels": 4,
-        "pixel_array_dtype": 'uint8',
-# z_buff_func is only used if the flag above is set to True.
-# round z coordinate to nearest hundredth when comparring
-		"z_buff_func": lambda m: np.round(m.get_center()[2], 2),
-        "cairo_line_width_multiple": 0.01,
-    }
+    # 背景颜色
+    "background_image": None,
+    # 视频的高宽与帧率
+    "pixel_height": DEFAULT_PIXEL_HEIGHT,
+    "pixel_width": DEFAULT_PIXEL_WIDTH,
+    "frame_rate": DEFAULT_FRAME_RATE,
+    # Note: frame height and width will be resized to match
+    # the pixel aspect ratio
+    # FRAME_HEIGHT = 8.0
+    # FRAME_WIDTH = FRAME_HEIGHT * DEFAULT_PIXEL_WIDTH / DEFAULT_PIXEL_HEIGHT
+    "frame_height": FRAME_HEIGHT,
+    "frame_width": FRAME_WIDTH,
+    # 默认方向
+    "frame_center": ORIGIN,
+    # 背景颜色
+    "background_color": BLACK,
+    "background_opacity": 1,
+    # Points in vectorized mobjects with norm greater
+    # than this value will be rescaled.
+    "max_allowable_norm": FRAME_WIDTH,
+    "image_mode": "RGBA",
+    "n_channels": 4,
+    "pixel_array_dtype": 'uint8',
+    # z_buff_func is only used if the flag above is set to True.
+    # round z coordinate to nearest hundredth when comparring
+    "z_buff_func": lambda m: np.round(m.get_center()[2], 2),
+    "cairo_line_width_multiple": 0.01,
+}
 ```
 
 所有的动画都是继承自`Scene`,所以动画的某些特定的属性可以通过`CONFIG`修改：
@@ -1097,7 +1102,7 @@ class Graph2D(GraphScene):
 
 ## 6. 文本类 `TextMobject`
 
-1. **`TextMobject(string)`：**传入一个字符串
+1.  **`TextMobject(string)`：** 传入一个字符串
 
    字符串可以是普通字符串或LaTeX格式或两者混合：
 
@@ -1152,7 +1157,7 @@ class Graph2D(GraphScene):
 
    ![1565704370228](README.assets/1565704370228.png)
 
-2. **`TextMobject(string1,string2,string3,…)`：**传入多个字符串，返回`TextMobject`数组，可以按照下表索引数组的值
+2.  **`TextMobject(string1,string2,string3,…)`：** 传入多个字符串，返回`TextMobject`数组，可以按照下表索引数组的值
 
 ## 7. LaTeX文本类 `TexMobject`
 
