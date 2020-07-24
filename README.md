@@ -217,7 +217,7 @@ optional arguments:
 `--leave_progress_bars`:
 
 ```
-python -m manim \path\to\yourfile.py Example -pl --leave_progress_bars
+$ python -m manim \path\to\yourfile.py Example -pl --leave_progress_bars
 Media will be written to ./media\. You can change this behavior with the --media_dir flag.
 Animation 0: WriteTextMobject, etc.: 100%|############################################| 15/15 [00:00<00:00, 32.48it/s] 
 
@@ -256,8 +256,8 @@ class ShowGraph(Scene):
 
 不加起始渲染运行如下：
 
-```bash
-PS E:\programing-engineering\manim-tutorial\manim> python -m manim .\1_text_format.py ShowGraph -pl --leave_progress_bars      
+```text
+$ python -m manim .\1_text_format.py ShowGraph -pl --leave_progress_bars      
 Media will be written to ./media\. You can change this behavior with the --media_dir flag.
 dot = Dot()
 dot.to_edge(UL)
@@ -266,7 +266,7 @@ text = TextMobject("text")
 text.to_corner(UP)
 Animation 4: WriteTextMobject: 100%|#####################################################| 15/15 [00:00<00:00, 39.79it/s] 
 
-File ready at E:\programing-engineering\manim-tutorial\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
+File ready at ...\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
 
 Played 6 animations
 ```
@@ -275,8 +275,8 @@ Played 6 animations
 
 从刚才的没有渲染的输出可以看出Animation1是`dot.to_edge(UL)`后的`FadeIn(dot)`动画，所以如果`-n 2`则从Animation2开始，所以开始dot就已经显示在屏幕上面了
 
-```bash
-PS E:\programing-engineering\manim-tutorial\manim> python -m manim .\1_text_format.py ShowGraph -pl -n 2  --leave_progress_bars
+```text
+$ python -m manim .\1_text_format.py ShowGraph -pl -n 2 --leave_progress_bars
 Media will be written to ./media\. You can change this behavior with the --media_dir flag.
 dot = Dot()
 dot.to_edge(UL)
@@ -285,7 +285,7 @@ text = TextMobject("text")
 text.to_corner(UP)
 Animation 4: WriteTextMobject: 100%|#####################################################| 15/15 [00:00<00:00, 58.52it/s] 
 
-File ready at E:\programing-engineering\manim-tutorial\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
+File ready at ...\manim\media\videos\1_text_format\480p15\ShowGraph.mp4
 
 Played 6 animations
 ```
@@ -1804,14 +1804,14 @@ CONFIG = {
 
 ```python
 def coords_to_point(self, *coords):
-        # 将坐标轴中的原点0换算为对应的帧图中的坐标
-        origin = self.x_axis.number_to_point(0)
-        # 将帧图坐标转换为向量
-        result = np.array(origin)
-        # result = 原点对应的帧图的坐标+coord相对帧图中原点的坐标 = coord在帧图中的实际坐标
-        for axis, coord in zip(self.get_axes(), coords):
-            result += (axis.number_to_point(coord) - origin)
-        return result
+    # 将坐标轴中的原点0换算为对应的帧图中的坐标
+    origin = self.x_axis.number_to_point(0)
+    # 将帧图坐标转换为向量
+    result = np.array(origin)
+    # result = 原点对应的帧图的坐标+coord相对帧图中原点的坐标 = coord在帧图中的实际坐标
+    for axis, coord in zip(self.get_axes(), coords):
+        result += (axis.number_to_point(coord) - origin)
+    return result
 ```
 
 2. `point_to_coords(point)；p2c(point)`
