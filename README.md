@@ -2,72 +2,72 @@
 
 - [manim基础教程](#manim基础教程)
     - [1. 文件的执行](#1-文件的执行)
-        - [1.1 **保存为视频并立即播放**](#11-保存为视频并立即播放)
-        - [1.2 **保留帧**](#12-保留帧)
-        - [1.3 **视频尺寸**](#13-视频尺寸)
-        - [1.4 **视频通道**](#14-视频通道)
-        - [1.5 **保留进度显示条**](#15-保留进度显示条)
+        - [1.1 保存为视频并立即播放](#11-保存为视频并立即播放)
+        - [1.2 保留帧](#12-保留帧)
+        - [1.3 视频尺寸](#13-视频尺寸)
+        - [1.4 视频通道](#14-视频通道)
+        - [1.5 保留进度显示条](#15-保留进度显示条)
         - [1.6 从某一个动画状态（animation）开始存为视频](#16-从某一个动画状态animation开始存为视频)
     - [2. 显示操作](#2-显示操作)
-        - [2.1 基本步骤（以TextMobject为例）](#21-基本步骤以textmobject为例)
+        - [2.1 基本步骤（以`TextMobject`为例）](#21-基本步骤以textmobject为例)
         - [2.5 位置相关的函数](#25-位置相关的函数)
-            - [**2.5.1** to_edge()和to_corner()](#251-to_edge和to_corner)
-            - [2.5.2 move_to()](#252-move_to)
-            - [2.5.3 next_to()](#253-next_to)
-            - [2.5.4 shift()](#254-shift)
-            - [2.5.5 rotate()](#255-rotate)
-            - [2.5.6 flip()](#256-flip)
+            - [2.5.1 `to_edge()`和`to_corner()`](#251-to_edge和to_corner)
+            - [2.5.2 `move_to()`](#252-move_to)
+            - [2.5.3 `next_to()`](#253-next_to)
+            - [2.5.4 `shift()`](#254-shift)
+            - [2.5.5 `rotate()`](#255-rotate)
+            - [2.5.6 `flip()`](#256-flip)
         - [2.6 播放动画](#26-播放动画)
-            - [2.6.1 **play**()](#261-play)
+            - [2.6.1 `play()`](#261-play)
                 - [2.6.1.1 显示动画函数SomePlayMethods](#2611-显示动画函数someplaymethods)
-                - [2.6.1.2 run_time](#2612-run_time)
-            - [2.6.2 add()](#262-add)
-            - [2.6.3 wait()](#263-wait)
-            - [2.6.4 remove()](#264-remove)
+                - [2.6.1.2 `run_time`](#2612-run_time)
+            - [2.6.2 `add()`](#262-add)
+            - [2.6.3 `wait()`](#263-wait)
+            - [2.6.4 `remove()`](#264-remove)
         - [2.7 设置颜色](#27-设置颜色)
         - [2.8 缩放大小](#28-缩放大小)
         - [2.9 同步播放动画](#29-同步播放动画)
     - [3. text数组](#3-text数组)
-    - [4. 基础动画类 Scene](#4-基础动画类-scene)
-    - [5. 二维坐标类 GraphScene](#5-二维坐标类-graphscene)
-        - [5.1 setup_axes()](#51-setu_paxes)
-        - [5.2 get_graph()](#52-get_graph)
-        - [5.3 coords_to_point()](#53-coords_to_point)
-        - [5.4 point_to_coords()](#54-point_to_coords)
-        - [5.5 get_graph_label()](#55-get_graph_label)
-        - [5.6 get_vertical_line_to_graph()](#56-get_vertical_line_to_graph)
-        - [5.7 get_vertical_lines_to_graph()](#57-get_vertical_lines_to_graph)
-        - [5.8 改变坐标标签的颜色](#58-改变坐标标签的颜色)
-    - [6. 文本类 TextMobject](#6-文本类-textmobject)
-    - [7. LaTeX文本类 TexMobject](#7-latex文本类-texmobject)
+    - [4. 基础动画类 `Scene`](#4-基础动画类-scene)
+    - [5. 二维坐标类 `GraphScene`](#5-二维坐标类-graphscene)
+        - [5.1 `setup_axes()`](#51-setu_paxes)
+        - [5.2 `get_graph()`](#52-get_graph)
+        - [5.3 `coords_to_point()`](#53-coords_to_point)
+        - [5.4 `point_to_coords()`](#54-point_to_coords)
+        - [5.5 `get_graph_label()`](#55-get_graph_label)
+        - [5.6 `get_vertical_line_to_graph()`](#56-get_vertical_line_to_graph)
+        - [5.7 `get_vertical_lines_to_graph()`](#57-get_vertical_lines_to_graph)
+        - [5.8 `改变坐标标签的颜色](#58-改变坐标标签的颜色)
+    - [6. 文本类 `TextMobject`](#6-文本类-textmobject)
+    - [7. LaTeX文本类 `TexMobject`](#7-latex文本类-texmobject)
     - [8. 二维图形类](#8-二维图形类)
-        - [8.1 点Dot](#81-点dot)
-        - [8.2 圆形Circle](#82-圆形circle)
-        - [8.3 环Annulus](#83-环annulus)
-        - [8.4 长方形Rectangle](#84-长方形rectangle)
-        - [8.5 方形Square](#85-方形square)
-        - [8.6 椭圆Ellipse](#86-椭圆ellipse)
-        - [8.7 弧Arc](#87-弧arc)
-        - [8.8 线Line](#88-线line)
+        - [8.1 点 `Dot`](#81-点dot)
+        - [8.2 圆形 `Circle`](#82-圆形circle)
+        - [8.3 环 `Annulus`](#83-环annulus)
+        - [8.4 长方形 `Rectangle`](#84-长方形rectangle)
+        - [8.5 方形 `Square`](#85-方形square)
+        - [8.6 椭圆 `Ellipse`](#86-椭圆ellipse)
+        - [8.7 弧 `Arc`](#87-弧arc)
+        - [8.8 线 `Line`](#88-线line)
     - [9. 三维图形类](#9-三维图形类)
-        - [9.1 球 Sphere](#91-球-sphere)
-        - [9.2 立方 Cube](#92-立方-cube)
-        - [9.3 棱柱Prism](#93-棱柱prism)
-        - [9.4 参数曲面 ParametricSurface](#94-参数曲面-parametricsurface)
-        - [9.5 参数曲线 ParametricFunction](#95-参数曲线-parametricfunction)
-    - [10. 群组类VGroup](#10-群组类vgroup)
-        - [10.1 arrange()](#101-arrange)
+        - [9.1 球 `Sphere`](#91-球-sphere)
+        - [9.2 立方 `Cube`](#92-立方-cube)
+        - [9.3 棱柱 `Prism`](#93-棱柱prism)
+        - [9.4 参数曲面 `ParametricSurface`](#94-参数曲面-parametricsurface)
+        - [9.5 参数曲线 `ParametricFunction`](#95-参数曲线-parametricfunction)
+    - [10. 群组类 `VGroup`](#10-群组类vgroup)
+        - [10.1 `arrange()`](#101-arrange)
     - [11. 相机参数](#11-相机参数)
-        - [11.1 set_camera_orientation](#111-set_camera_orientation)
-        - [11.2 move_camera](#112-move_camera)
-        - [11.3 set_to_default_angled_camera_orientation](#113-set_to_default_angled_camera_orientation)
-        - [11.4 add_fixed_in_frame_mobjects](#114-add_fixed_in_frame_mobjects)
+        - [11.1 `set_camera_orientation`](#111-set_camera_orientation)
+        - [11.2 `move_camera`](#112-move_camera)
+        - [11.3 `set_to_default_angled_camera_orientation`](#113-set_to_default_angled_camera_orientation)
+        - [11.4 `add_fixed_in_frame_mobjects`](#114-add_fixed_in_frame_mobjects)
     - [12. 坐标系类](#12-坐标系类)
-        - [12.1 坐标系抽象类 CoordinateSystem](#121-坐标系抽象类-coordinatesystem)
-        - [12.2 二维坐标类 Axes](#122-二维坐标类-axes)
-        - [12.3 三维坐标系类 ThreeDAxes](#123-三维坐标系类-threedaxes)
-        - [12.4 NumberPlane](#124-numberplane)
-        - [12.5 ComplexPlane(NumberPlane)](#125-complexplane)
+        - [12.1 坐标系抽象类 `CoordinateSystem`](#121-坐标系抽象类-coordinatesystem)
+        - [12.2 二维坐标类 `Axes`](#122-二维坐标类-axes)
+        - [12.3 三维坐标系类 `ThreeDAxes`](#123-三维坐标系类-threedaxes)
+        - [12.4 `NumberPlane`](#124-numberplane)
+        - [12.5 `ComplexPlane`](#125-complexplane)
     - [附录A：常见的常数](#附录a常见的常数)
         - [1. 颜色](#1-颜色)
         - [2. 方向](#2-方向)
@@ -1840,103 +1840,4 @@ CONFIG = {
         "z_max": 3.5,
         "z_normal": DOWN,
         "num_axis_pieces": 20,
-        "light_source": 9 * DOWN + 7 * LEFT + 10 * OUT,
-    }
-```
-
-### 12.4 `NumberPlane`
-
-### 12.5 `ComplexPlane`
-
-复数坐标系，继承于`NumberPlane`
-
-```python
-# author:TB
-class ComplexPlaneScene(Scene):
-    def construct(self):
-        # See manimlib/mobject/number_line.py and coordinate_systems.py
-        cp = ComplexPlane(
-            y_axis_config={"decimal_number_config": {"unit": "i"}},
-            number_line_config={"include_numbers": True}
-        )
-
-        x_axis = cp[-2]
-        y_axis = cp[-1]
-        x_axis.set_color(RED)
-        y_axis.set_color(PURPLE)
-
-        x_labels = x_axis[1]
-        x_labels.set_color(ORANGE)
-
-        y_labels = y_axis[1]
-        y_labels.set_color(YELLOW)
-        for y in y_labels:
-            y.rotate(-PI / 2)
-
-        x_label = TexMobject("x")
-        x_label.move_to(cp.c2p(6.8, x_label.get_height()))
-        y_label = TexMobject("y")
-        y_label.move_to(cp.c2p(-y_label.get_width(), 3.8))
-
-        self.add(cp, x_label, y_label)
-
-        self.wait()
-```
-
-
-
-## 附录A：常见的常数
-
-`manimlib\constants.py`
-
-### 1. 颜色
-
-见`constants.py`中 **`COLOR_MAP`** 中的列表
-
-具体效果见[TB的教程](https://elteoremadebeethoven.github.io/manim_3feb_docs.github.io/html/_static/colors/colors.html)
-
-### 2. 方向
-
-```python
-ORIGIN = np.array((0., 0., 0.))
-UP = np.array((0., 1., 0.))
-DOWN = np.array((0., -1., 0.))
-RIGHT = np.array((1., 0., 0.))
-LEFT = np.array((-1., 0., 0.))
-IN = np.array((0., 0., -1.))
-OUT = np.array((0., 0., 1.))
-X_AXIS = np.array((1., 0., 0.))
-Y_AXIS = np.array((0., 1., 0.))
-Z_AXIS = np.array((0., 0., 1.))
-
-# Useful abbreviations for diagonals
-UL = UP + LEFT
-UR = UP + RIGHT
-DL = DOWN + LEFT
-DR = DOWN + RIGHT
-
-TOP = FRAME_Y_RADIUS * UP
-BOTTOM = FRAME_Y_RADIUS * DOWN
-LEFT_SIDE = FRAME_X_RADIUS * LEFT
-RIGHT_SIDE = FRAME_X_RADIUS * RIGHT
-```
-
-### 3. 角度
-
-```python
-PI = np.pi
-TAU = 2 * PI
-DEGREES = TAU / 360
-```
-
-### 4. 距离
-
-```python
-SMALL_BUFF = 0.1
-MED_SMALL_BUFF = 0.25
-MED_LARGE_BUFF = 0.5
-LARGE_BUFF = 1
-
-DEFAULT_MOBJECT_TO_EDGE_BUFFER = MED_LARGE_BUFF
-DEFAULT_MOBJECT_TO_MOBJECT_BUFFER = MED_SMALL_BUFF
-```
+        "light_source": 9 * DOWN + 7 * LEFT + 1
